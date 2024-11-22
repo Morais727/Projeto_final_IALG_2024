@@ -22,24 +22,36 @@ O objetivo é implementar um sistema robusto de cadastro e manipulação de dado
 
 Este projeto utiliza um dataset real do **Inside Airbnb**, atualizado em **4 de setembro de 2024**, que contém informações detalhadas sobre hospedagens em Los Angeles.
 
-- **Fonte:** [Inside Airbnb - Los Angeles](https://insideairbnb.com/get-the-data/)
-- **Quantidade de colunas:** 25 (detalhadas no decorrer do projeto).
+- **Fonte:** [Inside Airbnb - Los Angeles](https://insideairbnb.com/get-the-data/).
+- **Quantidade de colunas:** 25, conforme especificado abaixo.
 
-### Campos Utilizados
+### Campos do Dataset
 
-Os campos selecionados para este projeto são:
-
-- **id:** Identificador único (long long).
-- **nome:** Nome da propriedade (string com espaços).
-- **host_id:** Identificador único do anfitrião (long long).
-- **host_nome:** Nome do anfitrião (string com espaços).
-- **host_desde:** Data de cadastro do anfitrião (string com espaços).
-- **host_resposta_tempo:** Tempo médio de resposta do anfitrião (string com espaços).
-- **host_resposta_taxa:** Taxa de resposta do anfitrião (float).
-- **host_is_superhost:** Indica se o anfitrião é um superhost (char).
-- **bairro_limpo:** Bairro onde está localizada a propriedade (string com espaços).
-- **acomoda:** Capacidade de acomodação (int).
-- **banheiros:** Quantidade de banheiros (int).
+1. **id:** Identificador único atribuído a cada propriedade.
+2. **name:** Nome da propriedade listado pelo anfitrião.
+3. **host_id:** Identificador único do anfitrião da propriedade.
+4. **host_name:** Nome do anfitrião associado à propriedade.
+5. **host_since:** Data em que o anfitrião se juntou ao Airbnb.
+6. **host_response_time:** Tempo médio de resposta do anfitrião a consultas de hóspedes.
+7. **host_response_rate:** Porcentagem de consultas respondidas pelo anfitrião.
+8. **host_is_superhost:** Indica se o anfitrião é um Superhost (True/False).
+9. **neighbourhood_cleansed:** Nome do bairro onde a propriedade está localizada.
+10. **neighbourhood_group_cleansed:** Grupo ou distrito padronizado onde a propriedade está localizada.
+11. **latitude:** Coordenada geográfica de latitude.
+12. **longitude:** Coordenada geográfica de longitude.
+13. **property_type:** Tipo de propriedade.
+14. **room_type:** Tipo de quarto oferecido (ex.: Entire home/apt, Private room, Shared room).
+15. **accommodates:** Número máximo de hóspedes que a propriedade pode acomodar.
+16. **bathrooms:** Número de banheiros na propriedade.
+17. **bedrooms:** Número de quartos na propriedade.
+18. **beds:** Número de camas na propriedade.
+19. **price:** Preço total com base no número mínimo de noites para reserva.
+20. **minimum_nights:** Número mínimo de noites exigido para uma reserva.
+21. **availability_365:** Número de dias que a propriedade está disponível para reserva nos próximos 365 dias.
+22. **number_of_reviews:** Número total de avaliações recebidas pela propriedade.
+23. **review_scores_rating:** Classificação média baseada nas avaliações dos hóspedes (5 é o valor máximo).
+24. **license:** Licença, se aplicável.
+25. **instant_bookable:** Indica se os hóspedes podem reservar a propriedade instantaneamente (True/False).
 
 ---
 
