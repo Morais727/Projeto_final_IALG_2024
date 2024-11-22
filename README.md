@@ -1,66 +1,111 @@
-# Projeto Final de Introdução à Algoritmos 2024: Manipulação de Dados Binários
+# Sistema de Cadastro em Arquivos com Ordenação
 
-Bem-vindo ao repositório do **Projeto Final de Introdução à Algoritmos (IALG) 2024**! Este projeto aborda a **manipulação de dados binários** com base em um dataset real de listagens de hospedagens do Airbnb em Los Angeles.
+Este é o repositório para o **Projeto Prático de Cadastro em Arquivos com Ordenação**, desenvolvido como parte da disciplina de Introdução à Algoritmos e Estruturas de Dados em C++. O projeto utiliza um conjunto de dados real do **Inside Airbnb**, com informações detalhadas sobre listagens de hospedagens em Los Angeles, Califórnia.
 
 ---
 
 ## Objetivo do Projeto
 
-O projeto visa consolidar os conhecimentos de algoritmos e programação aprendidos ao longo do curso, utilizando manipulação de arquivos binários como abordagem central. O objetivo é desenvolver um sistema capaz de:
+O objetivo é implementar um sistema robusto de cadastro e manipulação de dados, utilizando arquivos binários. As principais funcionalidades incluem:
 
-- Ler, gravar e processar dados binários.
-- Realizar consultas e análises de informações armazenadas em formato binário.
-- Aplicar conceitos de otimização, estruturação de dados e algoritmos para resolver problemas reais.
+- Importação e exportação de dados no formato CSV.
+- Manipulação eficiente de dados utilizando arquivos binários.
+- Busca, inserção, alteração e remoção de registros.
+- Ordenação e busca binária para otimização de consultas.
+- Redimensionamento dinâmico de estruturas para suporte a grandes volumes de dados.
 
 ---
 
-## Descrição Geral
+## Tema e Dataset
 
-### Tema: Manipulação de Dados Binários
+### Tema: **Listagens de Los Angeles Airbnb**
 
-Este projeto utiliza um dataset real proveniente do **Inside Airbnb**, contendo informações detalhadas sobre listagens de hospedagens em Los Angeles, Califórnia, atualizado em **4 de setembro de 2024**. O objetivo é manipular e processar os dados de maneira eficiente utilizando arquivos binários.
+Este projeto utiliza um dataset real do **Inside Airbnb**, atualizado em **4 de setembro de 2024**, que contém informações detalhadas sobre hospedagens em Los Angeles.
 
-### Dataset
+- **Fonte:** [Inside Airbnb - Los Angeles](https://insideairbnb.com/get-the-data/)
+- **Quantidade de colunas:** 25 (detalhadas no decorrer do projeto).
 
-- **Fonte**: [Inside Airbnb - Los Angeles](https://insideairbnb.com/get-the-data/)
-- **Estrutura básica dos dados**:
-  - **id**: (long long)
-  - **nome**: (string com espaços)
-  - **host_id**: (long long)
-  - **host_nome**: (string com espaços)
-  - **host_desde**: (string com espaços)
-  - **host_resposta_tempo**: (string com espaços)
-  - **host_resposta_taxa**: (float)
-  - **host_is_superhost**: (char)
-  - **bairro_limpo**: (string com espaços)
-  - **acomoda**: (int)
-  - **banheiros**: (int)
+### Campos Utilizados
 
-O dataset contém **25 colunas** no total, que serão detalhadas no decorrer do projeto.
+Os campos selecionados para este projeto são:
+
+- **id:** Identificador único (long long).
+- **nome:** Nome da propriedade (string com espaços).
+- **host_id:** Identificador único do anfitrião (long long).
+- **host_nome:** Nome do anfitrião (string com espaços).
+- **host_desde:** Data de cadastro do anfitrião (string com espaços).
+- **host_resposta_tempo:** Tempo médio de resposta do anfitrião (string com espaços).
+- **host_resposta_taxa:** Taxa de resposta do anfitrião (float).
+- **host_is_superhost:** Indica se o anfitrião é um superhost (char).
+- **bairro_limpo:** Bairro onde está localizada a propriedade (string com espaços).
+- **acomoda:** Capacidade de acomodação (int).
+- **banheiros:** Quantidade de banheiros (int).
+
+---
+
+## Funcionalidades Implementadas
+
+1. **Importação e Exportação de Arquivos**:
+   - Importar os dados do dataset inicial no formato CSV.
+   - Exportar os dados para um arquivo CSV atualizado.
+   - Armazenar e manipular os dados em um arquivo binário.
+
+2. **Cadastro de Novos Registros**:
+   - Inserir novos registros no sistema.
+   - Inserção ordenada para suportar busca binária eficiente.
+
+3. **Busca de Registros**:
+   - Consultar registros com base em dois critérios: nome e bairro.
+   - Implementação de busca binária (recursiva e iterativa).
+
+4. **Alteração e Remoção**:
+   - Alterar informações de registros existentes.
+   - Remoção lógica e física de registros.
+
+5. **Ordenação de Registros**:
+   - Ordenar os registros por:
+     - Nome da propriedade.
+     - Capacidade de acomodação.
+   - Ordenação utilizando algoritmos eficientes:
+     - Quick Sort
+     - Merge Sort
+     - Shell Sort
+
+6. **Exibição de Dados**:
+   - Exibir todos os registros ou uma faixa específica selecionada pelo usuário.
+   - Mostrar os registros na ordem em que estão armazenados.
+
+7. **Gravação de Alterações**:
+   - Salvar alterações realizadas (inserções, exclusões e alterações) no arquivo binário.
 
 ---
 
 ## Estrutura do Projeto
 
-O projeto será estruturado para facilitar o desenvolvimento e a compreensão do código, com destaque para a manipulação de arquivos binários.
-
 ```
-Projeto_Final_IALG_2024/
+Sistema_Cadastro_Airbnb/
 │
 ├── src/                    # Código-fonte do projeto
-│   ├── main.c              # Arquivo principal do sistema
+│   ├── main.cpp            # Arquivo principal da aplicação
 │   ├── bin/                # Arquivos binários gerados
 │   ├── utils/              # Funções auxiliares
-│   │   ├── leitura.c       # Manipulação de leitura do arquivo binário
-│   │   ├── escrita.c       # Manipulação de escrita no arquivo binário
-│   │   └── consultas.c     # Consultas e filtros no dataset
+│   │   ├── leitura.cpp     # Manipulação de leitura do arquivo binário
+│   │   ├── escrita.cpp     # Manipulação de escrita no arquivo binário
+│   │   ├── ordenacao.cpp   # Algoritmos de ordenação
+│   │   ├── busca.cpp       # Algoritmos de busca binária
+│   │   └── utils.h         # Cabeçalho com declarações
 │   └── ...                 
 │
 ├── docs/                   # Documentação do projeto
-│   ├── dataset_campos.md   # Descrição detalhada dos 25 campos
-│   ├── requisitos.md       # Levantamento de requisitos
-│   ├── especificacoes.md   # Especificações técnicas
+│   ├── relatorio.pdf       # Relatório do projeto
+│   ├── estrutura_dados.md  # Explicação das estruturas
+│   ├── requisitos.md       # Requisitos e especificações
 │   └── ...                 
+│
+├── data/                   # Dados de entrada e saída
+│   ├── input.csv           # Arquivo CSV de entrada
+│   ├── output.csv          # Arquivo CSV gerado
+│   └── exemplo.bin         # Arquivo binário de exemplo
 │
 ├── tests/                  # Casos de teste
 │   └── test_cases.txt      # Testes planejados e resultados esperados
@@ -71,90 +116,65 @@ Projeto_Final_IALG_2024/
 
 ---
 
-## Funcionalidades Planejadas
-
-1. **Carregamento e Armazenamento**:
-   - Carregar o dataset original e convertê-lo em um arquivo binário.
-   - Salvar novas informações diretamente em formato binário.
-
-2. **Consultas**:
-   - Consultar registros com base em filtros (ex.: `bairro`, `acomodações`, etc.).
-   - Realizar análises simples, como média de avaliações ou contagem de superhosts.
-
-3. **Manipulação e Atualização**:
-   - Alterar registros existentes.
-   - Excluir registros de forma segura.
-
-4. **Exibição**:
-   - Visualizar registros de forma legível para o usuário.
-   - Gerar relatórios simples com base nos dados processados.
-
----
-
-## Tecnologias Utilizadas
-
-- **Linguagem de programação**: C (ênfase em manipulação de arquivos binários).
-- **Ambiente de desenvolvimento**: Dev-C++, GCC ou outra IDE compatível.
-- **Ferramentas de controle de versão**: Git/GitHub.
-
----
-
-## Como Executar o Projeto
+## Como Executar
 
 ### Pré-requisitos
 
-Certifique-se de ter:
-- Um compilador C (GCC, MinGW, etc.).
-- Ferramentas de controle de versão (Git).
+- Compilador compatível com C++11 ou superior (ex.: GCC).
+- Sistema operacional Linux.
+- Git para versionamento do código.
 
 ### Passos
 
 1. Clone este repositório:
    ```bash
-   git clone https://github.com/seu-usuario/projeto_final_IALG_2024.git
+   git clone https://github.com/seu-usuario/sistema_cadastro_airbnb.git
    ```
 2. Navegue para o diretório:
    ```bash
-   cd Projeto_Final_IALG_2024
+   cd sistema_cadastro_airbnb
    ```
 3. Compile o código:
    ```bash
-   gcc src/main.c -o manipulacao_binaria
+   g++ src/main.cpp -o sistema_cadastro
    ```
-4. Execute o programa:
+4. Execute a aplicação:
    ```bash
-   ./manipulacao_binaria
+   ./sistema_cadastro
    ```
 
 ---
 
-## Testes
+## Relatório
 
-Os testes serão realizados com base em casos específicos descritos no arquivo `tests/test_cases.txt`. Cada caso será executado para verificar:
-- Leitura correta dos dados do arquivo binário.
-- Escrita eficiente e precisa.
-- Consultas e filtros de acordo com os critérios especificados.
+O relatório do projeto está disponível no arquivo `docs/relatorio.pdf`. Ele contém:
+
+- Introdução ao projeto e ao tema escolhido.
+- Descrição das estruturas de dados utilizadas.
+- Explicação da lógica e do fluxo do programa.
+- Relato dos acertos e dificuldades enfrentadas.
+- Conclusão com os resultados alcançados.
 
 ---
 
 ## Contribuição
 
-Contribuições são sempre bem-vindas! Para colaborar:
+Contribuições são bem-vindas! Para colaborar:
 
-1. Faça um **fork** do repositório.
+1. Faça um fork do repositório.
 2. Crie uma nova branch para suas alterações:
    ```bash
-   git checkout -b minha-feature
+   git checkout -b minha-alteracao
    ```
-3. Faça suas alterações e comente o que foi modificado:
+3. Faça suas alterações e comente:
    ```bash
    git commit -m "Descrição da alteração"
    ```
 4. Envie sua branch:
    ```bash
-   git push origin minha-feature
+   git push origin minha-alteracao
    ```
-5. Abra um **Pull Request** e descreva as alterações.
+5. Abra um Pull Request.
 
 ---
 
