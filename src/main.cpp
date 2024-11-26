@@ -1,5 +1,5 @@
 #include <iostream>
-#include <unistd.h> //sleep
+#include <unistd.h>  // Para usar usleep
 
 #include "utils/utils.h"
 
@@ -31,34 +31,34 @@ void selecionaMenu(int numMenu)
     }
 }
 
-int main()
-{
+int main() {
     int numMenu;
 
     printBanner();
 
     acomodacoes* registros = nullptr;  // Ponteiro para armazenar o array dinâmico
-    int tamanhoAtual = 1000;  // Número de registros armazenados
+    int tamanhoAtual = 0;  // Número de registros armazenados
 
-    // Chamar a função leituraCSV
-    leituraCSV("saida1234.csv", registros, tamanhoAtual);
-
-    // Exibir os registros
-    for (int i = 0; i < tamanhoAtual; i++) {
-        cout << "ID: " << registros[i].id << ", Nome: " << registros[i].name << endl;
+    // Chamar a função leituraCSV e verificar o retorno
+    if (leituraCSV("saida1234.csv", registros, tamanhoAtual) == 0) {
+        // Exibir os registros se a leitura foi bem-sucedida
+        cout << "Total de registros lidos: " << tamanhoAtual << endl;
+        // for (int i = 0; i < tamanhoAtual; i++) {
+        //     cout << "ID: " << registros[i].id << ", Nome: " << registros[i].name << endl;
+        // }
+    } else {
+        cout << "Erro ao ler o arquivo CSV." << endl;
     }
 
-    // Liberar a memória alocada
-    delete[] registros;
-
-    // usleep(9000000);
-
-    // clearConsole();
+    // Limpeza do console e exibição do menu
+    clearConsole();
     printMenu1();
 
     cin >> numMenu;
-
     selecionaMenu(numMenu);
     
-   return 0;
+    // Liberar a memória alocada
+    delete[] registros;
+
+    return 0;
 }

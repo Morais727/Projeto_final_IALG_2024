@@ -4,36 +4,9 @@
 #include <string>
 #include <regex>
 #include <exception>
+#include "utils.h"
 
 using namespace std;
-
-struct acomodacoes {
-    long long id = 0;
-    string name = "unknown";
-    long long host_id = 0;
-    string host_name = "unknown";
-    int host_since = 0;
-    string host_response_time = "unknown";
-    float host_response_rate = 0.0;
-    char host_is_superhost = 'f';
-    string neighbourhood_cleansed = "unknown";
-    string neighbourhood_group_cleansed = "unknown";
-    float latitude = 0.0;
-    float longitude = 0.0;
-    string property_type = "unknown";
-    string room_type = "unknown";
-    int accommodates = 0;
-    int bathrooms = 0;
-    int bedrooms = 0;
-    int beds = 0;
-    float price = 0.0;
-    int minimum_nights = 0;
-    int availability_365 = 0;
-    int number_of_reviews = 0;
-    float review_scores_rating = 0.0;
-    string license = "unknown";
-    char instant_bookable = 'f';
-};
 
 string removeEmojis(const string &input) {
     regex emojiRegex("[\\xF0-\\xF7][\\x80-\\xBF]{2,3}");
@@ -68,12 +41,14 @@ int leituraCSV(string nomeArquivo, acomodacoes*& registros, int& tamanhoAtual) {
 
     while (getline(arquivoInicial, linha)) {
         linhaAtual++;
-        linha = removeEmojis(linha);
+        linha = removeEmojis(linha);  // Remover emojis ou caracteres indesejados
         istringstream ss(linha);
         acomodacoes item;
         string temp;
 
         try {
+            // Processar os dados do CSV conforme já feito
+
             // Processar ID
             getline(ss, temp, ',');
             item.id = isNumber(temp) ? stoll(temp) : 0;
@@ -85,14 +60,14 @@ int leituraCSV(string nomeArquivo, acomodacoes*& registros, int& tamanhoAtual) {
             getline(ss, temp, ',');
             item.host_id = isNumber(temp) ? stoll(temp) : 0;
 
-            // Processar Nome
+            // Processar Nome do Host
             getline(ss, item.host_name, ',');
 
-            // Processar host_since
+            // Processar Host Since
             getline(ss, temp, ',');
             item.host_since = isNumber(temp) ? stoi(temp) : 0;
 
-            // Processar host_response_time
+            // Processar Host Response Time
             getline(ss, item.host_response_time, ',');
 
             // Processar Host Response Rate
@@ -103,10 +78,10 @@ int leituraCSV(string nomeArquivo, acomodacoes*& registros, int& tamanhoAtual) {
             getline(ss, temp, ',');
             item.host_is_superhost = (temp == "t" || temp == "f") ? temp[0] : 'f';
 
-            // Processar Neighbourhood Cleansed
+            // Processar Neighborhood Cleansed
             getline(ss, item.neighbourhood_cleansed, ',');
 
-            // Processar Neighbourhood Group Cleansed
+            // Processar Neighborhood Group Cleansed
             getline(ss, item.neighbourhood_group_cleansed, ',');
 
             // Processar Latitude
@@ -127,43 +102,43 @@ int leituraCSV(string nomeArquivo, acomodacoes*& registros, int& tamanhoAtual) {
             getline(ss, temp, ','); 
             item.accommodates = isNumber(temp) ? stoi(temp) : 0;
 
-            // Bathrooms
+            // Processar Bathrooms
             getline(ss, temp, ','); 
             item.bathrooms = isNumber(temp) ? stoi(temp) : 0;
 
-            // Bedrooms
+            // Processar Bedrooms
             getline(ss, temp, ','); 
             item.bedrooms = isNumber(temp) ? stoi(temp) : 0;
 
-            // Beds
+            // Processar Beds
             getline(ss, temp, ','); 
             item.beds = isNumber(temp) ? stoi(temp) : 0;
 
-            // Price
+            // Processar Price
             getline(ss, temp, ','); 
             item.price = isFloat(temp) ? stof(temp) : 0.0;
 
-            // Minimum Nights
+            // Processar Minimum Nights
             getline(ss, temp, ','); 
             item.minimum_nights = isNumber(temp) ? stoi(temp) : 0;
 
-            // Availability 365
+            // Processar Availability 365
             getline(ss, temp, ','); 
             item.availability_365 = isNumber(temp) ? stoi(temp) : 0;
 
-            // Number of Reviews
+            // Processar Number of Reviews
             getline(ss, temp, ','); 
             item.number_of_reviews = isNumber(temp) ? stoi(temp) : 0;
 
-            // Review Scores Rating
+            // Processar Review Scores Rating
             getline(ss, temp, ','); 
             item.review_scores_rating = isFloat(temp) ? stof(temp) : 0.0;
 
-            // License
+            // Processar License
             getline(ss, item.license, ',');
             item.license = item.license.empty() ? "unknown" : item.license; 
 
-            // Instant Bookable
+            // Processar Instant Bookable
             getline(ss, temp, ','); 
             item.instant_bookable = (temp == "t" || temp == "f") ? temp[0] : 'f';
 
@@ -179,7 +154,7 @@ int leituraCSV(string nomeArquivo, acomodacoes*& registros, int& tamanhoAtual) {
                 registros = novoArray;
             }
 
-            registros[tamanhoAtual++] = item;
+            registros[tamanhoAtual++] = item;  // Armazenar item
 
         } catch (const exception &e) {
             cerr << "Erro na linha " << linhaAtual << ": " << e.what() << endl;
@@ -188,5 +163,5 @@ int leituraCSV(string nomeArquivo, acomodacoes*& registros, int& tamanhoAtual) {
     }
 
     arquivoInicial.close();
-    return 0;
+    return 0;  // Retornar 0 indicando que a leitura foi bem-sucedida
 }
