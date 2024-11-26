@@ -37,7 +37,19 @@ int main()
 
     printBanner();
 
-    leituraCSV("saida1234.csv");
+    acomodacoes* registros = nullptr;  // Ponteiro para armazenar o array dinâmico
+    int tamanhoAtual = 1000;  // Número de registros armazenados
+
+    // Chamar a função leituraCSV
+    leituraCSV("saida1234.csv", registros, tamanhoAtual);
+
+    // Exibir os registros
+    for (int i = 0; i < tamanhoAtual; i++) {
+        cout << "ID: " << registros[i].id << ", Nome: " << registros[i].name << endl;
+    }
+
+    // Liberar a memória alocada
+    delete[] registros;
 
     // usleep(9000000);
 

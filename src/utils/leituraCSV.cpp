@@ -3,7 +3,6 @@
 #include <sstream>
 #include <string>
 #include <regex>
-#include <vector>
 #include <exception>
 
 using namespace std;
@@ -36,38 +35,6 @@ struct acomodacoes {
     char instant_bookable = 'f';
 };
 
-// void exibirDados(const vector<acomodacoes>& registros) {
-//     cout << "\n--- Dados Processados ---\n";
-//     for (const auto& item : registros) {
-//         cout << "ID: " << item.id
-//              << ", Nome: " << item.name
-//              << ", Host ID: " << item.host_id
-//              << ", Host Name: " << item.host_name
-//              << ", host_since: " << item.host_since
-//              << ", host_response_time: " << item.host_response_time
-//              << ", host_response_rate: " << item.host_response_rate
-//              << ", host_is_superhost: " << item.host_is_superhost
-//              << ", neighbourhood_cleansed: " << item.neighbourhood_cleansed
-//              << ", neighbourhood_group_cleansed: " << item.neighbourhood_group_cleansed
-//              << ", Latitude: " << item.latitude
-//              << ", Longitude: " << item.longitude
-//              << ", property_type: " << item.property_type
-//              << ", room_type: " << item.room_type
-//              << ", accommodates: " << item.accommodates
-//              << ", bathrooms: " << item.bathrooms
-//              << ", bedrooms: " << item.bedrooms             
-//              << ", beds: " << item.beds
-//              << ", price: " << item.price
-//              << ", minimum_nights: " << item.minimum_nights
-//              << ", availability_365: " << item.availability_365
-//              << ", number_of_reviews: " << item.number_of_reviews
-//              << ", review_scores_rating: " << item.review_scores_rating
-//              << ", license: " << item.license
-//              << ", Reserva Instantânea: " << item.instant_bookable
-//              << endl;
-//     }
-// }
-
 string removeEmojis(const string &input) {
     regex emojiRegex("[\\xF0-\\xF7][\\x80-\\xBF]{2,3}");
     return regex_replace(input, emojiRegex, "");
@@ -83,7 +50,7 @@ bool isFloat(const string &str) {
     return (iss >> temp) && iss.eof();
 }
 
-int leituraCSV(string nomeArquivo) {
+int leituraCSV(string nomeArquivo, acomodacoes*& registros, int& tamanhoAtual) {
     ifstream arquivoInicial(nomeArquivo);
 
     if (!arquivoInicial.is_open()) {
@@ -91,7 +58,10 @@ int leituraCSV(string nomeArquivo) {
         return 1;
     }
 
-    vector<acomodacoes> registros;
+    int capacidade = 10;  // Tamanho inicial do array dinâmico
+    tamanhoAtual = 0;  // Quantidade de registros armazenados
+    registros = new acomodacoes[capacidade];  // Alocação inicial
+
     string linha;
     int linhaAtual = 0;
     int linhasProblematicas = 0;
@@ -191,14 +161,25 @@ int leituraCSV(string nomeArquivo) {
 
             // License
             getline(ss, item.license, ',');
-            item.license = item.license.empty() ? "unknown" : item.license; // Ajustado para garantir que a licença seja corretamente capturada
+            item.license = item.license.empty() ? "unknown" : item.license; 
 
             // Instant Bookable
             getline(ss, temp, ','); 
             item.instant_bookable = (temp == "t" || temp == "f") ? temp[0] : 'f';
 
-            // Adicionar ao vetor de registros
-            registros.push_back(item);
+            // Adicionar ao array dinâmico
+            if (tamanhoAtual == capacidade) {
+                // Redimensionar array dinâmico
+                capacidade *= 2;
+                acomodacoes* novoArray = new acomodacoes[capacidade];
+                for (int i = 0; i < tamanhoAtual; i++) {
+                    novoArray[i] = registros[i];
+                }
+                delete[] registros;  // Liberar memória antiga
+                registros = novoArray;
+            }
+
+            registros[tamanhoAtual++] = item;
 
         } catch (const exception &e) {
             cerr << "Erro na linha " << linhaAtual << ": " << e.what() << endl;
@@ -207,14 +188,5 @@ int leituraCSV(string nomeArquivo) {
     }
 
     arquivoInicial.close();
-
-    // Exibir resumo
-    cout << "Total de linhas processadas: " << linhaAtual << endl;
-    cout << "Total de linhas problemáticas: " << linhasProblematicas << endl;
-    cout << "Total de registros válidos: " << registros.size() << endl;
-
-    // Exibir os dados processados
-    // exibirDados(registros);
-
     return 0;
 }
