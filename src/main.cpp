@@ -5,7 +5,8 @@
 
 using namespace std;
 
-void clearConsole() {
+void clearConsole() 
+{
     cout << "\033[2J\033[1;1H"; // Sequência ANSI para limpar a tela
 }
 
@@ -31,7 +32,8 @@ void selecionaMenu(int numMenu)
     }
 }
 
-int main() {
+int main()
+{
     int numMenu;
 
     printBanner();
@@ -40,13 +42,19 @@ int main() {
     int tamanhoAtual = 0;  // Número de registros armazenados
 
     // Chamar a função leituraCSV e verificar o retorno
-    if (leituraCSV("saida1234.csv", registros, tamanhoAtual) == 0) {
+    if (leituraCSV("saida1234.csv", registros, tamanhoAtual) == 0) 
+    {
+        ordenacaoBase(registros, tamanhoAtual);
+
         // Exibir os registros se a leitura foi bem-sucedida
         cout << "Total de registros lidos: " << tamanhoAtual << endl;
-        // for (int i = 0; i < tamanhoAtual; i++) {
+        // for (int i = 0; i < tamanhoAtual; i++) 
+        // {
         //     cout << "ID: " << registros[i].id << ", Nome: " << registros[i].name << endl;
         // }
-    } else {
+    } 
+    else 
+    {
         cout << "Erro ao ler o arquivo CSV." << endl;
     }
 

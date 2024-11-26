@@ -8,25 +8,30 @@
 
 using namespace std;
 
-string removeEmojis(const string &input) {
+string removeEmojis(const string &input) 
+{
     regex emojiRegex("[\\xF0-\\xF7][\\x80-\\xBF]{2,3}");
     return regex_replace(input, emojiRegex, "");
 }
 
-bool isNumber(const string &str) {
+bool isNumber(const string &str) 
+{
     return !str.empty() && all_of(str.begin(), str.end(), ::isdigit);
 }
 
-bool isFloat(const string &str) {
+bool isFloat(const string &str) 
+{
     istringstream iss(str);
     float temp;
     return (iss >> temp) && iss.eof();
 }
 
-int leituraCSV(string nomeArquivo, acomodacoes*& registros, int& tamanhoAtual) {
+int leituraCSV(string nomeArquivo, acomodacoes*& registros, int& tamanhoAtual) 
+{
     ifstream arquivoInicial(nomeArquivo);
 
-    if (!arquivoInicial.is_open()) {
+    if (!arquivoInicial.is_open()) 
+    {
         cerr << "Erro ao abrir o arquivo." << endl;
         return 1;
     }
@@ -39,14 +44,16 @@ int leituraCSV(string nomeArquivo, acomodacoes*& registros, int& tamanhoAtual) {
     int linhaAtual = 0;
     int linhasProblematicas = 0;
 
-    while (getline(arquivoInicial, linha)) {
+    while (getline(arquivoInicial, linha)) 
+    {
         linhaAtual++;
         linha = removeEmojis(linha);  // Remover emojis ou caracteres indesejados
         istringstream ss(linha);
         acomodacoes item;
         string temp;
 
-        try {
+        try 
+        {
             // Processar os dados do CSV conforme já feito
 
             // Processar ID
@@ -143,11 +150,13 @@ int leituraCSV(string nomeArquivo, acomodacoes*& registros, int& tamanhoAtual) {
             item.instant_bookable = (temp == "t" || temp == "f") ? temp[0] : 'f';
 
             // Adicionar ao array dinâmico
-            if (tamanhoAtual == capacidade) {
+            if (tamanhoAtual == capacidade) 
+            {
                 // Redimensionar array dinâmico
                 capacidade *= 2;
                 acomodacoes* novoArray = new acomodacoes[capacidade];
-                for (int i = 0; i < tamanhoAtual; i++) {
+                for (int i = 0; i < tamanhoAtual; i++) 
+                {
                     novoArray[i] = registros[i];
                 }
                 delete[] registros;  // Liberar memória antiga
@@ -156,12 +165,50 @@ int leituraCSV(string nomeArquivo, acomodacoes*& registros, int& tamanhoAtual) {
 
             registros[tamanhoAtual++] = item;  // Armazenar item
 
-        } catch (const exception &e) {
+        } 
+        catch (const exception &e) 
+        {
             cerr << "Erro na linha " << linhaAtual << ": " << e.what() << endl;
             linhasProblematicas++;
         }
     }
 
     arquivoInicial.close();
-    return 0;  // Retornar 0 indicando que a leitura foi bem-sucedida
+    return 0; 
+}
+
+void ordenacaoBase(acomodacoes* registros, int tamanhoAtual)
+{
+    for (int i = 0; i < tamanhoAtual - 1; i++) 
+    {
+        for (int j = i + 1; j < tamanhoAtual; j++) 
+        {
+            if (registros[i].id > registros[j].id) 
+            {
+                acomodacoes temp = registros[i];
+                registros[i] = registros[j];
+                registros[j] = temp;
+            }
+        }
+    }
+
+    for (int i = 0; i < 10; i++) 
+    {
+        cout << registros[i].id << endl;
+    }
+}
+
+void listarPorCampo(acomodacoes* registros, int tamanhoAtual, const string& campo, const string& valor) 
+{
+    for (int i = 0; i < tamanhoAtual; i++) 
+    {
+        if (campo == "name" && registros[i].name == valor) 
+        {
+            cout << "ID: " << registros[i].id << ", Nome: " << registros[i].name << endl;
+        }
+        else if (campo == "host_name" && registros[i].host_name == valor)
+        {
+            cout << "ID: " << registros[i].id << ", Host Name: " << registros[i].host_name << endl;
+        }
+    }
 }

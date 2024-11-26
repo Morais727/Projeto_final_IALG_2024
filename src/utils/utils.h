@@ -36,3 +36,6 @@ void printMenu1();
 
 int leituraCSV(string nomeArquivo, acomodacoes*& registros, int& tamanhoAtual);
 
+void listarPorCampo(acomodacoes* registros, int tamanhoAtual, const string& campo, const string& valor);
+
+void ordenacaoBase(acomodacoes* registros, int tamanhoAtual);
