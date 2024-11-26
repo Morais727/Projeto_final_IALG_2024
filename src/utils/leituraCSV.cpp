@@ -177,26 +177,66 @@ int leituraCSV(string nomeArquivo, acomodacoes*& registros, int& tamanhoAtual)
     return 0; 
 }
 
-void ordenacaoBase(acomodacoes* registros, int tamanhoAtual)
-{
-    for (int i = 0; i < tamanhoAtual - 1; i++) 
-    {
-        for (int j = i + 1; j < tamanhoAtual; j++) 
-        {
-            if (registros[i].id > registros[j].id) 
-            {
-                acomodacoes temp = registros[i];
-                registros[i] = registros[j];
-                registros[j] = temp;
-            }
+// Comparador para ordenar por ID
+bool compararPorId(const acomodacoes& a, const acomodacoes& b) {
+    return a.id < b.id;
+}
+
+// Comparador para ordenar por Name
+bool compararPorName(const acomodacoes& a, const acomodacoes& b) {
+    return a.name < b.name;
+}
+
+// Comparador para ordenar por Price
+bool compararPorPrice(const acomodacoes& a, const acomodacoes& b) {
+    return a.price < b.price;
+}
+
+// Comparador para ordenar por Number of Reviews
+bool compararPorReviews(const acomodacoes& a, const acomodacoes& b) {
+    return a.number_of_reviews < b.number_of_reviews;
+}
+
+
+
+// Tipo para o critério de comparação (função ou lambda)
+using Comparador = bool(*)(const acomodacoes&, const acomodacoes&);
+
+// Função de particionamento genérica
+int partition(acomodacoes* registros, int low, int high, Comparador comparador) {
+    acomodacoes pivot = registros[high]; // Escolhe o último elemento como pivô
+    int i = (low - 1);
+
+    for (int j = low; j <= high - 1; j++) {
+        if (comparador(registros[j], pivot)) { // Usa o critério de comparação
+            i++;
+            swap(registros[i], registros[j]);
         }
     }
+    swap(registros[i + 1], registros[high]);
+    return (i + 1);
+}
 
-    for (int i = 0; i < 10; i++) 
-    {
-        cout << registros[i].id << endl;
+// Função Quick Sort genérica
+void quickSort(acomodacoes* registros, int low, int high, Comparador comparador) {
+    if (low < high) {
+        int pi = partition(registros, low, high, comparador);
+
+        quickSort(registros, low, pi - 1, comparador);
+        quickSort(registros, pi + 1, high, comparador);
     }
 }
+
+void ordenacaoBase(acomodacoes* registros, int tamanhoAtual) {
+    cout << "Iniciando a ordenação por ID..." << endl;
+    quickSort(registros, 0, tamanhoAtual - 1, compararPorId);
+
+    // Exibir os primeiros 10 registros após a ordenação
+    for (int i = 0; i < min(tamanhoAtual, 10); i++) {
+        cout << "ID: " << registros[i].id << ", Nome: " << registros[i].name << endl;
+    }
+}
+
 
 void listarPorCampo(acomodacoes* registros, int tamanhoAtual, const string& campo, const string& valor) 
 {

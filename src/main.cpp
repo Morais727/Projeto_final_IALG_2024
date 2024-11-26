@@ -47,7 +47,7 @@ int main()
         ordenacaoBase(registros, tamanhoAtual);
 
         // Exibir os registros se a leitura foi bem-sucedida
-        cout << "Total de registros lidos: " << tamanhoAtual << endl;
+        // cout << "Total de registros lidos: " << tamanhoAtual << endl;
         // for (int i = 0; i < tamanhoAtual; i++) 
         // {
         //     cout << "ID: " << registros[i].id << ", Nome: " << registros[i].name << endl;
