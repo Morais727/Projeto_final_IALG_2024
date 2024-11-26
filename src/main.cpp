@@ -6,11 +6,11 @@
 using namespace std;
 
 void clearConsole() {
-    std::cout << "\033[2J\033[1;1H"; // Sequência ANSI para limpar a tela
+    cout << "\033[2J\033[1;1H"; // Sequência ANSI para limpar a tela
 }
 
 void selecionaMenu(int numMenu)
-{
+{   
     switch (numMenu)
     {
         case 1:
@@ -36,15 +36,17 @@ int main()
     int numMenu;
 
     printBanner();
-    usleep(9000000);
 
-    clearConsole();
+    leituraCSV("saida1234.csv");
+
+    // usleep(9000000);
+
+    // clearConsole();
     printMenu1();
 
     cin >> numMenu;
 
     selecionaMenu(numMenu);
-
     
    return 0;
 }
