@@ -10,31 +10,30 @@ void clearConsole()
     cout << "\033[2J\033[1;1H"; // Sequência ANSI para limpar a tela
 }
 
-void selecionaMenu(int numMenu)
+int selecionaMenu(int numMenu)
 {   
     switch (numMenu)
     {
         case 1:
-            cout << "Selecionou busca de registros" << endl;
-            break;
+            return 1;
         case 2:
-            cout << "Selecionou alteração e remoção" << endl;
-            break;
+            return 2;
         case 3:
-            cout << "Selecionou cadastro de novos registros" << endl;
-            break;  
+            return 3;  
         case 4:
-            cout << "Saindo..." << endl;
-            break;  
+            return 4;  
         default:
             cout << "Opção inválida" << endl;
-            break;  
+            return 0;  
     }
 }
 
 int main()
 {
-    int numMenu;
+    clearConsole();
+
+    bool executa = true;
+    int numMenu = 0;
 
     printBanner();
 
@@ -43,15 +42,9 @@ int main()
 
     // Chamar a função leituraCSV e verificar o retorno
     if (leituraCSV("saida1234.csv", registros, tamanhoAtual) == 0) 
-    {
-        ordenacaoBase(registros, tamanhoAtual);
-
-        // Exibir os registros se a leitura foi bem-sucedida
-        // cout << "Total de registros lidos: " << tamanhoAtual << endl;
-        // for (int i = 0; i < tamanhoAtual; i++) 
-        // {
-        //     cout << "ID: " << registros[i].id << ", Nome: " << registros[i].name << endl;
-        // }
+    { 
+        cout<<"ok";
+        // ordenacaoBase(registros, tamanhoAtual);
     } 
     else 
     {
@@ -61,10 +54,36 @@ int main()
     // Limpeza do console e exibição do menu
     clearConsole();
     printMenu1();
-
-    cin >> numMenu;
-    selecionaMenu(numMenu);
     
+    while (executa == true)
+    {  
+        cin >> numMenu;
+        int menu = selecionaMenu(numMenu);
+
+        if (menu == 1)
+        {
+            clearConsole();
+            menuImprime(registros, tamanhoAtual);
+        }
+        else if (menu == 2)
+        {
+            // executa = false;
+            clearConsole();
+            cout << "Selecionou alteração e remoção" << endl;
+        }
+        else if (menu == 3)
+        {
+            // executa = false;
+            clearConsole();
+            cout << "Selecionou cadastro de novos registros" << endl;
+        }
+        else if (menu == 4)
+        {
+            executa = false;
+            cout << "Saindo..." << endl;
+        }
+    }
+
     // Liberar a memória alocada
     delete[] registros;
 

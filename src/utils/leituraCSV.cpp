@@ -5,6 +5,9 @@
 #include <regex>
 #include <exception>
 #include "utils.h"
+#include <iomanip>  // Para manipulação de saída (setw)
+#include <unistd.h>  // Para usar usleep
+#include <cstdlib>
 
 using namespace std;
 
@@ -44,6 +47,9 @@ int leituraCSV(string nomeArquivo, acomodacoes*& registros, int& tamanhoAtual)
     int linhaAtual = 0;
     int linhasProblematicas = 0;
 
+    // Ignorar a primeira linha (cabeçalho)
+    getline(arquivoInicial, linha);
+
     while (getline(arquivoInicial, linha)) 
     {
         linhaAtual++;
@@ -54,8 +60,6 @@ int leituraCSV(string nomeArquivo, acomodacoes*& registros, int& tamanhoAtual)
 
         try 
         {
-            // Processar os dados do CSV conforme já feito
-
             // Processar ID
             getline(ss, temp, ',');
             item.id = isNumber(temp) ? stoll(temp) : 0;
@@ -172,43 +176,47 @@ int leituraCSV(string nomeArquivo, acomodacoes*& registros, int& tamanhoAtual)
             linhasProblematicas++;
         }
     }
-
     arquivoInicial.close();
     return 0; 
 }
 
 // Comparador para ordenar por ID
-bool compararPorId(const acomodacoes& a, const acomodacoes& b) {
+bool compararPorId(const acomodacoes& a, const acomodacoes& b) 
+{
     return a.id < b.id;
 }
 
 // Comparador para ordenar por Name
-bool compararPorName(const acomodacoes& a, const acomodacoes& b) {
+bool compararPorName(const acomodacoes& a, const acomodacoes& b) 
+{
     return a.name < b.name;
 }
 
 // Comparador para ordenar por Price
-bool compararPorPrice(const acomodacoes& a, const acomodacoes& b) {
+bool compararPorPrice(const acomodacoes& a, const acomodacoes& b) 
+{
     return a.price < b.price;
 }
 
 // Comparador para ordenar por Number of Reviews
-bool compararPorReviews(const acomodacoes& a, const acomodacoes& b) {
+bool compararPorReviews(const acomodacoes& a, const acomodacoes& b) 
+{
     return a.number_of_reviews < b.number_of_reviews;
 }
-
-
 
 // Tipo para o critério de comparação (função ou lambda)
 using Comparador = bool(*)(const acomodacoes&, const acomodacoes&);
 
 // Função de particionamento genérica
-int partition(acomodacoes* registros, int low, int high, Comparador comparador) {
+int partition(acomodacoes* registros, int low, int high, Comparador comparador) 
+{
     acomodacoes pivot = registros[high]; // Escolhe o último elemento como pivô
     int i = (low - 1);
 
-    for (int j = low; j <= high - 1; j++) {
-        if (comparador(registros[j], pivot)) { // Usa o critério de comparação
+    for (int j = low; j <= high - 1; j++) 
+    {
+        if (comparador(registros[j], pivot)) 
+        { // Usa o critério de comparação
             i++;
             swap(registros[i], registros[j]);
         }
@@ -218,8 +226,10 @@ int partition(acomodacoes* registros, int low, int high, Comparador comparador) 
 }
 
 // Função Quick Sort genérica
-void quickSort(acomodacoes* registros, int low, int high, Comparador comparador) {
-    if (low < high) {
+void quickSort(acomodacoes* registros, int low, int high, Comparador comparador) 
+{
+    if (low < high) 
+    {
         int pi = partition(registros, low, high, comparador);
 
         quickSort(registros, low, pi - 1, comparador);
@@ -227,16 +237,10 @@ void quickSort(acomodacoes* registros, int low, int high, Comparador comparador)
     }
 }
 
-void ordenacaoBase(acomodacoes* registros, int tamanhoAtual) {
-    cout << "Iniciando a ordenação por ID..." << endl;
+void ordenacaoBase(acomodacoes* registros, int tamanhoAtual) 
+{
     quickSort(registros, 0, tamanhoAtual - 1, compararPorId);
-
-    // Exibir os primeiros 10 registros após a ordenação
-    for (int i = 0; i < min(tamanhoAtual, 10); i++) {
-        cout << "ID: " << registros[i].id << ", Nome: " << registros[i].name << endl;
-    }
 }
-
 
 void listarPorCampo(acomodacoes* registros, int tamanhoAtual, const string& campo, const string& valor) 
 {
@@ -251,4 +255,123 @@ void listarPorCampo(acomodacoes* registros, int tamanhoAtual, const string& camp
             cout << "ID: " << registros[i].id << ", Host Name: " << registros[i].host_name << endl;
         }
     }
+}
+
+void imprimeValores(acomodacoes* registros, int tamanhoAtual, int tamanhoInicial, int tamanhoFinal)
+{
+    // Cabeçalho (opcional)
+    cout << left << setw(10) << "Preço" << setw(50) << "Nome" << endl;
+    cout << string(60, '-') << endl; // Linha de separação
+
+    // Imprimir os valores
+    for (int i = tamanhoInicial; i < tamanhoFinal; i++)
+    {       
+        // Formatação do preço com 2 casas decimais
+        cout << left << setw(10) << fixed << setprecision(2) << registros[i].price
+             << setw(50) << registros[i].name << endl;
+    }
+
+}
+
+void menuImprime(acomodacoes* registros, int tamanhoAtual)
+{
+    clearConsole();
+
+    int tamanhoInicial = 0, tamanhoFinal = 40;
+
+    char continua;
+    bool imprime = true;
+
+    imprimeValores(registros, tamanhoAtual, tamanhoInicial, tamanhoFinal);
+
+     while (imprime == true)
+    {
+        tamanhoInicial += 40;
+        tamanhoFinal += 40;
+
+        // Move o cursor para a última linha
+        system("tput cup 50 0");
+        cout << endl << "Próxima página? (S/N)                  Filtrar? (F)" << endl;
+
+        cin >> continua;
+        continua = tolower(continua);
+
+        clearConsole();
+
+        if (continua == 's')
+        {
+            imprime = true;
+            imprimeValores(registros, tamanhoAtual, tamanhoInicial, tamanhoFinal);
+        }
+        else if (continua == 'n')
+        {
+            imprime = false;            
+
+            cout << "Voltando ao menu anterior. " << endl;
+
+            sleep(2);
+            clearConsole();
+
+            printMenu1();
+        }
+        else if (continua == 'f')
+        {
+            printMenu2();
+            
+            int seleciona, valor;
+
+            cin >> seleciona;
+
+            clearConsole();
+
+            cout << "Digite o valor a ser filtrado: " << endl;
+            cin >> valor;
+
+            if (seleciona == 1)
+            {
+                tamanhoInicial = 0;
+                tamanhoFinal = 40;
+
+                quickSort(registros, 0, tamanhoAtual - 1, compararPorPrice);  
+                imprimeValores(registros, tamanhoAtual, tamanhoInicial, tamanhoFinal);          
+            }
+            else if (seleciona == 2)
+            {
+                tamanhoInicial = 0;
+                tamanhoFinal = 40;
+
+                quickSort(registros, 0, tamanhoAtual - 1, compararPorReviews);  
+                imprimeValores(registros, tamanhoAtual, tamanhoInicial, tamanhoFinal);
+            }
+            else
+            {
+                clearConsole();
+
+                cout << "Selecione uma opção válida! " << endl;
+
+                sleep(2);
+                clearConsole();
+
+                tamanhoInicial -= 40;
+                tamanhoFinal -= 40;
+                imprimeValores(registros, tamanhoAtual, tamanhoInicial, tamanhoFinal);
+            }
+        }
+        else
+        {
+            clearConsole();
+
+            cout << "Selecione uma opção válida! " << endl;
+
+            sleep(2);
+            clearConsole();
+
+            tamanhoInicial -= 40;
+            tamanhoFinal -= 40;
+            imprimeValores(registros, tamanhoAtual, tamanhoInicial, tamanhoFinal);
+        }
+    }
+
+
+    
 }

@@ -1,7 +1,8 @@
 #include <string>
 using namespace std;  
 
-struct acomodacoes {
+struct acomodacoes 
+{
     long long id = 0;
     string name = "unknown";
     long long host_id = 0;
@@ -34,8 +35,14 @@ void printBanner();
 
 void printMenu1();
 
+void printMenu2();
+
 int leituraCSV(string nomeArquivo, acomodacoes*& registros, int& tamanhoAtual);
 
 void listarPorCampo(acomodacoes* registros, int tamanhoAtual, const string& campo, const string& valor);
 
 void ordenacaoBase(acomodacoes* registros, int tamanhoAtual);
+
+void clearConsole();
+
+void menuImprime(acomodacoes* registros, int tamanhoAtual);
