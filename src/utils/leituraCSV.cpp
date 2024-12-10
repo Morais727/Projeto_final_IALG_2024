@@ -291,19 +291,40 @@ void menuImprime(acomodacoes* registros, int tamanhoAtual)
 
         // Move o cursor para a última linha
         system("tput cup 50 0");
-        cout << endl << "Próxima página? (S/N)                  Filtrar? (F)" << endl;
+        cout << endl << "Pagina anterior (B)    --  Proxima pagina (N)    --  Voltar ao menu anterior (V)    --  Filtrar? (F)" << endl;
 
         cin >> continua;
         continua = tolower(continua);
 
         clearConsole();
 
-        if (continua == 's')
+        if (continua == 'n')
         {
-            imprime = true;
             imprimeValores(registros, tamanhoAtual, tamanhoInicial, tamanhoFinal);
         }
-        else if (continua == 'n')
+        else if (continua == 'b')
+        {   
+            if (tamanhoInicial > 40)
+            {
+                tamanhoInicial -= 80;
+                tamanhoFinal -= 80;
+
+                imprimeValores(registros, tamanhoAtual, tamanhoInicial, tamanhoFinal);
+            }
+            else
+            {
+                cout << "impossível retornar!" << endl;
+                
+                sleep(2);
+                clearConsole();
+
+                tamanhoInicial = 0;
+                tamanhoFinal = 40;
+
+                imprimeValores(registros, tamanhoAtual, tamanhoInicial, tamanhoFinal);
+            }
+        }
+        else if (continua == 'v')
         {
             imprime = false;            
 
