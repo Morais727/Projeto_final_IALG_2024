@@ -67,13 +67,11 @@ int main()
         }
         else if (menu == 2)
         {
-            // executa = false;
             clearConsole();
             cout << "Selecionou alteração e remoção" << endl;
         }
         else if (menu == 3)
         {
-            // executa = false;
             clearConsole();
             cout << "Selecionou cadastro de novos registros" << endl;
         }
