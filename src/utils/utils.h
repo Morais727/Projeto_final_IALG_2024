@@ -33,9 +33,9 @@ struct acomodacoes
 
 void printBanner();
 
-void printMenu1();
+int printMenu1();
 
-void printMenu2();
+int printMenu2();
 
 int leituraCSV(string nomeArquivo, acomodacoes*& registros, int& tamanhoAtual);
 
@@ -46,3 +46,15 @@ void ordenacaoBase(acomodacoes* registros, int tamanhoAtual);
 void clearConsole();
 
 void menuImprime(acomodacoes* registros, int tamanhoAtual);
+
+int interactiveMenu(const string options[], int optionCount, const string& header);
+
+void mostrarDetalhesAcomodacao(acomodacoes* registros, int tamanhoAtual, int idSelecionado, int& tamanhoInicial, int& tamanhoFinal);
+
+void printCasa();
+
+int excluirRegistro(acomodacoes* registros, int& tamanhoAtual);
+
+int adicionarRegistro(acomodacoes* registros, int& tamanhoAtual, int capacidadeMax);
+
+int alteraRegistro(acomodacoes* registros, int tamanhoAtual);

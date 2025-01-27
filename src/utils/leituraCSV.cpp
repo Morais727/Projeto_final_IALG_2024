@@ -8,8 +8,24 @@
 #include <iomanip>  // Para manipulação de saída (setw)
 #include <unistd.h>  // Para usar usleep
 #include <cstdlib>
+#include <ncurses.h> // Visualizações sofisticadas
 
 using namespace std;
+
+// Função para inicializar o ncurses
+void inicializaNcurses() {
+    initscr();           // Inicia o modo ncurses
+    noecho();            // Evita que os inputs do teclado apareçam no terminal
+    cbreak();            // Lê entrada imediatamente, sem esperar Enter
+    keypad(stdscr, TRUE); // Habilita teclas como as setas
+    curs_set(0);         // Esconde o cursor
+}
+
+// Função para finalizar o ncurses
+void finalizaNcurses() {
+    endwin();
+}
+
 
 string removeEmojis(const string &input) 
 {
@@ -163,7 +179,7 @@ int leituraCSV(string nomeArquivo, acomodacoes*& registros, int& tamanhoAtual)
                 {
                     novoArray[i] = registros[i];
                 }
-                delete[] registros;  // Liberar memória antiga
+                
                 registros = novoArray;
             }
 
@@ -193,15 +209,18 @@ bool compararPorName(const acomodacoes& a, const acomodacoes& b)
 }
 
 // Comparador para ordenar por Price
-bool compararPorPrice(const acomodacoes& a, const acomodacoes& b) 
+bool compararPorPriceCrescente(const acomodacoes& a, const acomodacoes& b) 
 {
     return a.price < b.price;
 }
-
+bool compararPorPriceDecrescente(const acomodacoes& a, const acomodacoes& b) 
+{
+    return a.price > b.price;
+}
 // Comparador para ordenar por Number of Reviews
 bool compararPorReviews(const acomodacoes& a, const acomodacoes& b) 
 {
-    return a.number_of_reviews < b.number_of_reviews;
+    return a.review_scores_rating > b.review_scores_rating;
 }
 
 // Tipo para o critério de comparação (função ou lambda)
@@ -257,142 +276,217 @@ void listarPorCampo(acomodacoes* registros, int tamanhoAtual, const string& camp
     }
 }
 
-void imprimeValores(acomodacoes* registros, int tamanhoAtual, int tamanhoInicial, int tamanhoFinal)
-{
-    // Cabeçalho (opcional)
-    cout << left << setw(10) << "Preço" << setw(50) << "Nome" << endl;
-    cout << string(60, '-') << endl; // Linha de separação
 
-    // Imprimir os valores
-    for (int i = tamanhoInicial; i < tamanhoFinal; i++)
-    {       
-        // Formatação do preço com 2 casas decimais
-        cout << left << setw(10) << fixed << setprecision(2) << registros[i].price
-             << setw(50) << registros[i].name << endl;
+int imprimeValores(acomodacoes* registros, int tamanhoAtual, int tamanhoInicial, int tamanhoFinal) {
+    // Inicializar ncurses
+    initscr();
+    noecho();
+    cbreak();
+    keypad(stdscr, TRUE);
+    curs_set(0);
+
+    // Dimensões da tela
+    int rows, cols;
+    getmaxyx(stdscr, rows, cols);
+
+    // Cabeçalhos formatados
+    const int id_width = 8;
+    const int name_width = 100;
+    const int bedrooms_width = 15;
+    const int bathrooms_width = 15;
+    const int minimum_nights_width = 25;
+    const int review_width = 15;
+    const int price_width = 10;
+
+    bool running = true;
+    int highlight = 0;
+
+    int escolha = -1;
+
+    while (running) {
+        clear();
+
+        // Imprimir cabeçalhos
+        mvprintw(0, 0, "%-*s%-*s%-*s%-*s%-*s%-*s%-*s", id_width, "ID", name_width, "Nome", bedrooms_width, "Quartos",
+                 bathrooms_width, "Banheiros", minimum_nights_width, "Mínimo de noites", review_width, "Estrelas", price_width, "Diária");
+
+        // Linha separadora
+        mvhline(1, 0, '-', id_width + name_width + bedrooms_width + bathrooms_width + minimum_nights_width + review_width + price_width);
+
+        // Imprimir os valores formatados
+        for (int i = 0; i < (tamanhoFinal - tamanhoInicial); i++) {
+            int idx = tamanhoInicial + i;
+            if (idx >= tamanhoAtual) break;
+
+            // Montar string formatada
+            stringstream ss;
+            ss << left << setw(id_width) << registros[idx].id
+               << setw(name_width) << registros[idx].name
+               << setw(bedrooms_width) << registros[idx].bedrooms
+               << setw(bathrooms_width) << registros[idx].bathrooms
+               << setw(minimum_nights_width) << registros[idx].minimum_nights
+               << fixed << setprecision(2)<< setw(review_width) << registros[idx].review_scores_rating
+               << right << fixed << setprecision(2) << setw(price_width) << registros[idx].price;
+
+            if (i == highlight) {
+                attron(A_REVERSE);
+                mvprintw(2 + i, 0, "%s", ss.str().c_str());                attroff(A_REVERSE);
+            } else {
+                mvprintw(2 + i, 0, "%s", ss.str().c_str());            }
+        }
+
+        // Rodapé
+        mvprintw(rows - 8, 0, tamanhoFinal < tamanhoAtual ? "Mostrando %d-%d de %d registros" : "Mostrando %d-%d de %d registros", tamanhoInicial, tamanhoFinal, tamanhoAtual);
+        mvprintw(rows - 3, 0, "Página anterior (B)    --  Próxima página (N)    --  Voltar (V)    --  Filtrar (F)");
+        mvprintw(rows - 2, 0, "Use as setas para navegar e Enter para selecionar.");
+
+        // Atualizar tela
+        refresh();
+
+        // Lidar com entrada do usuário
+        int ch = getch();
+        switch (ch) {
+            case KEY_UP:
+                if (highlight > 0) highlight--;
+                break;
+            case KEY_DOWN:
+                if (highlight < (tamanhoFinal - tamanhoInicial - 1) && (tamanhoInicial + highlight + 1 < tamanhoAtual)) {
+                    highlight++;
+                }
+                break;
+            case 'b': // Página anterior
+                if (tamanhoInicial > 0) {
+                    tamanhoInicial -= 35;
+                    tamanhoFinal -= 35;
+                    highlight = 0;
+                }
+                break;
+            case 'n': // Próxima página
+                if (tamanhoFinal < tamanhoAtual) {
+                    tamanhoInicial += 35;
+                    tamanhoFinal += 35;
+                    highlight = 0;
+                }
+                break;
+            case 'v': // Voltar
+                endwin(); // Finalizar ncurses
+                return -10;
+            case 'f': // Filtro
+                endwin();                
+                return -20;
+            case 10: // Enter
+                escolha = highlight;
+                return (escolha+tamanhoInicial)+1;
+            default:
+                break;
+        }
     }
 
+    // Finalizar ncurses
+    endwin();
+
+    return 0;
 }
 
-void menuImprime(acomodacoes* registros, int tamanhoAtual)
-{
-    clearConsole();
 
-    int tamanhoInicial = 0, tamanhoFinal = 40;
+void menuImprime(acomodacoes* registros, int tamanhoAtual) {
+    int tamanhoInicial = 0, tamanhoFinal = 35;
 
-    char continua;
-    bool imprime = true;
+    // Criar uma cópia inicial do array de registros
+    acomodacoes* registrosFiltrados = new acomodacoes[tamanhoAtual];
+    copy(registros, registros + tamanhoAtual, registrosFiltrados); // Copiar os dados originais
+    int tamanhoFiltrado = tamanhoAtual;
 
-    imprimeValores(registros, tamanhoAtual, tamanhoInicial, tamanhoFinal);
+    bool running = true;
 
-     while (imprime == true)
-    {
-        tamanhoInicial += 40;
-        tamanhoFinal += 40;
+    while (running) {
+        int selecionado = imprimeValores(registrosFiltrados, tamanhoFiltrado, tamanhoInicial, tamanhoFinal);
+       
+       
+        if (selecionado == -20) {
+            clearConsole();
+            curs_set(0);
 
-        // Move o cursor para a última linha
-        system("tput cup 50 0");
-        cout << endl << "Pagina anterior (B)    --  Proxima pagina (N)    --  Voltar ao menu anterior (V)    --  Filtrar? (F)" << endl;
+            int seleciona = printMenu2(); // Exibe o menu de filtros; 
 
-        cin >> continua;
-        continua = tolower(continua);
-
-        clearConsole();
-
-        if (continua == 'n')
-        {
-            imprimeValores(registros, tamanhoAtual, tamanhoInicial, tamanhoFinal);
-        }
-        else if (continua == 'b')
-        {   
-            if (tamanhoInicial > 40)
+            if (seleciona == 1) 
             {
-                tamanhoInicial -= 80;
-                tamanhoFinal -= 80;
-
-                imprimeValores(registros, tamanhoAtual, tamanhoInicial, tamanhoFinal);
-            }
-            else
+                // Ordenação por preço
+                quickSort(registrosFiltrados, 0, tamanhoFiltrado - 1, compararPorPriceCrescente);
+            } 
+            else if (seleciona == 2) 
             {
-                cout << "impossível retornar!" << endl;
-                
+                // Ordenação por avaliações
+                quickSort(registrosFiltrados, 0, tamanhoFiltrado - 1, compararPorPriceDecrescente);
+            } 
+            else if (seleciona == 3) 
+            {
+                // Ordenação por avaliações
+                quickSort(registrosFiltrados, 0, tamanhoFiltrado - 1, compararPorReviews);
+            } 
+            else if (seleciona == 4) 
+            {
+                // Filtragem por faixa de preço
+                float precoMin, precoMax;
+                cout << "Digite o preço mínimo: ";
+                cin >> precoMin;
+                cout << "Digite o preço máximo: ";
+                cin >> precoMax;
+
+                acomodacoes* filtrados = new acomodacoes[tamanhoFiltrado];
+                int tamanhoFiltradoAtual = 0;
+
+                for (int i = 0; i < tamanhoFiltrado; i++) 
+                {
+                    if (registrosFiltrados[i].price >= precoMin && registrosFiltrados[i].price <= precoMax) {
+                        filtrados[tamanhoFiltradoAtual++] = registrosFiltrados[i];
+                    }
+                }
+
+                if (tamanhoFiltradoAtual > 0) 
+                {
+                    // Atualizar os registros filtrados
+                    delete[] registrosFiltrados; // Liberar a memória antiga
+                    registrosFiltrados = filtrados;
+                    tamanhoFiltrado = tamanhoFiltradoAtual;
+                    tamanhoInicial = 0;
+                    tamanhoFinal = 35;
+                } 
+                else 
+                {
+                    delete[] filtrados; // Liberar memória se não houver registros filtrados
+                    cout << "Nenhuma acomodação encontrada nessa faixa de preço." << endl;
+                    sleep(2);
+                }
+                quickSort(registrosFiltrados, 0, tamanhoFiltrado - 1, compararPorPriceCrescente);
+            } 
+            else if (seleciona == 5) 
+            {
+                // Restaurar a cópia original dos registros
+                delete[] registrosFiltrados; // Liberar a memória antiga
+                registrosFiltrados = new acomodacoes[tamanhoAtual];
+                copy(registros, registros + tamanhoAtual, registrosFiltrados); // Recriar a cópia
+                tamanhoFiltrado = tamanhoAtual;
+                tamanhoInicial = 0;
+                tamanhoFinal = 35;
+            } 
+            else 
+            {
+                cout << "Seleção inválida." << endl;
                 sleep(2);
-                clearConsole();
-
-                tamanhoInicial = 0;
-                tamanhoFinal = 40;
-
-                imprimeValores(registros, tamanhoAtual, tamanhoInicial, tamanhoFinal);
             }
+        } 
+        else if (selecionado == -10) 
+        { // Voltar ao menu principal            
+            running = false;
         }
-        else if (continua == 'v')
+        else if (selecionado >= 0) 
         {
-            imprime = false;            
-
-            cout << "Voltando ao menu anterior. " << endl;
-
-            sleep(2);
-            clearConsole();
-
-            printMenu1();
-        }
-        else if (continua == 'f')
-        {
-            printMenu2();
-            
-            int seleciona, valor;
-
-            cin >> seleciona;
-
-            clearConsole();
-
-            cout << "Digite o valor a ser filtrado: " << endl;
-            cin >> valor;
-
-            if (seleciona == 1)
-            {
-                tamanhoInicial = 0;
-                tamanhoFinal = 40;
-
-                quickSort(registros, 0, tamanhoAtual - 1, compararPorPrice);  
-                imprimeValores(registros, tamanhoAtual, tamanhoInicial, tamanhoFinal);          
-            }
-            else if (seleciona == 2)
-            {
-                tamanhoInicial = 0;
-                tamanhoFinal = 40;
-
-                quickSort(registros, 0, tamanhoAtual - 1, compararPorReviews);  
-                imprimeValores(registros, tamanhoAtual, tamanhoInicial, tamanhoFinal);
-            }
-            else
-            {
-                clearConsole();
-
-                cout << "Selecione uma opção válida! " << endl;
-
-                sleep(2);
-                clearConsole();
-
-                tamanhoInicial -= 40;
-                tamanhoFinal -= 40;
-                imprimeValores(registros, tamanhoAtual, tamanhoInicial, tamanhoFinal);
-            }
-        }
-        else
-        {
-            clearConsole();
-
-            cout << "Selecione uma opção válida! " << endl;
-
-            sleep(2);
-            clearConsole();
-
-            tamanhoInicial -= 40;
-            tamanhoFinal -= 40;
-            imprimeValores(registros, tamanhoAtual, tamanhoInicial, tamanhoFinal);
+            curs_set(0);
+            mostrarDetalhesAcomodacao(registrosFiltrados, tamanhoFiltrado, selecionado, tamanhoInicial, tamanhoFinal);
         }
     }
 
-
-    
+    // Liberar a memória dos registros filtrados antes de sair
+    delete[] registrosFiltrados;
 }
