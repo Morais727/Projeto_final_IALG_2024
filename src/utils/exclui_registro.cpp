@@ -1,10 +1,11 @@
 #include <iostream>
+#include <fstream>   // Para manipulação de arquivos
 #include "utils.h"
 #include <string>  // Para manipulação de strings (std::string)
 
 using namespace std;
 
-int excluirRegistro(acomodacoes* registros, int& tamanhoAtual) {
+int excluirRegistro(acomodacoes* registros, int& tamanhoAtual, const string& nomeArquivo) {
     int id;
     
     // Exibe a mensagem para o usuário
@@ -18,13 +19,25 @@ int excluirRegistro(acomodacoes* registros, int& tamanhoAtual) {
         if (registros[i].id == id) {
             encontrado = true;
 
-            // Desloca os registros subsequentes
+            // Desloca os registros subsequentes para "remover" o registro excluído
             for (int j = i; j < tamanhoAtual - 1; j++) {
                 registros[j] = registros[j + 1];
             }
 
             tamanhoAtual--;  // Decrementa o número de registros
             cout << "Registro excluído com sucesso." << endl;
+
+            // Atualiza o arquivo binário com as alterações
+            ofstream arquivoBin(nomeArquivo, ios::binary | ios::trunc);
+            if (!arquivoBin) {
+                cout << "Erro ao abrir o arquivo binário para escrita!" << endl;
+                return -1;
+            }
+
+            // Escrever todos os registros atualizados no arquivo binário
+            arquivoBin.write(reinterpret_cast<char*>(registros), tamanhoAtual * sizeof(acomodacoes));
+            arquivoBin.close();
+
             return 0;  // Sucesso
         }
     }
