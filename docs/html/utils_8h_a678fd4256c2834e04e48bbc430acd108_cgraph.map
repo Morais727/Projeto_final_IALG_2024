@@ -1,0 +1,24 @@
+<map id="menuImprime" name="menuImprime">
+<area shape="rect" id="Node000001" title="Exibe o menu de listagem de acomodações com opções de filtros e ordenação." alt="" coords="5,179,120,204"/>
+<area shape="rect" id="Node000002" href="$main_8cpp.html#aff6c831918692405e75fc55c43424304" title=" " alt="" coords="224,5,331,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="67,177,80,149,101,111,130,72,166,40,187,29,210,22,211,27,189,34,170,44,134,76,106,114,85,151,71,180"/>
+<area shape="rect" id="Node000003" href="$leCsv_8cpp.html#a466d1762b616b89b66f79249cf660d85" title="Comparador para ordenar por Price (crescente)." alt="" coords="176,55,379,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="71,177,109,133,136,109,167,89,181,82,184,87,169,94,140,113,113,137,75,180"/>
+<area shape="rect" id="Node000004" href="$leCsv_8cpp.html#a9106a9fcad0b0590be4b332ed80d33f1" title="Comparador para ordenar por Price (decrescente)." alt="" coords="168,104,387,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="85,176,123,157,167,138,193,130,195,135,169,143,125,162,88,181"/>
+<area shape="rect" id="Node000005" href="$leCsv_8cpp.html#a5f89cc6c070b8cd176dbdfa12056e677" title="Comparador para ordenar por Number of Reviews." alt="" coords="197,153,357,179"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="120,182,183,174,184,180,121,187"/>
+<area shape="rect" id="Node000006" href="$imprimeValores_8cpp.html#a7925689a8f88e816b0fb99cb0a243d6a" title="Exibe os registros de acomodações em uma interface interativa utilizando ncurses." alt="" coords="215,203,340,228"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="121,195,201,204,201,209,120,200"/>
+<area shape="rect" id="Node000007" href="$mostrarDetalhesAcomodacao_8cpp.html#a213f4ebd9faaed34b7d00566b60fc407" title="Exibe os detalhes de uma acomodação com base no ID selecionado." alt="" coords="170,252,385,277"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="89,202,169,237,200,246,198,251,167,242,87,206"/>
+<area shape="rect" id="Node000008" href="$menu2_8cpp.html#a1cbb75fe2c5566e2d5ea83b6f3663345" title="Exibe o Menu 2 e permite ao usuário interagir com as opções de ordenação e filtragem." alt="" coords="229,301,325,327"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="76,203,114,244,140,267,169,286,217,303,215,308,167,291,137,271,110,248,72,206"/>
+<area shape="rect" id="Node000010" href="$leCsv_8cpp.html#a2f19ea008e967945b66d113c5d050a83" title="Função Quick Sort genérica." alt="" coords="236,375,319,400"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="72,203,108,265,136,303,170,336,196,354,224,367,222,372,193,358,166,340,132,306,104,268,68,205"/>
+<area shape="rect" id="Node000009" href="$interactiveMenu_8cpp.html#a3fc7519e34e863ac852c331480df601b" title="Exibe um menu interativo e permite ao usuário navegar e selecionar uma opção." alt="" coords="435,301,563,327"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="326,311,421,311,421,317,326,317"/>
+<area shape="poly" id="edge11_Node000010_Node000010" title=" " alt="" coords="242,376,235,366,239,356,253,350,277,348,307,352,319,361,316,365,305,357,277,353,255,355,243,360,240,366,247,373"/>
+<area shape="rect" id="Node000011" href="$leCsv_8cpp.html#a60c630bffed6132f23e35aac796f8def" title="Função de particionamento genérica para o Quick Sort." alt="" coords="460,375,537,400"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="319,385,446,385,446,390,319,390"/>
+</map>

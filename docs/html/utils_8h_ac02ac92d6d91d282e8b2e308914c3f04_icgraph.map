@@ -1,0 +1,10 @@
+<map id="exibirBarraCarregamento" name="exibirBarraCarregamento">
+<area shape="rect" id="Node000001" title="Exibe uma barra de carregamento animada na interface ncurses." alt="" coords="287,31,473,56"/>
+<area shape="rect" id="Node000002" href="$exportarParaCSV_8cpp.html#a28f75e838fcedff4a0bd61a091d0038f" title="Exporta os registros de acomodações para um arquivo CSV." alt="" coords="108,5,239,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="272,33,238,29,239,23,273,28"/>
+<area shape="rect" id="Node000004" href="$leCsv_8cpp.html#aed121101f297ef8c8537f1e35d88d54d" title="Lê um arquivo CSV e armazena os registros em um array dinâmico." alt="" coords="128,55,219,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="273,58,219,65,219,59,272,53"/>
+<area shape="rect" id="Node000003" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,31,60,56"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="95,35,61,41,60,36,94,30"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="114,60,60,51,61,45,115,55"/>
+</map>

@@ -1,0 +1,42 @@
+\doxysection{src/utils/reorganizar\+Ids.cpp File Reference}
+\hypertarget{reorganizarIds_8cpp}{}\label{reorganizarIds_8cpp}\index{src/utils/reorganizarIds.cpp@{src/utils/reorganizarIds.cpp}}
+
+
+Reorganiza os IDs das acomodações no array dinâmico após modificação.  
+
+
+{\ttfamily \#include "{}utils.\+h"{}}\newline
+Include dependency graph for reorganizar\+Ids.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{reorganizarIds_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{reorganizarIds_8cpp_a9148ede824b07f15fb47218f2c559857}\label{reorganizarIds_8cpp_a9148ede824b07f15fb47218f2c559857} 
+void {\bfseries reorganizar\+IDs} (\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}registros, int tamanho\+Atual)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Reorganiza os IDs das acomodações no array dinâmico após modificação. 
+
+Após a exclusão de um registro, os IDs são renumerados para manter uma sequência correta. O primeiro registro recebe ID 0, o segundo 1 e assim por diante.
+
+\begin{DoxyAuthor}{Author}
+Marcos Morais 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+03/02/2025
+\end{DoxyDate}
+
+\begin{DoxyParams}{Parameters}
+{\em registros} & Ponteiro para o array dinâmico de acomodações. \\
+\hline
+{\em tamanho\+Atual} & Número atual de registros no array. \\
+\hline
+\end{DoxyParams}

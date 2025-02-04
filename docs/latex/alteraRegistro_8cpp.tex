@@ -1,0 +1,63 @@
+\doxysection{src/utils/altera\+Registro.cpp File Reference}
+\hypertarget{alteraRegistro_8cpp}{}\label{alteraRegistro_8cpp}\index{src/utils/alteraRegistro.cpp@{src/utils/alteraRegistro.cpp}}
+
+
+Função para alterar um registro existente e atualizar o arquivo binário.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include "{}utils.\+h"{}}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+Include dependency graph for altera\+Registro.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{alteraRegistro_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{alteraRegistro_8cpp_afb0204f7e1f4b80ea98eaa972f6d9a74}{altera\+Registro}} (\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}registros, int tamanho\+Atual, const string \&nome\+Arquivo)
+\begin{DoxyCompactList}\small\item\em Altera um registro existente no array e atualiza o arquivo binário. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Função para alterar um registro existente e atualizar o arquivo binário. 
+
+\begin{DoxyAuthor}{Author}
+Marcos Morais 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+03/02/2025 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{alteraRegistro_8cpp_afb0204f7e1f4b80ea98eaa972f6d9a74}\label{alteraRegistro_8cpp_afb0204f7e1f4b80ea98eaa972f6d9a74} 
+\index{alteraRegistro.cpp@{alteraRegistro.cpp}!alteraRegistro@{alteraRegistro}}
+\index{alteraRegistro@{alteraRegistro}!alteraRegistro.cpp@{alteraRegistro.cpp}}
+\doxysubsubsection{\texorpdfstring{alteraRegistro()}{alteraRegistro()}}
+{\footnotesize\ttfamily int altera\+Registro (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}}]{registros,  }\item[{int}]{tamanho\+Atual,  }\item[{const string \&}]{nome\+Arquivo }\end{DoxyParamCaption})}
+
+
+
+Altera um registro existente no array e atualiza o arquivo binário. 
+
+O usuário informa o ID do registro que deseja alterar. Se encontrado, os dados são exibidos e podem ser modificados. As alterações são salvas no arquivo binário.
+
+
+\begin{DoxyParams}{Parameters}
+{\em registros} & Ponteiro para o array de registros de acomodações. \\
+\hline
+{\em tamanho\+Atual} & Número atual de registros armazenados. \\
+\hline
+{\em nome\+Arquivo} & Nome do arquivo binário onde os registros são armazenados. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Retorna {\ttfamily 0} se a alteração for bem-\/sucedida ou se o usuário cancelar a operação, e {\ttfamily -\/1} se ocorrer um erro na escrita do arquivo. 
+\end{DoxyReturn}

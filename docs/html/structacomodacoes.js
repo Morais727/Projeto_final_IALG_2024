@@ -1,0 +1,28 @@
+var structacomodacoes =
+[
+    [ "accommodates", "structacomodacoes.html#aff9c8708235f34d629a2fc368dae86e4", null ],
+    [ "availability_365", "structacomodacoes.html#a7fff504756e29c0994071c4307ea896d", null ],
+    [ "bathrooms", "structacomodacoes.html#aebc700b6f1b49c02975563261943071c", null ],
+    [ "bedrooms", "structacomodacoes.html#a6421b37ba8fc6759da9af90660ab2504", null ],
+    [ "beds", "structacomodacoes.html#a06d0d084c006f207d8398e8b5cb2152e", null ],
+    [ "host_id", "structacomodacoes.html#ac3e89aefc0a7ace32785e8936aa66e82", null ],
+    [ "host_is_superhost", "structacomodacoes.html#a72a0b3afbf9a871e26e0a607c5a1c687", null ],
+    [ "host_name", "structacomodacoes.html#ab741f9be04b7c12a0356e7adbf1bfc72", null ],
+    [ "host_response_rate", "structacomodacoes.html#a3ffad1009241133d0250458edb91832e", null ],
+    [ "host_response_time", "structacomodacoes.html#ad4506b47dc95afc084753935120a6aa1", null ],
+    [ "host_since", "structacomodacoes.html#a884257acd53736b263e0bee2acfbde21", null ],
+    [ "id", "structacomodacoes.html#a605edfd29f9e2fcfdfdbbd47617bfa30", null ],
+    [ "instant_bookable", "structacomodacoes.html#af1d09381076feff42925b9e8ce4a8e8d", null ],
+    [ "latitude", "structacomodacoes.html#a066babce06bd347f281c8bb8ab889bd7", null ],
+    [ "license", "structacomodacoes.html#aa55f84f8be28e532e6ae5646d4929d0a", null ],
+    [ "longitude", "structacomodacoes.html#aeca2b91579a70899fb591330fb203b19", null ],
+    [ "minimum_nights", "structacomodacoes.html#ad381e4f9884440aad8f58da425ebb0d2", null ],
+    [ "name", "structacomodacoes.html#acb2398d8ea55a56f07621d59e85e70b5", null ],
+    [ "neighbourhood_cleansed", "structacomodacoes.html#ac0bde90cc1d56eb870312cd7b0d9908c", null ],
+    [ "neighbourhood_group_cleansed", "structacomodacoes.html#aef446e97ab0863b3fc8533525ac0508c", null ],
+    [ "number_of_reviews", "structacomodacoes.html#a6fedb11cca599604b1118bf9f4c380a2", null ],
+    [ "price", "structacomodacoes.html#a21b0f2856f8d099516e4772bfae69963", null ],
+    [ "property_type", "structacomodacoes.html#a7cfa7a2522077ce30a4c4d96f60b39c2", null ],
+    [ "review_scores_rating", "structacomodacoes.html#ad5023e34c86f915951901867ea49443f", null ],
+    [ "room_type", "structacomodacoes.html#acf9d31f748071a94ca51dfcda1c2ff84", null ]
+];

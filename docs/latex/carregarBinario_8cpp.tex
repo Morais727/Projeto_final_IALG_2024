@@ -1,0 +1,62 @@
+\doxysection{src/utils/carregar\+Binario.cpp File Reference}
+\hypertarget{carregarBinario_8cpp}{}\label{carregarBinario_8cpp}\index{src/utils/carregarBinario.cpp@{src/utils/carregarBinario.cpp}}
+
+
+Carrega os registros de acomodações a partir de um arquivo binário.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include "{}utils.\+h"{}}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$ncurses.\+h$>$}\newline
+Include dependency graph for carregar\+Binario.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{carregarBinario_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{carregarBinario_8cpp_a7f2b21ee42b15194328616084614b656}{carregar\+Binario}} (\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}\&registros, int \&tamanho\+Atual, int \&capacidade, const string \&nome\+Arquivo)
+\begin{DoxyCompactList}\small\item\em Carrega os registros de acomodações a partir de um arquivo binário. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Carrega os registros de acomodações a partir de um arquivo binário. 
+
+\begin{DoxyAuthor}{Author}
+Marcos Morais 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+03/02/2025 
+\end{DoxyDate}
+Se o arquivo binário não for encontrado, um novo conjunto de registros será criado. Se o arquivo estiver corrompido, os dados não serão carregados e um novo espaço será alocado. A função utiliza alocação dinâmica para armazenar os registros, garantindo flexibilidade para adicionar novos registros posteriormente. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{carregarBinario_8cpp_a7f2b21ee42b15194328616084614b656}\label{carregarBinario_8cpp_a7f2b21ee42b15194328616084614b656} 
+\index{carregarBinario.cpp@{carregarBinario.cpp}!carregarBinario@{carregarBinario}}
+\index{carregarBinario@{carregarBinario}!carregarBinario.cpp@{carregarBinario.cpp}}
+\doxysubsubsection{\texorpdfstring{carregarBinario()}{carregarBinario()}}
+{\footnotesize\ttfamily void carregar\+Binario (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}\&}]{registros,  }\item[{int \&}]{tamanho\+Atual,  }\item[{int \&}]{capacidade,  }\item[{const string \&}]{nome\+Arquivo }\end{DoxyParamCaption})}
+
+
+
+Carrega os registros de acomodações a partir de um arquivo binário. 
+
+Se o arquivo binário não existir, a função inicializa um novo array dinâmico. Se o arquivo estiver corrompido, os dados não serão carregados e um novo espaço será alocado. A função utiliza alocação dinâmica para armazenar os registros.
+
+
+\begin{DoxyParams}{Parameters}
+{\em registros} & Ponteiro para o array dinâmico de registros. \\
+\hline
+{\em tamanho\+Atual} & Número de registros carregados. \\
+\hline
+{\em capacidade} & Capacidade total alocada para armazenar os registros. \\
+\hline
+{\em nome\+Arquivo} & Nome do arquivo binário a ser lido. \\
+\hline
+\end{DoxyParams}

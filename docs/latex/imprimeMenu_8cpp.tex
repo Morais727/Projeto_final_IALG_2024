@@ -1,0 +1,81 @@
+\doxysection{src/utils/imprime\+Menu.cpp File Reference}
+\hypertarget{imprimeMenu_8cpp}{}\label{imprimeMenu_8cpp}\index{src/utils/imprimeMenu.cpp@{src/utils/imprimeMenu.cpp}}
+
+
+Implementação do menu de listagem e filtragem de acomodações.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$exception$>$}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$ncurses.\+h$>$}\newline
+{\ttfamily \#include "{}utils.\+h"{}}\newline
+Include dependency graph for imprime\+Menu.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{imprimeMenu_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{imprimeMenu_8cpp_a678fd4256c2834e04e48bbc430acd108}{menu\+Imprime}} (\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}registros, int tamanho\+Atual)
+\begin{DoxyCompactList}\small\item\em Exibe o menu de listagem de acomodações com opções de filtros e ordenação. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementação do menu de listagem e filtragem de acomodações. 
+
+\begin{DoxyAuthor}{Author}
+Marcos Morais 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+03/02/2025 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{imprimeMenu_8cpp_a678fd4256c2834e04e48bbc430acd108}\label{imprimeMenu_8cpp_a678fd4256c2834e04e48bbc430acd108} 
+\index{imprimeMenu.cpp@{imprimeMenu.cpp}!menuImprime@{menuImprime}}
+\index{menuImprime@{menuImprime}!imprimeMenu.cpp@{imprimeMenu.cpp}}
+\doxysubsubsection{\texorpdfstring{menuImprime()}{menuImprime()}}
+{\footnotesize\ttfamily void menu\+Imprime (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}}]{registros,  }\item[{int}]{tamanho\+Atual }\end{DoxyParamCaption})}
+
+
+
+Exibe o menu de listagem de acomodações com opções de filtros e ordenação. 
+
+Esta função permite ao usuário visualizar as acomodações disponíveis, aplicar filtros (como faixa de preço), ordenar os registros (por preço crescente, decrescente ou número de reviews) e acessar detalhes de um registro específico. O menu é interativo e suporta navegação entre páginas de resultados.
+
+
+\begin{DoxyParams}{Parameters}
+{\em registros} & Ponteiro para o array de registros originais de acomodações. \\
+\hline
+{\em tamanho\+Atual} & Número total de registros armazenados no array.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyItemize}
+\item Cria uma cópia do array de registros para aplicar filtros sem modificar os dados originais.
+\item Utiliza a função {\ttfamily imprime\+Valores} para exibir os registros paginados.
+\item Oferece opções para ordenar os registros por preço ou número de reviews.
+\item Permite filtrar os registros por faixa de preço.
+\item Permite ao usuário visualizar detalhes de uma acomodação específica.
+\item Reinicia os filtros aplicados quando necessário.
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item A função utiliza alocação dinâmica de memória para criar cópias dos registros filtrados.
+\item A memória alocada é liberada ao final da execução da função.
+\item O cursor é ocultado durante a interação com o menu. 
+\end{DoxyItemize}
+\end{DoxyNote}

@@ -1,0 +1,37 @@
+<map id="src/utils/utils.h" name="src/utils/utils.h">
+<area shape="rect" id="Node000001" title="Definições de estruturas e declarações de funções auxiliares para manipulação de acomodações." alt="" coords="1807,5,1925,31"/>
+<area shape="rect" id="Node000002" href="$main_8cpp.html" title="Implementação de funções para leitura, processamento e ordenação de dados de acomodações." alt="" coords="5,86,111,111"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1794,22,1459,24,975,33,483,50,278,64,124,81,92,89,91,83,123,76,278,59,483,45,975,27,1458,19,1794,17"/>
+<area shape="rect" id="Node000003" href="$adicionarRegistro_8cpp.html" title="Implementação da função para adicionar registros de acomodações." alt="" coords="135,86,354,111"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="1794,22,1556,24,1204,32,789,50,576,64,366,81,310,89,309,83,366,76,575,58,789,45,1203,27,1556,19,1794,17"/>
+<area shape="rect" id="Node000004" href="$alteraRegistro_8cpp.html" title="Função para alterar um registro existente e atualizar o arquivo binário." alt="" coords="379,86,575,111"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="1794,22,1587,25,1288,34,941,51,762,65,586,81,536,89,535,83,586,76,761,59,940,46,1288,28,1587,20,1794,17"/>
+<area shape="rect" id="Node000005" href="$barraCarregamento_8cpp.html" title="Exibe uma barra de carregamento animada na interface ncurses." alt="" coords="599,86,829,111"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="1793,24,1388,41,1116,58,841,81,784,89,783,83,840,76,1116,52,1387,36,1793,19"/>
+<area shape="rect" id="Node000006" href="$carregarBinario_8cpp.html" title="Carrega os registros de acomodações a partir de um arquivo binário." alt="" coords="853,86,1057,111"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="1794,25,1479,44,1276,60,1070,81,1019,89,1019,83,1070,76,1275,55,1479,39,1793,20"/>
+<area shape="rect" id="Node000007" href="$excluirRegistro_8cpp.html" title="Função para excluir registros de acomodações e atualizar o arquivo binário." alt="" coords="1082,86,1285,111"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="1794,28,1572,49,1297,81,1249,89,1248,83,1296,76,1571,44,1794,23"/>
+<area shape="rect" id="Node000008" href="$exportarParaCSV_8cpp.html" title="Exporta os registros de acomodações para um arquivo CSV." alt="" coords="1309,86,1519,111"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="1794,34,1480,89,1479,83,1793,29"/>
+<area shape="rect" id="Node000009" href="$imprimeMenu_8cpp.html" title="Implementação do menu de listagem e filtragem de acomodações." alt="" coords="1543,86,1738,111"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="1821,38,1674,88,1673,83,1820,33"/>
+<area shape="rect" id="Node000010" href="$imprimeValores_8cpp.html" title="Implementação da função para exibir registros de acomodações em uma interface interativa." alt="" coords="1763,86,1969,111"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="1869,44,1869,86,1863,86,1863,44"/>
+<area shape="rect" id="Node000011" href="$leCsv_8cpp.html" title="Implementação de funções para leitura, processamento e ordenação de dados de acomodações." alt="" coords="1994,86,2133,111"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="1908,33,2036,83,2034,88,1906,38"/>
+<area shape="rect" id="Node000012" href="$menu1_8cpp.html" title="Implementação de um menu interativo para manipulação de dados." alt="" coords="2157,86,2306,111"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="1933,31,2145,76,2179,83,2178,89,2144,81,1932,36"/>
+<area shape="rect" id="Node000013" href="$menu2_8cpp.html" title="Implementação de um menu interativo para ordenação e filtragem de dados." alt="" coords="2330,86,2479,111"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="1939,24,2112,45,2318,76,2356,83,2355,89,2318,81,2112,51,1938,30"/>
+<area shape="rect" id="Node000014" href="$mostrarDetalhesAcomodacao_8cpp.html" title="Implementação de uma função para exibir detalhes de uma acomodação específica." alt="" coords="2503,79,2690,119"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="1939,22,2184,42,2492,76,2503,78,2503,83,2491,81,2184,47,1938,27"/>
+<area shape="rect" id="Node000015" href="$printSubMenu2_8cpp.html" title="Exibe o Sub Menu 2 e permite ao usuário interagir com as opções disponíveis." alt="" coords="2714,86,2917,111"/>
+<area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="1939,20,2269,38,2485,54,2702,76,2753,83,2752,89,2702,81,2484,59,2269,43,1938,25"/>
+<area shape="rect" id="Node000016" href="$reorganizarIds_8cpp.html" title="Reorganiza os IDs das acomodações no array dinâmico após modificação." alt="" coords="2941,86,3138,111"/>
+<area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="1938,18,2359,33,2642,50,2929,76,2980,83,2979,89,2928,81,2641,55,2359,38,1938,23"/>
+<area shape="rect" id="Node000017" href="$salvarBinario_8cpp.html" title="Implementação de uma função para salvar dados de acomodações em um arquivo binário." alt="" coords="3163,86,3353,111"/>
+<area shape="poly" id="edge16_Node000001_Node000017" title=" " alt="" coords="1939,17,2146,20,2446,28,2795,46,2974,59,3150,76,3200,83,3200,89,3150,81,2974,64,2794,51,2445,33,2146,25,1939,22"/>
+<area shape="rect" id="Node000018" href="$subMenu1_8cpp.html" title="Implementação de um submenu interativo para importação e adição de dados." alt="" coords="3378,86,3549,111"/>
+<area shape="poly" id="edge17_Node000001_Node000018" title=" " alt="" coords="1939,18,2644,37,3061,54,3235,64,3366,76,3412,83,3411,89,3366,81,3234,70,3061,59,2644,42,1938,23"/>
+</map>

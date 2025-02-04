@@ -1,0 +1,61 @@
+\doxysection{src/utils/exportar\+Para\+CSV.cpp File Reference}
+\hypertarget{exportarParaCSV_8cpp}{}\label{exportarParaCSV_8cpp}\index{src/utils/exportarParaCSV.cpp@{src/utils/exportarParaCSV.cpp}}
+
+
+Exporta os registros de acomodações para um arquivo CSV.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include "{}utils.\+h"{}}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+Include dependency graph for exportar\+Para\+CSV.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{exportarParaCSV_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{exportarParaCSV_8cpp_a28f75e838fcedff4a0bd61a091d0038f}{exportar\+Para\+CSV}} (\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}registros, int tamanho\+Atual, const string \&nome\+Arquivo)
+\begin{DoxyCompactList}\small\item\em Exporta os registros de acomodações para um arquivo CSV. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Exporta os registros de acomodações para um arquivo CSV. 
+
+Gera um arquivo CSV contendo os registros do array de acomodações. Inclui uma barra de progresso para acompanhar a exportação.
+
+\begin{DoxyAuthor}{Author}
+Marcos Morais 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+03/02/2025 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{exportarParaCSV_8cpp_a28f75e838fcedff4a0bd61a091d0038f}\label{exportarParaCSV_8cpp_a28f75e838fcedff4a0bd61a091d0038f} 
+\index{exportarParaCSV.cpp@{exportarParaCSV.cpp}!exportarParaCSV@{exportarParaCSV}}
+\index{exportarParaCSV@{exportarParaCSV}!exportarParaCSV.cpp@{exportarParaCSV.cpp}}
+\doxysubsubsection{\texorpdfstring{exportarParaCSV()}{exportarParaCSV()}}
+{\footnotesize\ttfamily void exportar\+Para\+CSV (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}}]{registros,  }\item[{int}]{tamanho\+Atual,  }\item[{const string \&}]{nome\+Arquivo }\end{DoxyParamCaption})}
+
+
+
+Exporta os registros de acomodações para um arquivo CSV. 
+
+Gera um arquivo CSV contendo os registros do array de acomodações. Inclui uma barra de progresso para acompanhar a exportação.
+
+
+\begin{DoxyParams}{Parameters}
+{\em registros} & Ponteiro para o array dinâmico de registros de acomodações. \\
+\hline
+{\em tamanho\+Atual} & Número de registros atualmente armazenados. \\
+\hline
+{\em nome\+Arquivo} & Nome do arquivo CSV onde os dados serão exportados. \\
+\hline
+\end{DoxyParams}

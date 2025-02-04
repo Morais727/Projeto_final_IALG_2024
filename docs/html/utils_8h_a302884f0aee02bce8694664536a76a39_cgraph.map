@@ -1,0 +1,10 @@
+<map id="ordenacaoBase" name="ordenacaoBase">
+<area shape="rect" id="Node000001" title="Ordena o array de acomodações por ID." alt="" coords="5,43,128,68"/>
+<area shape="rect" id="Node000002" href="$leCsv_8cpp.html#a2cbc79f3e4166453a63440adb8f2014d" title="Comparador para ordenar por ID." alt="" coords="176,5,293,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,40,164,31,165,36,125,45"/>
+<area shape="rect" id="Node000003" href="$leCsv_8cpp.html#a2f19ea008e967945b66d113c5d050a83" title="Função Quick Sort genérica." alt="" coords="193,79,276,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="127,65,180,77,179,82,126,71"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="210,80,205,70,208,61,218,54,235,52,255,56,263,64,259,68,252,60,235,57,220,59,212,64,210,70,215,77"/>
+<area shape="rect" id="Node000004" href="$leCsv_8cpp.html#a60c630bffed6132f23e35aac796f8def" title="Função de particionamento genérica para o Quick Sort." alt="" coords="341,79,419,104"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="276,89,328,89,328,94,276,94"/>
+</map>

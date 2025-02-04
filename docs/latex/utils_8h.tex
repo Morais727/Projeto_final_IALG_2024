@@ -1,0 +1,627 @@
+\doxysection{src/utils/utils.h File Reference}
+\hypertarget{utils_8h}{}\label{utils_8h}\index{src/utils/utils.h@{src/utils/utils.h}}
+
+
+Definições de estruturas e declarações de funções auxiliares para manipulação de acomodações.  
+
+
+{\ttfamily \#include $<$string$>$}\newline
+Include dependency graph for utils.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=168pt]{utils_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utils_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structacomodacoes}{acomodacoes}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{utils_8h_a1e75abd7e853ac1388a07726369dfc3f}\label{utils_8h_a1e75abd7e853ac1388a07726369dfc3f} 
+using {\bfseries Comparador} = bool(\texorpdfstring{$\ast$}{*})(const \mbox{\hyperlink{structacomodacoes}{acomodacoes}} \&, const \mbox{\hyperlink{structacomodacoes}{acomodacoes}} \&)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{utils_8h_aeb93e25e95d089d3e1c79baf4a71b594}\label{utils_8h_aeb93e25e95d089d3e1c79baf4a71b594} 
+void {\bfseries print\+Banner} ()
+\begin{DoxyCompactList}\small\item\em Exibe um banner ASCII e inicializa a interface do sistema. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{utils_8h_a62937734c7ddc8a3e7ef43d1cf895910}{print\+Menu1}} ()
+\begin{DoxyCompactList}\small\item\em Exibe o Menu 1 e permite ao usuário interagir com as opções. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{utils_8h_a1cbb75fe2c5566e2d5ea83b6f3663345}{print\+Menu2}} ()
+\begin{DoxyCompactList}\small\item\em Exibe o Menu 2 e permite ao usuário interagir com as opções de ordenação e filtragem. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{utils_8h_a1ebb0b3be2106edf70f976985574324b}{print\+Sub\+Menu1}} ()
+\begin{DoxyCompactList}\small\item\em Exibe o Submenu 1 e permite ao usuário interagir com as opções. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{utils_8h_aed121101f297ef8c8537f1e35d88d54d}{leitura\+CSV}} (string nome\+Arquivo, \mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}\&registros, int \&tamanho\+Atual)
+\begin{DoxyCompactList}\small\item\em Lê um arquivo CSV e armazena os registros em um array dinâmico. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utils_8h_ad260b9bf9ff7462eb7fddc34c8c2b026}{listar\+Por\+Campo}} (\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}registros, int tamanho\+Atual, const string \&campo, const string \&valor)
+\begin{DoxyCompactList}\small\item\em Lista acomodações com base em um campo e valor específicos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utils_8h_a302884f0aee02bce8694664536a76a39}{ordenacao\+Base}} (\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}registros, int tamanho\+Atual)
+\begin{DoxyCompactList}\small\item\em Ordena o array de acomodações por ID. \end{DoxyCompactList}\item 
+\Hypertarget{utils_8h_aff6c831918692405e75fc55c43424304}\label{utils_8h_aff6c831918692405e75fc55c43424304} 
+void {\bfseries clear\+Console} ()
+\item 
+void \mbox{\hyperlink{utils_8h_a678fd4256c2834e04e48bbc430acd108}{menu\+Imprime}} (\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}registros, int tamanho\+Atual)
+\begin{DoxyCompactList}\small\item\em Exibe o menu de listagem de acomodações com opções de filtros e ordenação. \end{DoxyCompactList}\item 
+\Hypertarget{utils_8h_a47be1aa9ef2a788eb7865241bf13edb5}\label{utils_8h_a47be1aa9ef2a788eb7865241bf13edb5} 
+int {\bfseries interactive\+Menu} (const string options\mbox{[}$\,$\mbox{]}, int option\+Count, const string \&header)
+\item 
+void \mbox{\hyperlink{utils_8h_a213f4ebd9faaed34b7d00566b60fc407}{mostrar\+Detalhes\+Acomodacao}} (\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}registros, int tamanho\+Atual, int id\+Selecionado, int \&tamanho\+Inicial, int \&tamanho\+Final)
+\begin{DoxyCompactList}\small\item\em Exibe os detalhes de uma acomodação com base no ID selecionado. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{utils_8h_a04f3bb70fe7ef2655dab3acc82aded2a}{excluir\+Registro}} (\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}registros, int \&tamanho\+Atual, const string \&nome\+Arquivo\+Novo)
+\begin{DoxyCompactList}\small\item\em Exclui um registro do array de acomodações e atualiza o arquivo binário. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{utils_8h_ab6a92f88a28e22839f8fa65293f9094d}{adicionar\+Registro}} (\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}registros, int \&tamanho\+Atual, int capacidade\+Max, const string \&nome\+Arquivo)
+\begin{DoxyCompactList}\small\item\em Adiciona um novo registro de acomodação ao array e atualiza o arquivo binário. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{utils_8h_afb0204f7e1f4b80ea98eaa972f6d9a74}{altera\+Registro}} (\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}registros, int tamanho\+Atual, const string \&nome\+Arquivo)
+\begin{DoxyCompactList}\small\item\em Altera um registro existente no array e atualiza o arquivo binário. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{utils_8h_a2cbc79f3e4166453a63440adb8f2014d}{comparar\+Por\+Id}} (const \mbox{\hyperlink{structacomodacoes}{acomodacoes}} \&a, const \mbox{\hyperlink{structacomodacoes}{acomodacoes}} \&b)
+\begin{DoxyCompactList}\small\item\em Comparador para ordenar por ID. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utils_8h_a2f19ea008e967945b66d113c5d050a83}{quick\+Sort}} (\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}registros, int low, int high, \mbox{\hyperlink{leCsv_8cpp_acc5fe9b3a20b10e8b9b01dce200ffeb5}{Comparador}} comparador)
+\begin{DoxyCompactList}\small\item\em Função Quick Sort genérica. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{utils_8h_a466d1762b616b89b66f79249cf660d85}{comparar\+Por\+Price\+Crescente}} (const \mbox{\hyperlink{structacomodacoes}{acomodacoes}} \&a, const \mbox{\hyperlink{structacomodacoes}{acomodacoes}} \&b)
+\begin{DoxyCompactList}\small\item\em Comparador para ordenar por Price (crescente). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{utils_8h_a9106a9fcad0b0590be4b332ed80d33f1}{comparar\+Por\+Price\+Decrescente}} (const \mbox{\hyperlink{structacomodacoes}{acomodacoes}} \&a, const \mbox{\hyperlink{structacomodacoes}{acomodacoes}} \&b)
+\begin{DoxyCompactList}\small\item\em Comparador para ordenar por Price (decrescente). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{utils_8h_a5f89cc6c070b8cd176dbdfa12056e677}{comparar\+Por\+Reviews}} (const \mbox{\hyperlink{structacomodacoes}{acomodacoes}} \&a, const \mbox{\hyperlink{structacomodacoes}{acomodacoes}} \&b)
+\begin{DoxyCompactList}\small\item\em Comparador para ordenar por Number of Reviews. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{utils_8h_a60c630bffed6132f23e35aac796f8def}{partition}} (\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}registros, int low, int high, \mbox{\hyperlink{leCsv_8cpp_acc5fe9b3a20b10e8b9b01dce200ffeb5}{Comparador}} comparador)
+\begin{DoxyCompactList}\small\item\em Função de particionamento genérica para o Quick Sort. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utils_8h_a7f2b21ee42b15194328616084614b656}{carregar\+Binario}} (\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}\&registros, int \&tamanho\+Atual, int \&capacidade, const string \&nome\+Arquivo)
+\begin{DoxyCompactList}\small\item\em Carrega os registros de acomodações a partir de um arquivo binário. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utils_8h_aeb2f098f8373fe16b06af3cb24fdf316}{salvar\+Binario}} (\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}registros, int tamanho\+Atual, const string \&nome\+Arquivo)
+\begin{DoxyCompactList}\small\item\em Salva os dados das acomodações em um arquivo binário. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{utils_8h_a7925689a8f88e816b0fb99cb0a243d6a}{imprime\+Valores}} (\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}registros, int tamanho\+Atual, int tamanho\+Inicial, int tamanho\+Final)
+\begin{DoxyCompactList}\small\item\em Exibe os registros de acomodações em uma interface interativa utilizando ncurses. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utils_8h_a28f75e838fcedff4a0bd61a091d0038f}{exportar\+Para\+CSV}} (\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}registros, int tamanho\+Atual, const string \&nome\+Arquivo)
+\begin{DoxyCompactList}\small\item\em Exporta os registros de acomodações para um arquivo CSV. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{utils_8h_a6645fdf0514a0c03c411040a278c896f}{print\+Sub\+Menu2}} ()
+\begin{DoxyCompactList}\small\item\em Exibe o Sub Menu 2 e permite ao usuário interagir com as opções disponíveis. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utils_8h_ac02ac92d6d91d282e8b2e308914c3f04}{exibir\+Barra\+Carregamento}} (int progresso, int total)
+\begin{DoxyCompactList}\small\item\em Exibe uma barra de carregamento animada na interface {\ttfamily ncurses}. \end{DoxyCompactList}\item 
+\Hypertarget{utils_8h_a9148ede824b07f15fb47218f2c559857}\label{utils_8h_a9148ede824b07f15fb47218f2c559857} 
+void {\bfseries reorganizar\+IDs} (\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}registros, int tamanho\+Atual)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Definições de estruturas e declarações de funções auxiliares para manipulação de acomodações. 
+
+Contém a estrutura {\ttfamily acomodacoes} e as assinaturas de funções utilizadas para operações como leitura, escrita, ordenação e exibição de dados.
+
+\begin{DoxyAuthor}{Author}
+Marcos Morais 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+03/02/2025 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{utils_8h_ab6a92f88a28e22839f8fa65293f9094d}\label{utils_8h_ab6a92f88a28e22839f8fa65293f9094d} 
+\index{utils.h@{utils.h}!adicionarRegistro@{adicionarRegistro}}
+\index{adicionarRegistro@{adicionarRegistro}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{adicionarRegistro()}{adicionarRegistro()}}
+{\footnotesize\ttfamily int adicionar\+Registro (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}}]{registros,  }\item[{int \&}]{tamanho\+Atual,  }\item[{int}]{capacidade\+Max,  }\item[{const string \&}]{nome\+Arquivo }\end{DoxyParamCaption})}
+
+
+
+Adiciona um novo registro de acomodação ao array e atualiza o arquivo binário. 
+
+A função solicita os dados da nova acomodação ao usuário, armazena no array {\ttfamily registros} e escreve os dados atualizados no arquivo binário especificado. Se a capacidade máxima for atingida, a função não adiciona o registro.
+
+
+\begin{DoxyParams}{Parameters}
+{\em registros} & Ponteiro para o array de registros de acomodações. \\
+\hline
+{\em tamanho\+Atual} & Referência ao número atual de registros armazenados. \\
+\hline
+{\em capacidade\+Max} & Número máximo de registros que podem ser armazenados no array. \\
+\hline
+{\em nome\+Arquivo} & Nome do arquivo binário onde os registros são armazenados. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Retorna {\ttfamily 0} em caso de sucesso ou {\ttfamily -\/1} se a capacidade for excedida ou ocorrer erro no arquivo. 
+\end{DoxyReturn}
+\Hypertarget{utils_8h_afb0204f7e1f4b80ea98eaa972f6d9a74}\label{utils_8h_afb0204f7e1f4b80ea98eaa972f6d9a74} 
+\index{utils.h@{utils.h}!alteraRegistro@{alteraRegistro}}
+\index{alteraRegistro@{alteraRegistro}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{alteraRegistro()}{alteraRegistro()}}
+{\footnotesize\ttfamily int altera\+Registro (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}}]{registros,  }\item[{int}]{tamanho\+Atual,  }\item[{const string \&}]{nome\+Arquivo }\end{DoxyParamCaption})}
+
+
+
+Altera um registro existente no array e atualiza o arquivo binário. 
+
+O usuário informa o ID do registro que deseja alterar. Se encontrado, os dados são exibidos e podem ser modificados. As alterações são salvas no arquivo binário.
+
+
+\begin{DoxyParams}{Parameters}
+{\em registros} & Ponteiro para o array de registros de acomodações. \\
+\hline
+{\em tamanho\+Atual} & Número atual de registros armazenados. \\
+\hline
+{\em nome\+Arquivo} & Nome do arquivo binário onde os registros são armazenados. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Retorna {\ttfamily 0} se a alteração for bem-\/sucedida ou se o usuário cancelar a operação, e {\ttfamily -\/1} se ocorrer um erro na escrita do arquivo. 
+\end{DoxyReturn}
+\Hypertarget{utils_8h_a7f2b21ee42b15194328616084614b656}\label{utils_8h_a7f2b21ee42b15194328616084614b656} 
+\index{utils.h@{utils.h}!carregarBinario@{carregarBinario}}
+\index{carregarBinario@{carregarBinario}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{carregarBinario()}{carregarBinario()}}
+{\footnotesize\ttfamily void carregar\+Binario (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}\&}]{registros,  }\item[{int \&}]{tamanho\+Atual,  }\item[{int \&}]{capacidade,  }\item[{const string \&}]{nome\+Arquivo }\end{DoxyParamCaption})}
+
+
+
+Carrega os registros de acomodações a partir de um arquivo binário. 
+
+Se o arquivo binário não existir, a função inicializa um novo array dinâmico. Se o arquivo estiver corrompido, os dados não serão carregados e um novo espaço será alocado. A função utiliza alocação dinâmica para armazenar os registros.
+
+
+\begin{DoxyParams}{Parameters}
+{\em registros} & Ponteiro para o array dinâmico de registros. \\
+\hline
+{\em tamanho\+Atual} & Número de registros carregados. \\
+\hline
+{\em capacidade} & Capacidade total alocada para armazenar os registros. \\
+\hline
+{\em nome\+Arquivo} & Nome do arquivo binário a ser lido. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{utils_8h_a2cbc79f3e4166453a63440adb8f2014d}\label{utils_8h_a2cbc79f3e4166453a63440adb8f2014d} 
+\index{utils.h@{utils.h}!compararPorId@{compararPorId}}
+\index{compararPorId@{compararPorId}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{compararPorId()}{compararPorId()}}
+{\footnotesize\ttfamily bool comparar\+Por\+Id (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structacomodacoes}{acomodacoes}} \&}]{a,  }\item[{const \mbox{\hyperlink{structacomodacoes}{acomodacoes}} \&}]{b }\end{DoxyParamCaption})}
+
+
+
+Comparador para ordenar por ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Primeira acomodação a ser comparada. \\
+\hline
+{\em b} & Segunda acomodação a ser comparada. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se o ID de {\ttfamily a} for menor que o de {\ttfamily b}, false caso contrário. 
+\end{DoxyReturn}
+\Hypertarget{utils_8h_a466d1762b616b89b66f79249cf660d85}\label{utils_8h_a466d1762b616b89b66f79249cf660d85} 
+\index{utils.h@{utils.h}!compararPorPriceCrescente@{compararPorPriceCrescente}}
+\index{compararPorPriceCrescente@{compararPorPriceCrescente}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{compararPorPriceCrescente()}{compararPorPriceCrescente()}}
+{\footnotesize\ttfamily bool comparar\+Por\+Price\+Crescente (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structacomodacoes}{acomodacoes}} \&}]{a,  }\item[{const \mbox{\hyperlink{structacomodacoes}{acomodacoes}} \&}]{b }\end{DoxyParamCaption})}
+
+
+
+Comparador para ordenar por Price (crescente). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Primeira acomodação a ser comparada. \\
+\hline
+{\em b} & Segunda acomodação a ser comparada. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se o preço de {\ttfamily a} for menor que o de {\ttfamily b}, false caso contrário. 
+\end{DoxyReturn}
+\Hypertarget{utils_8h_a9106a9fcad0b0590be4b332ed80d33f1}\label{utils_8h_a9106a9fcad0b0590be4b332ed80d33f1} 
+\index{utils.h@{utils.h}!compararPorPriceDecrescente@{compararPorPriceDecrescente}}
+\index{compararPorPriceDecrescente@{compararPorPriceDecrescente}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{compararPorPriceDecrescente()}{compararPorPriceDecrescente()}}
+{\footnotesize\ttfamily bool comparar\+Por\+Price\+Decrescente (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structacomodacoes}{acomodacoes}} \&}]{a,  }\item[{const \mbox{\hyperlink{structacomodacoes}{acomodacoes}} \&}]{b }\end{DoxyParamCaption})}
+
+
+
+Comparador para ordenar por Price (decrescente). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Primeira acomodação a ser comparada. \\
+\hline
+{\em b} & Segunda acomodação a ser comparada. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se o preço de {\ttfamily a} for maior que o de {\ttfamily b}, false caso contrário. 
+\end{DoxyReturn}
+\Hypertarget{utils_8h_a5f89cc6c070b8cd176dbdfa12056e677}\label{utils_8h_a5f89cc6c070b8cd176dbdfa12056e677} 
+\index{utils.h@{utils.h}!compararPorReviews@{compararPorReviews}}
+\index{compararPorReviews@{compararPorReviews}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{compararPorReviews()}{compararPorReviews()}}
+{\footnotesize\ttfamily bool comparar\+Por\+Reviews (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structacomodacoes}{acomodacoes}} \&}]{a,  }\item[{const \mbox{\hyperlink{structacomodacoes}{acomodacoes}} \&}]{b }\end{DoxyParamCaption})}
+
+
+
+Comparador para ordenar por Number of Reviews. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Primeira acomodação a ser comparada. \\
+\hline
+{\em b} & Segunda acomodação a ser comparada. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se a pontuação de avaliação de {\ttfamily a} for maior que a de {\ttfamily b}, false caso contrário. 
+\end{DoxyReturn}
+\Hypertarget{utils_8h_a04f3bb70fe7ef2655dab3acc82aded2a}\label{utils_8h_a04f3bb70fe7ef2655dab3acc82aded2a} 
+\index{utils.h@{utils.h}!excluirRegistro@{excluirRegistro}}
+\index{excluirRegistro@{excluirRegistro}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{excluirRegistro()}{excluirRegistro()}}
+{\footnotesize\ttfamily int excluir\+Registro (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}}]{registros,  }\item[{int \&}]{tamanho\+Atual,  }\item[{const string \&}]{nome\+Arquivo }\end{DoxyParamCaption})}
+
+
+
+Exclui um registro do array de acomodações e atualiza o arquivo binário. 
+
+O usuário informa um ID e, se encontrado, o registro é removido deslocando os subsequentes. O arquivo binário é atualizado e, se não houver mais registros, o arquivo é deletado.
+
+
+\begin{DoxyParams}{Parameters}
+{\em registros} & Ponteiro para o array dinâmico de registros de acomodações. \\
+\hline
+{\em tamanho\+Atual} & Referência para o número de registros atualmente armazenados. \\
+\hline
+{\em nome\+Arquivo} & Nome do arquivo binário onde os registros são salvos. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Retorna 0 em caso de sucesso e -\/1 se o ID não for encontrado ou houver erro na gravação. 
+\end{DoxyReturn}
+\Hypertarget{utils_8h_ac02ac92d6d91d282e8b2e308914c3f04}\label{utils_8h_ac02ac92d6d91d282e8b2e308914c3f04} 
+\index{utils.h@{utils.h}!exibirBarraCarregamento@{exibirBarraCarregamento}}
+\index{exibirBarraCarregamento@{exibirBarraCarregamento}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{exibirBarraCarregamento()}{exibirBarraCarregamento()}}
+{\footnotesize\ttfamily void exibir\+Barra\+Carregamento (\begin{DoxyParamCaption}\item[{int}]{progresso,  }\item[{int}]{total }\end{DoxyParamCaption})}
+
+
+
+Exibe uma barra de carregamento animada na interface {\ttfamily ncurses}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em progresso} & Valor atual do progresso (quantidade concluída). \\
+\hline
+{\em total} & Valor total representando 100\% do progresso. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{utils_8h_a28f75e838fcedff4a0bd61a091d0038f}\label{utils_8h_a28f75e838fcedff4a0bd61a091d0038f} 
+\index{utils.h@{utils.h}!exportarParaCSV@{exportarParaCSV}}
+\index{exportarParaCSV@{exportarParaCSV}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{exportarParaCSV()}{exportarParaCSV()}}
+{\footnotesize\ttfamily void exportar\+Para\+CSV (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}}]{registros,  }\item[{int}]{tamanho\+Atual,  }\item[{const string \&}]{nome\+Arquivo }\end{DoxyParamCaption})}
+
+
+
+Exporta os registros de acomodações para um arquivo CSV. 
+
+Gera um arquivo CSV contendo os registros do array de acomodações. Inclui uma barra de progresso para acompanhar a exportação.
+
+
+\begin{DoxyParams}{Parameters}
+{\em registros} & Ponteiro para o array dinâmico de registros de acomodações. \\
+\hline
+{\em tamanho\+Atual} & Número de registros atualmente armazenados. \\
+\hline
+{\em nome\+Arquivo} & Nome do arquivo CSV onde os dados serão exportados. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{utils_8h_a7925689a8f88e816b0fb99cb0a243d6a}\label{utils_8h_a7925689a8f88e816b0fb99cb0a243d6a} 
+\index{utils.h@{utils.h}!imprimeValores@{imprimeValores}}
+\index{imprimeValores@{imprimeValores}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{imprimeValores()}{imprimeValores()}}
+{\footnotesize\ttfamily int imprime\+Valores (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}}]{registros,  }\item[{int}]{tamanho\+Atual,  }\item[{int}]{tamanho\+Inicial,  }\item[{int}]{tamanho\+Final }\end{DoxyParamCaption})}
+
+
+
+Exibe os registros de acomodações em uma interface interativa utilizando ncurses. 
+
+Esta função exibe uma tabela formatada com os detalhes das acomodações, permitindo ao usuário navegar pelos registros, alternar páginas e selecionar um item específico. A interface é construída utilizando a biblioteca ncurses para proporcionar uma experiência interativa e sofisticada.
+
+
+\begin{DoxyParams}{Parameters}
+{\em registros} & Ponteiro para o array de registros de acomodações. \\
+\hline
+{\em tamanho\+Atual} & Número total de registros disponíveis. \\
+\hline
+{\em tamanho\+Inicial} & Índice do primeiro registro a ser exibido. \\
+\hline
+{\em tamanho\+Final} & Índice do último registro a ser exibido.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Código de retorno\+:
+\begin{DoxyItemize}
+\item ID do item selecionado (índice + 1).
+\item -\/10 para indicar que o usuário escolheu voltar.
+\item -\/20 para indicar que o usuário escolheu filtrar.
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+\begin{DoxyItemize}
+\item A função utiliza ncurses para criar uma interface interativa.
+\item Os registros são exibidos em uma tabela formatada com colunas para ID, nome, quartos, banheiros, mínimo de noites, avaliações e preço.
+\item O usuário pode navegar pelos registros usando as setas do teclado.
+\item É possível alternar entre páginas de resultados usando as teclas \textquotesingle{}B\textquotesingle{} (anterior) e \textquotesingle{}N\textquotesingle{} (próxima).
+\item A tecla \textquotesingle{}V\textquotesingle{} permite ao usuário voltar ao menu anterior.
+\item A tecla \textquotesingle{}F\textquotesingle{} permite ao usuário acessar o menu de filtros.
+\item A tecla \textquotesingle{}Enter\textquotesingle{} seleciona o item destacado.
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item A função inicializa e finaliza o modo ncurses automaticamente.
+\item O cursor é ocultado durante a execução da função.
+\item A função retorna o índice do item selecionado ajustado para começar em 1 (em vez de 0). 
+\end{DoxyItemize}
+\end{DoxyNote}
+Move a seleção para cima
+
+Move a seleção para baixo, garantindo que esteja dentro dos limites
+
+Volta para a página anterior (se possível)
+
+Avança para a próxima página (se possível)
+
+Sai da função retornando -\/10
+
+Sai da função retornando -\/20 (sinalizando opção de filtro)
+
+Retorna o índice do item selecionado\Hypertarget{utils_8h_aed121101f297ef8c8537f1e35d88d54d}\label{utils_8h_aed121101f297ef8c8537f1e35d88d54d} 
+\index{utils.h@{utils.h}!leituraCSV@{leituraCSV}}
+\index{leituraCSV@{leituraCSV}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{leituraCSV()}{leituraCSV()}}
+{\footnotesize\ttfamily int leitura\+CSV (\begin{DoxyParamCaption}\item[{string}]{nome\+Arquivo,  }\item[{\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}\&}]{registros,  }\item[{int \&}]{tamanho\+Atual }\end{DoxyParamCaption})}
+
+
+
+Lê um arquivo CSV e armazena os registros em um array dinâmico. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome\+Arquivo} & O nome do arquivo CSV a ser lido. \\
+\hline
+{\em registros} & Um ponteiro para o array dinâmico de acomodações. \\
+\hline
+{\em tamanho\+Atual} & O tamanho atual do array dinâmico. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 em caso de sucesso, 1 em caso de erro. 
+\end{DoxyReturn}
+\Hypertarget{utils_8h_ad260b9bf9ff7462eb7fddc34c8c2b026}\label{utils_8h_ad260b9bf9ff7462eb7fddc34c8c2b026} 
+\index{utils.h@{utils.h}!listarPorCampo@{listarPorCampo}}
+\index{listarPorCampo@{listarPorCampo}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{listarPorCampo()}{listarPorCampo()}}
+{\footnotesize\ttfamily void listar\+Por\+Campo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}}]{registros,  }\item[{int}]{tamanho\+Atual,  }\item[{const string \&}]{campo,  }\item[{const string \&}]{valor }\end{DoxyParamCaption})}
+
+
+
+Lista acomodações com base em um campo e valor específicos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em registros} & O array de acomodações. \\
+\hline
+{\em tamanho\+Atual} & O tamanho atual do array. \\
+\hline
+{\em campo} & O campo a ser filtrado. \\
+\hline
+{\em valor} & O valor a ser comparado. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{utils_8h_a678fd4256c2834e04e48bbc430acd108}\label{utils_8h_a678fd4256c2834e04e48bbc430acd108} 
+\index{utils.h@{utils.h}!menuImprime@{menuImprime}}
+\index{menuImprime@{menuImprime}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{menuImprime()}{menuImprime()}}
+{\footnotesize\ttfamily void menu\+Imprime (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}}]{registros,  }\item[{int}]{tamanho\+Atual }\end{DoxyParamCaption})}
+
+
+
+Exibe o menu de listagem de acomodações com opções de filtros e ordenação. 
+
+Esta função permite ao usuário visualizar as acomodações disponíveis, aplicar filtros (como faixa de preço), ordenar os registros (por preço crescente, decrescente ou número de reviews) e acessar detalhes de um registro específico. O menu é interativo e suporta navegação entre páginas de resultados.
+
+
+\begin{DoxyParams}{Parameters}
+{\em registros} & Ponteiro para o array de registros originais de acomodações. \\
+\hline
+{\em tamanho\+Atual} & Número total de registros armazenados no array.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyItemize}
+\item Cria uma cópia do array de registros para aplicar filtros sem modificar os dados originais.
+\item Utiliza a função {\ttfamily imprime\+Valores} para exibir os registros paginados.
+\item Oferece opções para ordenar os registros por preço ou número de reviews.
+\item Permite filtrar os registros por faixa de preço.
+\item Permite ao usuário visualizar detalhes de uma acomodação específica.
+\item Reinicia os filtros aplicados quando necessário.
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item A função utiliza alocação dinâmica de memória para criar cópias dos registros filtrados.
+\item A memória alocada é liberada ao final da execução da função.
+\item O cursor é ocultado durante a interação com o menu. 
+\end{DoxyItemize}
+\end{DoxyNote}
+\Hypertarget{utils_8h_a213f4ebd9faaed34b7d00566b60fc407}\label{utils_8h_a213f4ebd9faaed34b7d00566b60fc407} 
+\index{utils.h@{utils.h}!mostrarDetalhesAcomodacao@{mostrarDetalhesAcomodacao}}
+\index{mostrarDetalhesAcomodacao@{mostrarDetalhesAcomodacao}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{mostrarDetalhesAcomodacao()}{mostrarDetalhesAcomodacao()}}
+{\footnotesize\ttfamily void mostrar\+Detalhes\+Acomodacao (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}}]{registros,  }\item[{int}]{tamanho\+Atual,  }\item[{int}]{id\+Selecionado,  }\item[{int \&}]{tamanho\+Inicial,  }\item[{int \&}]{tamanho\+Final }\end{DoxyParamCaption})}
+
+
+
+Exibe os detalhes de uma acomodação com base no ID selecionado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em registros} & Um array de estruturas {\ttfamily acomodacoes} contendo os dados das acomodações. \\
+\hline
+{\em tamanho\+Atual} & O tamanho atual do array de registros. \\
+\hline
+{\em id\+Selecionado} & O ID da acomodação que se deseja exibir. \\
+\hline
+{\em tamanho\+Inicial} & O índice inicial para a busca no array. \\
+\hline
+{\em tamanho\+Final} & O índice final para a busca no array. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{utils_8h_a302884f0aee02bce8694664536a76a39}\label{utils_8h_a302884f0aee02bce8694664536a76a39} 
+\index{utils.h@{utils.h}!ordenacaoBase@{ordenacaoBase}}
+\index{ordenacaoBase@{ordenacaoBase}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{ordenacaoBase()}{ordenacaoBase()}}
+{\footnotesize\ttfamily void ordenacao\+Base (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}}]{registros,  }\item[{int}]{tamanho\+Atual }\end{DoxyParamCaption})}
+
+
+
+Ordena o array de acomodações por ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em registros} & O array de acomodações a ser ordenado. \\
+\hline
+{\em tamanho\+Atual} & O tamanho atual do array. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{utils_8h_a60c630bffed6132f23e35aac796f8def}\label{utils_8h_a60c630bffed6132f23e35aac796f8def} 
+\index{utils.h@{utils.h}!partition@{partition}}
+\index{partition@{partition}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{partition()}{partition()}}
+{\footnotesize\ttfamily int partition (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}}]{registros,  }\item[{int}]{low,  }\item[{int}]{high,  }\item[{\mbox{\hyperlink{leCsv_8cpp_acc5fe9b3a20b10e8b9b01dce200ffeb5}{Comparador}}}]{comparador }\end{DoxyParamCaption})}
+
+
+
+Função de particionamento genérica para o Quick Sort. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em registros} & O array de acomodações a ser particionado. \\
+\hline
+{\em low} & O índice inicial do subarray. \\
+\hline
+{\em high} & O índice final do subarray. \\
+\hline
+{\em comparador} & O critério de comparação. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+O índice do pivô após o particionamento. 
+\end{DoxyReturn}
+\Hypertarget{utils_8h_a62937734c7ddc8a3e7ef43d1cf895910}\label{utils_8h_a62937734c7ddc8a3e7ef43d1cf895910} 
+\index{utils.h@{utils.h}!printMenu1@{printMenu1}}
+\index{printMenu1@{printMenu1}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{printMenu1()}{printMenu1()}}
+{\footnotesize\ttfamily int print\+Menu1 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Exibe o Menu 1 e permite ao usuário interagir com as opções. 
+
+\begin{DoxyReturn}{Returns}
+O número da opção selecionada pelo usuário (1 a 6). 
+\end{DoxyReturn}
+\Hypertarget{utils_8h_a1cbb75fe2c5566e2d5ea83b6f3663345}\label{utils_8h_a1cbb75fe2c5566e2d5ea83b6f3663345} 
+\index{utils.h@{utils.h}!printMenu2@{printMenu2}}
+\index{printMenu2@{printMenu2}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{printMenu2()}{printMenu2()}}
+{\footnotesize\ttfamily int print\+Menu2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Exibe o Menu 2 e permite ao usuário interagir com as opções de ordenação e filtragem. 
+
+\begin{DoxyReturn}{Returns}
+O número da opção selecionada pelo usuário (1 a 5). 
+\end{DoxyReturn}
+\Hypertarget{utils_8h_a1ebb0b3be2106edf70f976985574324b}\label{utils_8h_a1ebb0b3be2106edf70f976985574324b} 
+\index{utils.h@{utils.h}!printSubMenu1@{printSubMenu1}}
+\index{printSubMenu1@{printSubMenu1}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{printSubMenu1()}{printSubMenu1()}}
+{\footnotesize\ttfamily int print\+Sub\+Menu1 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Exibe o Submenu 1 e permite ao usuário interagir com as opções. 
+
+\begin{DoxyReturn}{Returns}
+O número da opção selecionada pelo usuário (1 a 3). 
+\end{DoxyReturn}
+\Hypertarget{utils_8h_a6645fdf0514a0c03c411040a278c896f}\label{utils_8h_a6645fdf0514a0c03c411040a278c896f} 
+\index{utils.h@{utils.h}!printSubMenu2@{printSubMenu2}}
+\index{printSubMenu2@{printSubMenu2}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{printSubMenu2()}{printSubMenu2()}}
+{\footnotesize\ttfamily int print\+Sub\+Menu2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Exibe o Sub Menu 2 e permite ao usuário interagir com as opções disponíveis. 
+
+Esta função exibe um menu interativo com um cabeçalho estilizado e três opções. O cursor é ocultado durante a exibição do menu. O usuário pode navegar pelas opções e selecionar uma delas. A escolha do usuário é retornada como um valor inteiro.
+
+\begin{DoxyReturn}{Returns}
+int Retorna o número da opção escolhida pelo usuário (1 a 3). 
+\end{DoxyReturn}
+\Hypertarget{utils_8h_a2f19ea008e967945b66d113c5d050a83}\label{utils_8h_a2f19ea008e967945b66d113c5d050a83} 
+\index{utils.h@{utils.h}!quickSort@{quickSort}}
+\index{quickSort@{quickSort}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{quickSort()}{quickSort()}}
+{\footnotesize\ttfamily void quick\+Sort (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}}]{registros,  }\item[{int}]{low,  }\item[{int}]{high,  }\item[{\mbox{\hyperlink{leCsv_8cpp_acc5fe9b3a20b10e8b9b01dce200ffeb5}{Comparador}}}]{comparador }\end{DoxyParamCaption})}
+
+
+
+Função Quick Sort genérica. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em registros} & O array de acomodações a ser ordenado. \\
+\hline
+{\em low} & O índice inicial do subarray. \\
+\hline
+{\em high} & O índice final do subarray. \\
+\hline
+{\em comparador} & O critério de comparação. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{utils_8h_aeb2f098f8373fe16b06af3cb24fdf316}\label{utils_8h_aeb2f098f8373fe16b06af3cb24fdf316} 
+\index{utils.h@{utils.h}!salvarBinario@{salvarBinario}}
+\index{salvarBinario@{salvarBinario}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{salvarBinario()}{salvarBinario()}}
+{\footnotesize\ttfamily void salvar\+Binario (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}}]{registros,  }\item[{int}]{tamanho\+Atual,  }\item[{const string \&}]{nome\+Arquivo }\end{DoxyParamCaption})}
+
+
+
+Salva os dados das acomodações em um arquivo binário. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em registros} & Um array de estruturas {\ttfamily acomodacoes} contendo os dados a serem salvos. \\
+\hline
+{\em tamanho\+Atual} & O número de registros no array. \\
+\hline
+{\em nome\+Arquivo} & O nome do arquivo binário onde os dados serão salvos. \\
+\hline
+\end{DoxyParams}

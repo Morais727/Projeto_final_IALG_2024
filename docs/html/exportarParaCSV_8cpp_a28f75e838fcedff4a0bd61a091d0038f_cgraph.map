@@ -1,0 +1,5 @@
+<map id="exportarParaCSV" name="exportarParaCSV">
+<area shape="rect" id="Node000001" title="Exporta os registros de acomodações para um arquivo CSV." alt="" coords="5,5,136,31"/>
+<area shape="rect" id="Node000002" href="$barraCarregamento_8cpp.html#ac02ac92d6d91d282e8b2e308914c3f04" title="Exibe uma barra de carregamento animada na interface ncurses." alt="" coords="184,5,371,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="137,15,170,15,170,21,137,21"/>
+</map>

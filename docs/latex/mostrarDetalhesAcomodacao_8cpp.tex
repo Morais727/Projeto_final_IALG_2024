@@ -1,0 +1,61 @@
+\doxysection{src/utils/mostrar\+Detalhes\+Acomodacao.cpp File Reference}
+\hypertarget{mostrarDetalhesAcomodacao_8cpp}{}\label{mostrarDetalhesAcomodacao_8cpp}\index{src/utils/mostrarDetalhesAcomodacao.cpp@{src/utils/mostrarDetalhesAcomodacao.cpp}}
+
+
+Implementação de uma função para exibir detalhes de uma acomodação específica.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include "{}utils.\+h"{}}\newline
+{\ttfamily \#include $<$ncurses.\+h$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+Include dependency graph for mostrar\+Detalhes\+Acomodacao.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=326pt]{mostrarDetalhesAcomodacao_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{mostrarDetalhesAcomodacao_8cpp_a213f4ebd9faaed34b7d00566b60fc407}{mostrar\+Detalhes\+Acomodacao}} (\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}registros, int tamanho\+Atual, int id\+Selecionado, int \&tamanho\+Inicial, int \&tamanho\+Final)
+\begin{DoxyCompactList}\small\item\em Exibe os detalhes de uma acomodação com base no ID selecionado. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementação de uma função para exibir detalhes de uma acomodação específica. 
+
+\begin{DoxyAuthor}{Author}
+Marcos Morais 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+03/02/2025 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{mostrarDetalhesAcomodacao_8cpp_a213f4ebd9faaed34b7d00566b60fc407}\label{mostrarDetalhesAcomodacao_8cpp_a213f4ebd9faaed34b7d00566b60fc407} 
+\index{mostrarDetalhesAcomodacao.cpp@{mostrarDetalhesAcomodacao.cpp}!mostrarDetalhesAcomodacao@{mostrarDetalhesAcomodacao}}
+\index{mostrarDetalhesAcomodacao@{mostrarDetalhesAcomodacao}!mostrarDetalhesAcomodacao.cpp@{mostrarDetalhesAcomodacao.cpp}}
+\doxysubsubsection{\texorpdfstring{mostrarDetalhesAcomodacao()}{mostrarDetalhesAcomodacao()}}
+{\footnotesize\ttfamily void mostrar\+Detalhes\+Acomodacao (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}}]{registros,  }\item[{int}]{tamanho\+Atual,  }\item[{int}]{id\+Selecionado,  }\item[{int \&}]{tamanho\+Inicial,  }\item[{int \&}]{tamanho\+Final }\end{DoxyParamCaption})}
+
+
+
+Exibe os detalhes de uma acomodação com base no ID selecionado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em registros} & Um array de estruturas {\ttfamily acomodacoes} contendo os dados das acomodações. \\
+\hline
+{\em tamanho\+Atual} & O tamanho atual do array de registros. \\
+\hline
+{\em id\+Selecionado} & O ID da acomodação que se deseja exibir. \\
+\hline
+{\em tamanho\+Inicial} & O índice inicial para a busca no array. \\
+\hline
+{\em tamanho\+Final} & O índice final para a busca no array. \\
+\hline
+\end{DoxyParams}

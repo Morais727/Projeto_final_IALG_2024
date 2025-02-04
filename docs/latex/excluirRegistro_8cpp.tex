@@ -1,0 +1,64 @@
+\doxysection{src/utils/excluir\+Registro.cpp File Reference}
+\hypertarget{excluirRegistro_8cpp}{}\label{excluirRegistro_8cpp}\index{src/utils/excluirRegistro.cpp@{src/utils/excluirRegistro.cpp}}
+
+
+Função para excluir registros de acomodações e atualizar o arquivo binário.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include "{}utils.\+h"{}}\newline
+{\ttfamily \#include $<$string$>$}\newline
+Include dependency graph for excluir\+Registro.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=303pt]{excluirRegistro_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{excluirRegistro_8cpp_a3a104ac3c866c9c1ae98bd2a2b061e7c}{excluir\+Registro}} (\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}registros, int \&tamanho\+Atual, const string \&nome\+Arquivo)
+\begin{DoxyCompactList}\small\item\em Exclui um registro do array de acomodações e atualiza o arquivo binário. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Função para excluir registros de acomodações e atualizar o arquivo binário. 
+
+A exclusão é feita deslocando os registros subsequentes para substituir o registro removido. O arquivo binário é regravado com os registros atualizados. Caso todos os registros sejam removidos, o arquivo será deletado.
+
+\begin{DoxyAuthor}{Author}
+Marcos Morais 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+03/02/2025 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{excluirRegistro_8cpp_a3a104ac3c866c9c1ae98bd2a2b061e7c}\label{excluirRegistro_8cpp_a3a104ac3c866c9c1ae98bd2a2b061e7c} 
+\index{excluirRegistro.cpp@{excluirRegistro.cpp}!excluirRegistro@{excluirRegistro}}
+\index{excluirRegistro@{excluirRegistro}!excluirRegistro.cpp@{excluirRegistro.cpp}}
+\doxysubsubsection{\texorpdfstring{excluirRegistro()}{excluirRegistro()}}
+{\footnotesize\ttfamily int excluir\+Registro (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}}]{registros,  }\item[{int \&}]{tamanho\+Atual,  }\item[{const string \&}]{nome\+Arquivo }\end{DoxyParamCaption})}
+
+
+
+Exclui um registro do array de acomodações e atualiza o arquivo binário. 
+
+O usuário informa um ID e, se encontrado, o registro é removido deslocando os subsequentes. O arquivo binário é atualizado e, se não houver mais registros, o arquivo é deletado.
+
+
+\begin{DoxyParams}{Parameters}
+{\em registros} & Ponteiro para o array dinâmico de registros de acomodações. \\
+\hline
+{\em tamanho\+Atual} & Referência para o número de registros atualmente armazenados. \\
+\hline
+{\em nome\+Arquivo} & Nome do arquivo binário onde os registros são salvos. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Retorna 0 em caso de sucesso e -\/1 se o ID não for encontrado ou houver erro na gravação. 
+\end{DoxyReturn}

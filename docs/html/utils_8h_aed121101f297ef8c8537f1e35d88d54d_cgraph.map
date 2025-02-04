@@ -1,0 +1,11 @@
+<map id="leituraCSV" name="leituraCSV">
+<area shape="rect" id="Node000001" title="Lê um arquivo CSV e armazena os registros em um array dinâmico." alt="" coords="5,80,96,105"/>
+<area shape="rect" id="Node000002" href="$barraCarregamento_8cpp.html#ac02ac92d6d91d282e8b2e308914c3f04" title="Exibe uma barra de carregamento animada na interface ncurses." alt="" coords="144,5,331,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="70,78,104,58,143,40,164,32,166,37,145,44,106,63,73,82"/>
+<area shape="rect" id="Node000003" href="$leCsv_8cpp.html#a7c76c3de88cad252dcd39ca6b78501b7" title="Verifica se uma string representa um número de ponto flutuante." alt="" coords="204,55,271,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="96,84,190,71,191,76,96,89"/>
+<area shape="rect" id="Node000004" href="$leCsv_8cpp.html#a32365e377c80c8e22cf61b4f94ae1b02" title="Verifica se uma string representa um número." alt="" coords="195,104,280,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="96,96,181,107,181,112,96,101"/>
+<area shape="rect" id="Node000005" href="$leCsv_8cpp.html#af176a8c31adce2aa40bc571e18860fa5" title="Remove emojis de uma string." alt="" coords="179,153,295,179"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="75,103,145,138,170,147,168,152,143,143,72,108"/>
+</map>

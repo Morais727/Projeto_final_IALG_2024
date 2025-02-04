@@ -1,0 +1,94 @@
+\doxysection{utils.\+h}
+\hypertarget{utils_8h_source}{}\label{utils_8h_source}\index{src/utils/utils.h@{src/utils/utils.h}}
+\mbox{\hyperlink{utils_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00013\ \textcolor{keyword}{using\ namespace\ }std;\ \ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structacomodacoes}{acomodacoes}}\ }
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{id}\ =\ 0;}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{char}\ name[100]\ =\ \textcolor{stringliteral}{"{}unknown"{}};\ \ \textcolor{comment}{//\ Tamanho\ máximo\ para\ o\ nome}}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ host\_id\ =\ 0;}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{char}\ host\_name[100]\ =\ \textcolor{stringliteral}{"{}unknown"{}};\ \ \textcolor{comment}{//\ Host\ name\ com\ tamanho\ fixo}}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ host\_since\ =\ 0;}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{char}\ host\_response\_time[50]\ =\ \textcolor{stringliteral}{"{}unknown"{}};\ \ \textcolor{comment}{//\ Resposta\ do\ host\ com\ limite\ de\ tamanho}}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{float}\ host\_response\_rate\ =\ 0.0;}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{char}\ host\_is\_superhost\ =\ \textcolor{charliteral}{'f'};}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{char}\ neighbourhood\_cleansed[100]\ =\ \textcolor{stringliteral}{"{}unknown"{}};\ \ \textcolor{comment}{//\ Bairro\ com\ tamanho\ fixo}}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{char}\ neighbourhood\_group\_cleansed[100]\ =\ \textcolor{stringliteral}{"{}unknown"{}};\ \ \textcolor{comment}{//\ Grupo\ de\ bairro}}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{float}\ latitude\ =\ 0.0;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{float}\ longitude\ =\ 0.0;}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{char}\ property\_type[100]\ =\ \textcolor{stringliteral}{"{}unknown"{}};\ \ \textcolor{comment}{//\ Tipo\ de\ propriedade}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{char}\ room\_type[100]\ =\ \textcolor{stringliteral}{"{}unknown"{}};\ \ \textcolor{comment}{//\ Tipo\ de\ quarto}}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{int}\ accommodates\ =\ 0;}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{int}\ bathrooms\ =\ 0;}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{int}\ bedrooms\ =\ 0;}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{int}\ beds\ =\ 0;}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{float}\ price\ =\ 0.0;}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{int}\ minimum\_nights\ =\ 0;}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{int}\ availability\_365\ =\ 0;}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{int}\ number\_of\_reviews\ =\ 0;}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{float}\ review\_scores\_rating\ =\ 0.0;}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{char}\ license[50]\ =\ \textcolor{stringliteral}{"{}unknown"{}};\ \ \textcolor{comment}{//\ Licença\ com\ tamanho\ fixo}}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{char}\ instant\_bookable\ =\ \textcolor{charliteral}{'f'};}
+\DoxyCodeLine{00042\ \};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{using\ }\mbox{\hyperlink{leCsv_8cpp_acc5fe9b3a20b10e8b9b01dce200ffeb5}{Comparador}}\ =\ bool(*)(\textcolor{keyword}{const}\ \mbox{\hyperlink{structacomodacoes}{acomodacoes}}\&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structacomodacoes}{acomodacoes}}\&);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{utils_8h_aeb93e25e95d089d3e1c79baf4a71b594}{printBanner}}();}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{utils_8h_a62937734c7ddc8a3e7ef43d1cf895910}{printMenu1}}();}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{utils_8h_a1cbb75fe2c5566e2d5ea83b6f3663345}{printMenu2}}();}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{utils_8h_a1ebb0b3be2106edf70f976985574324b}{printSubMenu1}}();}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{utils_8h_aed121101f297ef8c8537f1e35d88d54d}{leituraCSV}}(\textcolor{keywordtype}{string}\ nomeArquivo,\ \mbox{\hyperlink{structacomodacoes}{acomodacoes}}*\&\ registros,\ \textcolor{keywordtype}{int}\&\ tamanhoAtual);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{utils_8h_ad260b9bf9ff7462eb7fddc34c8c2b026}{listarPorCampo}}(\mbox{\hyperlink{structacomodacoes}{acomodacoes}}*\ registros,\ \textcolor{keywordtype}{int}\ tamanhoAtual,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ campo,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ valor);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{utils_8h_a302884f0aee02bce8694664536a76a39}{ordenacaoBase}}(\mbox{\hyperlink{structacomodacoes}{acomodacoes}}*\ registros,\ \textcolor{keywordtype}{int}\ tamanhoAtual);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{keywordtype}{void}\ clearConsole();}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{utils_8h_a678fd4256c2834e04e48bbc430acd108}{menuImprime}}(\mbox{\hyperlink{structacomodacoes}{acomodacoes}}*\ registros,\ \textcolor{keywordtype}{int}\ tamanhoAtual);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{interactiveMenu_8cpp_a3fc7519e34e863ac852c331480df601b}{interactiveMenu}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ options[],\ \textcolor{keywordtype}{int}\ optionCount,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ header);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{utils_8h_a213f4ebd9faaed34b7d00566b60fc407}{mostrarDetalhesAcomodacao}}(\mbox{\hyperlink{structacomodacoes}{acomodacoes}}*\ registros,\ \textcolor{keywordtype}{int}\ tamanhoAtual,\ \textcolor{keywordtype}{int}\ idSelecionado,\ \textcolor{keywordtype}{int}\&\ tamanhoInicial,\ \textcolor{keywordtype}{int}\&\ tamanhoFinal);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{utils_8h_a04f3bb70fe7ef2655dab3acc82aded2a}{excluirRegistro}}(\mbox{\hyperlink{structacomodacoes}{acomodacoes}}*\ registros,\ \textcolor{keywordtype}{int}\&\ tamanhoAtual,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ nomeArquivoNovo);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{utils_8h_ab6a92f88a28e22839f8fa65293f9094d}{adicionarRegistro}}(\mbox{\hyperlink{structacomodacoes}{acomodacoes}}*\ registros,\ \textcolor{keywordtype}{int}\&\ tamanhoAtual,\ \textcolor{keywordtype}{int}\ capacidadeMax,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ nomeArquivo);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{utils_8h_afb0204f7e1f4b80ea98eaa972f6d9a74}{alteraRegistro}}(\mbox{\hyperlink{structacomodacoes}{acomodacoes}}*\ registros,\ \textcolor{keywordtype}{int}\ tamanhoAtual,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ nomeArquivo);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{utils_8h_a2cbc79f3e4166453a63440adb8f2014d}{compararPorId}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structacomodacoes}{acomodacoes}}\&\ a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structacomodacoes}{acomodacoes}}\&\ b);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{utils_8h_a2f19ea008e967945b66d113c5d050a83}{quickSort}}(\mbox{\hyperlink{structacomodacoes}{acomodacoes}}*\ registros,\ \textcolor{keywordtype}{int}\ low,\ \textcolor{keywordtype}{int}\ high,\ \mbox{\hyperlink{leCsv_8cpp_acc5fe9b3a20b10e8b9b01dce200ffeb5}{Comparador}}\ comparador);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{utils_8h_a466d1762b616b89b66f79249cf660d85}{compararPorPriceCrescente}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structacomodacoes}{acomodacoes}}\&\ a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structacomodacoes}{acomodacoes}}\&\ b);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{utils_8h_a9106a9fcad0b0590be4b332ed80d33f1}{compararPorPriceDecrescente}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structacomodacoes}{acomodacoes}}\&\ a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structacomodacoes}{acomodacoes}}\&\ b);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{utils_8h_a5f89cc6c070b8cd176dbdfa12056e677}{compararPorReviews}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structacomodacoes}{acomodacoes}}\&\ a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structacomodacoes}{acomodacoes}}\&\ b);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{utils_8h_a60c630bffed6132f23e35aac796f8def}{partition}}(\mbox{\hyperlink{structacomodacoes}{acomodacoes}}*\ registros,\ \textcolor{keywordtype}{int}\ low,\ \textcolor{keywordtype}{int}\ high,\ \mbox{\hyperlink{leCsv_8cpp_acc5fe9b3a20b10e8b9b01dce200ffeb5}{Comparador}}\ comparador);}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{utils_8h_a7f2b21ee42b15194328616084614b656}{carregarBinario}}(\mbox{\hyperlink{structacomodacoes}{acomodacoes}}*\&\ registros,\ \textcolor{keywordtype}{int}\&\ tamanhoAtual,\ \textcolor{keywordtype}{int}\&\ capacidade,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ nomeArquivo);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{utils_8h_aeb2f098f8373fe16b06af3cb24fdf316}{salvarBinario}}(\mbox{\hyperlink{structacomodacoes}{acomodacoes}}*\ registros,\ \textcolor{keywordtype}{int}\ tamanhoAtual,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ nomeArquivo);}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{utils_8h_a7925689a8f88e816b0fb99cb0a243d6a}{imprimeValores}}(\mbox{\hyperlink{structacomodacoes}{acomodacoes}}*\ registros,\ \textcolor{keywordtype}{int}\ tamanhoAtual,\ \textcolor{keywordtype}{int}\ tamanhoInicial,\ \textcolor{keywordtype}{int}\ tamanhoFinal);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{utils_8h_a28f75e838fcedff4a0bd61a091d0038f}{exportarParaCSV}}(\mbox{\hyperlink{structacomodacoes}{acomodacoes}}*\ registros,\ \textcolor{keywordtype}{int}\ tamanhoAtual,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ nomeArquivo);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{utils_8h_a6645fdf0514a0c03c411040a278c896f}{printSubMenu2}}();}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{utils_8h_ac02ac92d6d91d282e8b2e308914c3f04}{exibirBarraCarregamento}}(\textcolor{keywordtype}{int}\ progresso,\ \textcolor{keywordtype}{int}\ total);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \textcolor{keywordtype}{void}\ reorganizarIDs(\mbox{\hyperlink{structacomodacoes}{acomodacoes}}*\ registros,\ \textcolor{keywordtype}{int}\ tamanhoAtual);}
+
+\end{DoxyCode}

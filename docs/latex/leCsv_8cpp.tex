@@ -1,0 +1,335 @@
+\doxysection{src/utils/le\+Csv.cpp File Reference}
+\hypertarget{leCsv_8cpp}{}\label{leCsv_8cpp}\index{src/utils/leCsv.cpp@{src/utils/leCsv.cpp}}
+
+
+Implementação de funções para leitura, processamento e ordenação de dados de acomodações.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$regex$>$}\newline
+{\ttfamily \#include $<$exception$>$}\newline
+{\ttfamily \#include "{}utils.\+h"{}}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$ncurses.\+h$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+Include dependency graph for le\+Csv.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{leCsv_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{leCsv_8cpp_acc5fe9b3a20b10e8b9b01dce200ffeb5}\label{leCsv_8cpp_acc5fe9b3a20b10e8b9b01dce200ffeb5} 
+using {\bfseries Comparador} = bool(\texorpdfstring{$\ast$}{*})(const \mbox{\hyperlink{structacomodacoes}{acomodacoes}} \&, const \mbox{\hyperlink{structacomodacoes}{acomodacoes}} \&)
+\begin{DoxyCompactList}\small\item\em Tipo para o critério de comparação (função ou lambda). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{leCsv_8cpp_af176a8c31adce2aa40bc571e18860fa5}{remove\+Emojis}} (const string \&input)
+\begin{DoxyCompactList}\small\item\em Remove emojis de uma string. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{leCsv_8cpp_a32365e377c80c8e22cf61b4f94ae1b02}{is\+Number}} (const string \&str)
+\begin{DoxyCompactList}\small\item\em Verifica se uma string representa um número. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{leCsv_8cpp_a7c76c3de88cad252dcd39ca6b78501b7}{is\+Float}} (const string \&str)
+\begin{DoxyCompactList}\small\item\em Verifica se uma string representa um número de ponto flutuante. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{leCsv_8cpp_aed121101f297ef8c8537f1e35d88d54d}{leitura\+CSV}} (string nome\+Arquivo, \mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}\&registros, int \&tamanho\+Atual)
+\begin{DoxyCompactList}\small\item\em Lê um arquivo CSV e armazena os registros em um array dinâmico. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{leCsv_8cpp_a2cbc79f3e4166453a63440adb8f2014d}{comparar\+Por\+Id}} (const \mbox{\hyperlink{structacomodacoes}{acomodacoes}} \&a, const \mbox{\hyperlink{structacomodacoes}{acomodacoes}} \&b)
+\begin{DoxyCompactList}\small\item\em Comparador para ordenar por ID. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{leCsv_8cpp_ac7a03abb4007cbd9a8ce6720ac7c6f83}{comparar\+Por\+Name}} (const \mbox{\hyperlink{structacomodacoes}{acomodacoes}} \&a, const \mbox{\hyperlink{structacomodacoes}{acomodacoes}} \&b)
+\begin{DoxyCompactList}\small\item\em Comparador para ordenar por Name. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{leCsv_8cpp_a466d1762b616b89b66f79249cf660d85}{comparar\+Por\+Price\+Crescente}} (const \mbox{\hyperlink{structacomodacoes}{acomodacoes}} \&a, const \mbox{\hyperlink{structacomodacoes}{acomodacoes}} \&b)
+\begin{DoxyCompactList}\small\item\em Comparador para ordenar por Price (crescente). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{leCsv_8cpp_a9106a9fcad0b0590be4b332ed80d33f1}{comparar\+Por\+Price\+Decrescente}} (const \mbox{\hyperlink{structacomodacoes}{acomodacoes}} \&a, const \mbox{\hyperlink{structacomodacoes}{acomodacoes}} \&b)
+\begin{DoxyCompactList}\small\item\em Comparador para ordenar por Price (decrescente). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{leCsv_8cpp_a5f89cc6c070b8cd176dbdfa12056e677}{comparar\+Por\+Reviews}} (const \mbox{\hyperlink{structacomodacoes}{acomodacoes}} \&a, const \mbox{\hyperlink{structacomodacoes}{acomodacoes}} \&b)
+\begin{DoxyCompactList}\small\item\em Comparador para ordenar por Number of Reviews. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{leCsv_8cpp_a60c630bffed6132f23e35aac796f8def}{partition}} (\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}registros, int low, int high, \mbox{\hyperlink{leCsv_8cpp_acc5fe9b3a20b10e8b9b01dce200ffeb5}{Comparador}} comparador)
+\begin{DoxyCompactList}\small\item\em Função de particionamento genérica para o Quick Sort. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{leCsv_8cpp_a2f19ea008e967945b66d113c5d050a83}{quick\+Sort}} (\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}registros, int low, int high, \mbox{\hyperlink{leCsv_8cpp_acc5fe9b3a20b10e8b9b01dce200ffeb5}{Comparador}} comparador)
+\begin{DoxyCompactList}\small\item\em Função Quick Sort genérica. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{leCsv_8cpp_a302884f0aee02bce8694664536a76a39}{ordenacao\+Base}} (\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}registros, int tamanho\+Atual)
+\begin{DoxyCompactList}\small\item\em Ordena o array de acomodações por ID. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{leCsv_8cpp_ad260b9bf9ff7462eb7fddc34c8c2b026}{listar\+Por\+Campo}} (\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}registros, int tamanho\+Atual, const string \&campo, const string \&valor)
+\begin{DoxyCompactList}\small\item\em Lista acomodações com base em um campo e valor específicos. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementação de funções para leitura, processamento e ordenação de dados de acomodações. 
+
+\begin{DoxyAuthor}{Author}
+Marcos Morais 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+03/02/2025 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{leCsv_8cpp_a2cbc79f3e4166453a63440adb8f2014d}\label{leCsv_8cpp_a2cbc79f3e4166453a63440adb8f2014d} 
+\index{leCsv.cpp@{leCsv.cpp}!compararPorId@{compararPorId}}
+\index{compararPorId@{compararPorId}!leCsv.cpp@{leCsv.cpp}}
+\doxysubsubsection{\texorpdfstring{compararPorId()}{compararPorId()}}
+{\footnotesize\ttfamily bool comparar\+Por\+Id (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structacomodacoes}{acomodacoes}} \&}]{a,  }\item[{const \mbox{\hyperlink{structacomodacoes}{acomodacoes}} \&}]{b }\end{DoxyParamCaption})}
+
+
+
+Comparador para ordenar por ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Primeira acomodação a ser comparada. \\
+\hline
+{\em b} & Segunda acomodação a ser comparada. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se o ID de {\ttfamily a} for menor que o de {\ttfamily b}, false caso contrário. 
+\end{DoxyReturn}
+\Hypertarget{leCsv_8cpp_ac7a03abb4007cbd9a8ce6720ac7c6f83}\label{leCsv_8cpp_ac7a03abb4007cbd9a8ce6720ac7c6f83} 
+\index{leCsv.cpp@{leCsv.cpp}!compararPorName@{compararPorName}}
+\index{compararPorName@{compararPorName}!leCsv.cpp@{leCsv.cpp}}
+\doxysubsubsection{\texorpdfstring{compararPorName()}{compararPorName()}}
+{\footnotesize\ttfamily bool comparar\+Por\+Name (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structacomodacoes}{acomodacoes}} \&}]{a,  }\item[{const \mbox{\hyperlink{structacomodacoes}{acomodacoes}} \&}]{b }\end{DoxyParamCaption})}
+
+
+
+Comparador para ordenar por Name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Primeira acomodação a ser comparada. \\
+\hline
+{\em b} & Segunda acomodação a ser comparada. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se o nome de {\ttfamily a} for menor que o de {\ttfamily b}, false caso contrário. 
+\end{DoxyReturn}
+\Hypertarget{leCsv_8cpp_a466d1762b616b89b66f79249cf660d85}\label{leCsv_8cpp_a466d1762b616b89b66f79249cf660d85} 
+\index{leCsv.cpp@{leCsv.cpp}!compararPorPriceCrescente@{compararPorPriceCrescente}}
+\index{compararPorPriceCrescente@{compararPorPriceCrescente}!leCsv.cpp@{leCsv.cpp}}
+\doxysubsubsection{\texorpdfstring{compararPorPriceCrescente()}{compararPorPriceCrescente()}}
+{\footnotesize\ttfamily bool comparar\+Por\+Price\+Crescente (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structacomodacoes}{acomodacoes}} \&}]{a,  }\item[{const \mbox{\hyperlink{structacomodacoes}{acomodacoes}} \&}]{b }\end{DoxyParamCaption})}
+
+
+
+Comparador para ordenar por Price (crescente). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Primeira acomodação a ser comparada. \\
+\hline
+{\em b} & Segunda acomodação a ser comparada. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se o preço de {\ttfamily a} for menor que o de {\ttfamily b}, false caso contrário. 
+\end{DoxyReturn}
+\Hypertarget{leCsv_8cpp_a9106a9fcad0b0590be4b332ed80d33f1}\label{leCsv_8cpp_a9106a9fcad0b0590be4b332ed80d33f1} 
+\index{leCsv.cpp@{leCsv.cpp}!compararPorPriceDecrescente@{compararPorPriceDecrescente}}
+\index{compararPorPriceDecrescente@{compararPorPriceDecrescente}!leCsv.cpp@{leCsv.cpp}}
+\doxysubsubsection{\texorpdfstring{compararPorPriceDecrescente()}{compararPorPriceDecrescente()}}
+{\footnotesize\ttfamily bool comparar\+Por\+Price\+Decrescente (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structacomodacoes}{acomodacoes}} \&}]{a,  }\item[{const \mbox{\hyperlink{structacomodacoes}{acomodacoes}} \&}]{b }\end{DoxyParamCaption})}
+
+
+
+Comparador para ordenar por Price (decrescente). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Primeira acomodação a ser comparada. \\
+\hline
+{\em b} & Segunda acomodação a ser comparada. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se o preço de {\ttfamily a} for maior que o de {\ttfamily b}, false caso contrário. 
+\end{DoxyReturn}
+\Hypertarget{leCsv_8cpp_a5f89cc6c070b8cd176dbdfa12056e677}\label{leCsv_8cpp_a5f89cc6c070b8cd176dbdfa12056e677} 
+\index{leCsv.cpp@{leCsv.cpp}!compararPorReviews@{compararPorReviews}}
+\index{compararPorReviews@{compararPorReviews}!leCsv.cpp@{leCsv.cpp}}
+\doxysubsubsection{\texorpdfstring{compararPorReviews()}{compararPorReviews()}}
+{\footnotesize\ttfamily bool comparar\+Por\+Reviews (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structacomodacoes}{acomodacoes}} \&}]{a,  }\item[{const \mbox{\hyperlink{structacomodacoes}{acomodacoes}} \&}]{b }\end{DoxyParamCaption})}
+
+
+
+Comparador para ordenar por Number of Reviews. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Primeira acomodação a ser comparada. \\
+\hline
+{\em b} & Segunda acomodação a ser comparada. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se a pontuação de avaliação de {\ttfamily a} for maior que a de {\ttfamily b}, false caso contrário. 
+\end{DoxyReturn}
+\Hypertarget{leCsv_8cpp_a7c76c3de88cad252dcd39ca6b78501b7}\label{leCsv_8cpp_a7c76c3de88cad252dcd39ca6b78501b7} 
+\index{leCsv.cpp@{leCsv.cpp}!isFloat@{isFloat}}
+\index{isFloat@{isFloat}!leCsv.cpp@{leCsv.cpp}}
+\doxysubsubsection{\texorpdfstring{isFloat()}{isFloat()}}
+{\footnotesize\ttfamily bool is\+Float (\begin{DoxyParamCaption}\item[{const string \&}]{str }\end{DoxyParamCaption})}
+
+
+
+Verifica se uma string representa um número de ponto flutuante. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & A string a ser verificada. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se a string for um número de ponto flutuante, false caso contrário. 
+\end{DoxyReturn}
+\Hypertarget{leCsv_8cpp_a32365e377c80c8e22cf61b4f94ae1b02}\label{leCsv_8cpp_a32365e377c80c8e22cf61b4f94ae1b02} 
+\index{leCsv.cpp@{leCsv.cpp}!isNumber@{isNumber}}
+\index{isNumber@{isNumber}!leCsv.cpp@{leCsv.cpp}}
+\doxysubsubsection{\texorpdfstring{isNumber()}{isNumber()}}
+{\footnotesize\ttfamily bool is\+Number (\begin{DoxyParamCaption}\item[{const string \&}]{str }\end{DoxyParamCaption})}
+
+
+
+Verifica se uma string representa um número. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & A string a ser verificada. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se a string for um número, false caso contrário. 
+\end{DoxyReturn}
+\Hypertarget{leCsv_8cpp_aed121101f297ef8c8537f1e35d88d54d}\label{leCsv_8cpp_aed121101f297ef8c8537f1e35d88d54d} 
+\index{leCsv.cpp@{leCsv.cpp}!leituraCSV@{leituraCSV}}
+\index{leituraCSV@{leituraCSV}!leCsv.cpp@{leCsv.cpp}}
+\doxysubsubsection{\texorpdfstring{leituraCSV()}{leituraCSV()}}
+{\footnotesize\ttfamily int leitura\+CSV (\begin{DoxyParamCaption}\item[{string}]{nome\+Arquivo,  }\item[{\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}\&}]{registros,  }\item[{int \&}]{tamanho\+Atual }\end{DoxyParamCaption})}
+
+
+
+Lê um arquivo CSV e armazena os registros em um array dinâmico. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome\+Arquivo} & O nome do arquivo CSV a ser lido. \\
+\hline
+{\em registros} & Um ponteiro para o array dinâmico de acomodações. \\
+\hline
+{\em tamanho\+Atual} & O tamanho atual do array dinâmico. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 em caso de sucesso, 1 em caso de erro. 
+\end{DoxyReturn}
+\Hypertarget{leCsv_8cpp_ad260b9bf9ff7462eb7fddc34c8c2b026}\label{leCsv_8cpp_ad260b9bf9ff7462eb7fddc34c8c2b026} 
+\index{leCsv.cpp@{leCsv.cpp}!listarPorCampo@{listarPorCampo}}
+\index{listarPorCampo@{listarPorCampo}!leCsv.cpp@{leCsv.cpp}}
+\doxysubsubsection{\texorpdfstring{listarPorCampo()}{listarPorCampo()}}
+{\footnotesize\ttfamily void listar\+Por\+Campo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}}]{registros,  }\item[{int}]{tamanho\+Atual,  }\item[{const string \&}]{campo,  }\item[{const string \&}]{valor }\end{DoxyParamCaption})}
+
+
+
+Lista acomodações com base em um campo e valor específicos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em registros} & O array de acomodações. \\
+\hline
+{\em tamanho\+Atual} & O tamanho atual do array. \\
+\hline
+{\em campo} & O campo a ser filtrado. \\
+\hline
+{\em valor} & O valor a ser comparado. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{leCsv_8cpp_a302884f0aee02bce8694664536a76a39}\label{leCsv_8cpp_a302884f0aee02bce8694664536a76a39} 
+\index{leCsv.cpp@{leCsv.cpp}!ordenacaoBase@{ordenacaoBase}}
+\index{ordenacaoBase@{ordenacaoBase}!leCsv.cpp@{leCsv.cpp}}
+\doxysubsubsection{\texorpdfstring{ordenacaoBase()}{ordenacaoBase()}}
+{\footnotesize\ttfamily void ordenacao\+Base (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}}]{registros,  }\item[{int}]{tamanho\+Atual }\end{DoxyParamCaption})}
+
+
+
+Ordena o array de acomodações por ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em registros} & O array de acomodações a ser ordenado. \\
+\hline
+{\em tamanho\+Atual} & O tamanho atual do array. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{leCsv_8cpp_a60c630bffed6132f23e35aac796f8def}\label{leCsv_8cpp_a60c630bffed6132f23e35aac796f8def} 
+\index{leCsv.cpp@{leCsv.cpp}!partition@{partition}}
+\index{partition@{partition}!leCsv.cpp@{leCsv.cpp}}
+\doxysubsubsection{\texorpdfstring{partition()}{partition()}}
+{\footnotesize\ttfamily int partition (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}}]{registros,  }\item[{int}]{low,  }\item[{int}]{high,  }\item[{\mbox{\hyperlink{leCsv_8cpp_acc5fe9b3a20b10e8b9b01dce200ffeb5}{Comparador}}}]{comparador }\end{DoxyParamCaption})}
+
+
+
+Função de particionamento genérica para o Quick Sort. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em registros} & O array de acomodações a ser particionado. \\
+\hline
+{\em low} & O índice inicial do subarray. \\
+\hline
+{\em high} & O índice final do subarray. \\
+\hline
+{\em comparador} & O critério de comparação. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+O índice do pivô após o particionamento. 
+\end{DoxyReturn}
+\Hypertarget{leCsv_8cpp_a2f19ea008e967945b66d113c5d050a83}\label{leCsv_8cpp_a2f19ea008e967945b66d113c5d050a83} 
+\index{leCsv.cpp@{leCsv.cpp}!quickSort@{quickSort}}
+\index{quickSort@{quickSort}!leCsv.cpp@{leCsv.cpp}}
+\doxysubsubsection{\texorpdfstring{quickSort()}{quickSort()}}
+{\footnotesize\ttfamily void quick\+Sort (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}}]{registros,  }\item[{int}]{low,  }\item[{int}]{high,  }\item[{\mbox{\hyperlink{leCsv_8cpp_acc5fe9b3a20b10e8b9b01dce200ffeb5}{Comparador}}}]{comparador }\end{DoxyParamCaption})}
+
+
+
+Função Quick Sort genérica. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em registros} & O array de acomodações a ser ordenado. \\
+\hline
+{\em low} & O índice inicial do subarray. \\
+\hline
+{\em high} & O índice final do subarray. \\
+\hline
+{\em comparador} & O critério de comparação. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{leCsv_8cpp_af176a8c31adce2aa40bc571e18860fa5}\label{leCsv_8cpp_af176a8c31adce2aa40bc571e18860fa5} 
+\index{leCsv.cpp@{leCsv.cpp}!removeEmojis@{removeEmojis}}
+\index{removeEmojis@{removeEmojis}!leCsv.cpp@{leCsv.cpp}}
+\doxysubsubsection{\texorpdfstring{removeEmojis()}{removeEmojis()}}
+{\footnotesize\ttfamily string remove\+Emojis (\begin{DoxyParamCaption}\item[{const string \&}]{input }\end{DoxyParamCaption})}
+
+
+
+Remove emojis de uma string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & A string de entrada que pode conter emojis. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A string sem emojis. 
+\end{DoxyReturn}

@@ -1,0 +1,67 @@
+\doxysection{src/utils/adicionar\+Registro.cpp File Reference}
+\hypertarget{adicionarRegistro_8cpp}{}\label{adicionarRegistro_8cpp}\index{src/utils/adicionarRegistro.cpp@{src/utils/adicionarRegistro.cpp}}
+
+
+Implementação da função para adicionar registros de acomodações.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include "{}utils.\+h"{}}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+Include dependency graph for adicionar\+Registro.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{adicionarRegistro_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{adicionarRegistro_8cpp_ab6a92f88a28e22839f8fa65293f9094d}{adicionar\+Registro}} (\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}registros, int \&tamanho\+Atual, int capacidade\+Max, const string \&nome\+Arquivo)
+\begin{DoxyCompactList}\small\item\em Adiciona um novo registro de acomodação ao array e atualiza o arquivo binário. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementação da função para adicionar registros de acomodações. 
+
+Esta função permite adicionar um novo registro de acomodação a um array dinâmico, armazenando as informações fornecidas pelo usuário e atualizando um arquivo binário.
+
+\begin{DoxyAuthor}{Author}
+Marcos Morais 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+03/02/2025 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{adicionarRegistro_8cpp_ab6a92f88a28e22839f8fa65293f9094d}\label{adicionarRegistro_8cpp_ab6a92f88a28e22839f8fa65293f9094d} 
+\index{adicionarRegistro.cpp@{adicionarRegistro.cpp}!adicionarRegistro@{adicionarRegistro}}
+\index{adicionarRegistro@{adicionarRegistro}!adicionarRegistro.cpp@{adicionarRegistro.cpp}}
+\doxysubsubsection{\texorpdfstring{adicionarRegistro()}{adicionarRegistro()}}
+{\footnotesize\ttfamily int adicionar\+Registro (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}}]{registros,  }\item[{int \&}]{tamanho\+Atual,  }\item[{int}]{capacidade\+Max,  }\item[{const string \&}]{nome\+Arquivo }\end{DoxyParamCaption})}
+
+
+
+Adiciona um novo registro de acomodação ao array e atualiza o arquivo binário. 
+
+A função solicita os dados da nova acomodação ao usuário, armazena no array {\ttfamily registros} e escreve os dados atualizados no arquivo binário especificado. Se a capacidade máxima for atingida, a função não adiciona o registro.
+
+
+\begin{DoxyParams}{Parameters}
+{\em registros} & Ponteiro para o array de registros de acomodações. \\
+\hline
+{\em tamanho\+Atual} & Referência ao número atual de registros armazenados. \\
+\hline
+{\em capacidade\+Max} & Número máximo de registros que podem ser armazenados no array. \\
+\hline
+{\em nome\+Arquivo} & Nome do arquivo binário onde os registros são armazenados. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Retorna {\ttfamily 0} em caso de sucesso ou {\ttfamily -\/1} se a capacidade for excedida ou ocorrer erro no arquivo. 
+\end{DoxyReturn}

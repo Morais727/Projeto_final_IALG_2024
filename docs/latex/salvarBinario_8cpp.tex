@@ -1,0 +1,57 @@
+\doxysection{src/utils/salvar\+Binario.cpp File Reference}
+\hypertarget{salvarBinario_8cpp}{}\label{salvarBinario_8cpp}\index{src/utils/salvarBinario.cpp@{src/utils/salvarBinario.cpp}}
+
+
+Implementação de uma função para salvar dados de acomodações em um arquivo binário.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include "{}utils.\+h"{}}\newline
+{\ttfamily \#include $<$string$>$}\newline
+Include dependency graph for salvar\+Binario.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=303pt]{salvarBinario_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{salvarBinario_8cpp_aeb2f098f8373fe16b06af3cb24fdf316}{salvar\+Binario}} (\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}registros, int tamanho\+Atual, const string \&nome\+Arquivo)
+\begin{DoxyCompactList}\small\item\em Salva os dados das acomodações em um arquivo binário. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementação de uma função para salvar dados de acomodações em um arquivo binário. 
+
+\begin{DoxyAuthor}{Author}
+Marcos Morais 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+03/02/2025 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{salvarBinario_8cpp_aeb2f098f8373fe16b06af3cb24fdf316}\label{salvarBinario_8cpp_aeb2f098f8373fe16b06af3cb24fdf316} 
+\index{salvarBinario.cpp@{salvarBinario.cpp}!salvarBinario@{salvarBinario}}
+\index{salvarBinario@{salvarBinario}!salvarBinario.cpp@{salvarBinario.cpp}}
+\doxysubsubsection{\texorpdfstring{salvarBinario()}{salvarBinario()}}
+{\footnotesize\ttfamily void salvar\+Binario (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}}]{registros,  }\item[{int}]{tamanho\+Atual,  }\item[{const string \&}]{nome\+Arquivo }\end{DoxyParamCaption})}
+
+
+
+Salva os dados das acomodações em um arquivo binário. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em registros} & Um array de estruturas {\ttfamily acomodacoes} contendo os dados a serem salvos. \\
+\hline
+{\em tamanho\+Atual} & O número de registros no array. \\
+\hline
+{\em nome\+Arquivo} & O nome do arquivo binário onde os dados serão salvos. \\
+\hline
+\end{DoxyParams}

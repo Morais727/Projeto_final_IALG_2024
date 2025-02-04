@@ -1,0 +1,108 @@
+\doxysection{src/utils/imprime\+Valores.cpp File Reference}
+\hypertarget{imprimeValores_8cpp}{}\label{imprimeValores_8cpp}\index{src/utils/imprimeValores.cpp@{src/utils/imprimeValores.cpp}}
+
+
+Implementação da função para exibir registros de acomodações em uma interface interativa.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$regex$>$}\newline
+{\ttfamily \#include $<$exception$>$}\newline
+{\ttfamily \#include "{}utils.\+h"{}}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$ncurses.\+h$>$}\newline
+Include dependency graph for imprime\+Valores.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{imprimeValores_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{imprimeValores_8cpp_a7925689a8f88e816b0fb99cb0a243d6a}{imprime\+Valores}} (\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}registros, int tamanho\+Atual, int tamanho\+Inicial, int tamanho\+Final)
+\begin{DoxyCompactList}\small\item\em Exibe os registros de acomodações em uma interface interativa utilizando ncurses. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementação da função para exibir registros de acomodações em uma interface interativa. 
+
+\begin{DoxyAuthor}{Author}
+Marcos Morais 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+03/02/2025 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{imprimeValores_8cpp_a7925689a8f88e816b0fb99cb0a243d6a}\label{imprimeValores_8cpp_a7925689a8f88e816b0fb99cb0a243d6a} 
+\index{imprimeValores.cpp@{imprimeValores.cpp}!imprimeValores@{imprimeValores}}
+\index{imprimeValores@{imprimeValores}!imprimeValores.cpp@{imprimeValores.cpp}}
+\doxysubsubsection{\texorpdfstring{imprimeValores()}{imprimeValores()}}
+{\footnotesize\ttfamily int imprime\+Valores (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structacomodacoes}{acomodacoes}} \texorpdfstring{$\ast$}{*}}]{registros,  }\item[{int}]{tamanho\+Atual,  }\item[{int}]{tamanho\+Inicial,  }\item[{int}]{tamanho\+Final }\end{DoxyParamCaption})}
+
+
+
+Exibe os registros de acomodações em uma interface interativa utilizando ncurses. 
+
+Esta função exibe uma tabela formatada com os detalhes das acomodações, permitindo ao usuário navegar pelos registros, alternar páginas e selecionar um item específico. A interface é construída utilizando a biblioteca ncurses para proporcionar uma experiência interativa e sofisticada.
+
+
+\begin{DoxyParams}{Parameters}
+{\em registros} & Ponteiro para o array de registros de acomodações. \\
+\hline
+{\em tamanho\+Atual} & Número total de registros disponíveis. \\
+\hline
+{\em tamanho\+Inicial} & Índice do primeiro registro a ser exibido. \\
+\hline
+{\em tamanho\+Final} & Índice do último registro a ser exibido.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Código de retorno\+:
+\begin{DoxyItemize}
+\item ID do item selecionado (índice + 1).
+\item -\/10 para indicar que o usuário escolheu voltar.
+\item -\/20 para indicar que o usuário escolheu filtrar.
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+\begin{DoxyItemize}
+\item A função utiliza ncurses para criar uma interface interativa.
+\item Os registros são exibidos em uma tabela formatada com colunas para ID, nome, quartos, banheiros, mínimo de noites, avaliações e preço.
+\item O usuário pode navegar pelos registros usando as setas do teclado.
+\item É possível alternar entre páginas de resultados usando as teclas \textquotesingle{}B\textquotesingle{} (anterior) e \textquotesingle{}N\textquotesingle{} (próxima).
+\item A tecla \textquotesingle{}V\textquotesingle{} permite ao usuário voltar ao menu anterior.
+\item A tecla \textquotesingle{}F\textquotesingle{} permite ao usuário acessar o menu de filtros.
+\item A tecla \textquotesingle{}Enter\textquotesingle{} seleciona o item destacado.
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item A função inicializa e finaliza o modo ncurses automaticamente.
+\item O cursor é ocultado durante a execução da função.
+\item A função retorna o índice do item selecionado ajustado para começar em 1 (em vez de 0). 
+\end{DoxyItemize}
+\end{DoxyNote}
+Move a seleção para cima
+
+Move a seleção para baixo, garantindo que esteja dentro dos limites
+
+Volta para a página anterior (se possível)
+
+Avança para a próxima página (se possível)
+
+Sai da função retornando -\/10
+
+Sai da função retornando -\/20 (sinalizando opção de filtro)
+
+Retorna o índice do item selecionado

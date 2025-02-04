@@ -1,0 +1,14 @@
+<map id="src/utils/alteraRegistro.cpp" name="src/utils/alteraRegistro.cpp">
+<area shape="rect" id="Node000001" title="Função para alterar um registro existente e atualizar o arquivo binário." alt="" coords="123,5,319,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,85,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="194,33,88,76,86,71,192,28"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="110,79,183,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="211,33,171,71,167,67,208,29"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="227,152,285,177"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="227,30,253,138,247,139,222,32"/>
+<area shape="rect" id="Node000005" href="$utils_8h.html" title="Definições de estruturas e declarações de funções auxiliares para manipulação de acomodações." alt="" coords="259,79,322,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="235,29,272,67,268,71,231,33"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="347,79,413,104"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="248,28,343,71,341,75,246,33"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="287,106,270,141,265,138,283,103"/>
+</map>

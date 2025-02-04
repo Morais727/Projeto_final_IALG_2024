@@ -1,0 +1,59 @@
+\doxysection{src/utils/interactive\+Menu.cpp File Reference}
+\hypertarget{interactiveMenu_8cpp}{}\label{interactiveMenu_8cpp}\index{src/utils/interactiveMenu.cpp@{src/utils/interactiveMenu.cpp}}
+
+
+Implementação de um menu interativo usando a biblioteca ncurses.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$ncurses.\+h$>$}\newline
+Include dependency graph for interactive\+Menu.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=284pt]{interactiveMenu_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{interactiveMenu_8cpp_a3fc7519e34e863ac852c331480df601b}{interactive\+Menu}} (const std\+::string options\mbox{[}$\,$\mbox{]}, int option\+Count, const std\+::string \&header)
+\begin{DoxyCompactList}\small\item\em Exibe um menu interativo e permite ao usuário navegar e selecionar uma opção. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementação de um menu interativo usando a biblioteca ncurses. 
+
+\begin{DoxyAuthor}{Author}
+Marcos Morais 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+03/02/2025 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{interactiveMenu_8cpp_a3fc7519e34e863ac852c331480df601b}\label{interactiveMenu_8cpp_a3fc7519e34e863ac852c331480df601b} 
+\index{interactiveMenu.cpp@{interactiveMenu.cpp}!interactiveMenu@{interactiveMenu}}
+\index{interactiveMenu@{interactiveMenu}!interactiveMenu.cpp@{interactiveMenu.cpp}}
+\doxysubsubsection{\texorpdfstring{interactiveMenu()}{interactiveMenu()}}
+{\footnotesize\ttfamily int interactive\+Menu (\begin{DoxyParamCaption}\item[{const std\+::string}]{options\mbox{[}$\,$\mbox{]},  }\item[{int}]{option\+Count,  }\item[{const std\+::string \&}]{header }\end{DoxyParamCaption})}
+
+
+
+Exibe um menu interativo e permite ao usuário navegar e selecionar uma opção. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em options} & Um array de strings contendo as opções do menu. \\
+\hline
+{\em option\+Count} & O número de opções no array. \\
+\hline
+{\em header} & O cabeçalho do menu, exibido na parte superior. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+O índice da opção selecionada pelo usuário. 
+\end{DoxyReturn}

@@ -1,0 +1,18 @@
+<map id="interactiveMenu" name="interactiveMenu">
+<area shape="rect" id="Node000001" title="Exibe um menu interativo e permite ao usuário navegar e selecionar uma opção." alt="" coords="444,80,572,105"/>
+<area shape="rect" id="Node000002" href="$menu1_8cpp.html#a62937734c7ddc8a3e7ef43d1cf895910" title="Exibe o Menu 1 e permite ao usuário interagir com as opções." alt="" coords="120,5,216,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="471,76,435,59,395,45,348,34,300,27,216,21,216,16,301,22,349,29,397,39,437,54,473,71"/>
+<area shape="rect" id="Node000004" href="$menu2_8cpp.html#a1cbb75fe2c5566e2d5ea83b6f3663345" title="Exibe o Menu 2 e permite ao usuário interagir com as opções de ordenação e filtragem." alt="" coords="288,55,384,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="430,84,384,77,384,72,430,79"/>
+<area shape="rect" id="Node000006" href="$subMenu1_8cpp.html#a1ebb0b3be2106edf70f976985574324b" title="Exibe o Submenu 1 e permite ao usuário interagir com as opções." alt="" coords="108,105,228,131"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="430,101,228,116,228,111,430,96"/>
+<area shape="rect" id="Node000007" href="$printSubMenu2_8cpp.html#a6645fdf0514a0c03c411040a278c896f" title="Exibe o Sub Menu 2 e permite ao usuário interagir com as opções disponíveis." alt="" coords="276,156,396,181"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="467,113,367,158,365,153,465,109"/>
+<area shape="rect" id="Node000003" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,81,60,107"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="123,39,109,46,53,83,50,79,107,41,120,34"/>
+<area shape="rect" id="Node000005" href="$imprimeMenu_8cpp.html#a678fd4256c2834e04e48bbc430acd108" title="Exibe o menu de listagem de acomodações com opções de filtros e ordenação." alt="" coords="111,56,225,81"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="274,70,226,71,226,66,274,65"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="98,85,61,92,60,86,97,79"/>
+<area shape="poly" id="edge7_Node000006_Node000003" title=" " alt="" coords="94,108,60,101,61,96,95,102"/>
+<area shape="poly" id="edge9_Node000007_Node000003" title=" " alt="" coords="262,172,186,165,146,157,107,146,74,129,47,109,50,105,77,124,109,141,147,152,187,160,262,167"/>
+</map>

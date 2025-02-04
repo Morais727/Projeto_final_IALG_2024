@@ -1,0 +1,15 @@
+<map id="src/utils/barraCarregamento.cpp" name="src/utils/barraCarregamento.cpp">
+<area shape="rect" id="Node000001" title="Exibe uma barra de carregamento animada na interface ncurses." alt="" coords="123,5,354,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,85,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="209,33,90,76,89,71,207,28"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="110,79,183,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="226,33,174,72,171,68,222,29"/>
+<area shape="rect" id="Node000004" href="$utils_8h.html" title="Definições de estruturas e declarações de funções auxiliares para manipulação de acomodações." alt="" coords="207,79,270,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="241,31,241,65,236,65,236,31"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="294,79,378,104"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="256,29,310,68,307,72,253,33"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="403,79,477,104"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="272,28,395,71,394,77,270,33"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="209,152,268,177"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="241,104,241,138,236,138,236,104"/>
+</map>

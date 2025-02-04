@@ -1,0 +1,56 @@
+\doxysection{src/utils/barra\+Carregamento.cpp File Reference}
+\hypertarget{barraCarregamento_8cpp}{}\label{barraCarregamento_8cpp}\index{src/utils/barraCarregamento.cpp@{src/utils/barraCarregamento.cpp}}
+
+
+Exibe uma barra de carregamento animada na interface {\ttfamily ncurses}.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include "{}utils.\+h"{}}\newline
+{\ttfamily \#include $<$ncurses.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+Include dependency graph for barra\+Carregamento.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{barraCarregamento_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{barraCarregamento_8cpp_ac02ac92d6d91d282e8b2e308914c3f04}{exibir\+Barra\+Carregamento}} (int progresso, int total)
+\begin{DoxyCompactList}\small\item\em Exibe uma barra de carregamento animada na interface {\ttfamily ncurses}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Exibe uma barra de carregamento animada na interface {\ttfamily ncurses}. 
+
+\begin{DoxyAuthor}{Author}
+Marcos Morais 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+03/02/2025 
+\end{DoxyDate}
+Esta função calcula dinamicamente a largura da barra de progresso com base no tamanho da tela e no progresso atual. A barra é centralizada e exibida no meio da tela. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{barraCarregamento_8cpp_ac02ac92d6d91d282e8b2e308914c3f04}\label{barraCarregamento_8cpp_ac02ac92d6d91d282e8b2e308914c3f04} 
+\index{barraCarregamento.cpp@{barraCarregamento.cpp}!exibirBarraCarregamento@{exibirBarraCarregamento}}
+\index{exibirBarraCarregamento@{exibirBarraCarregamento}!barraCarregamento.cpp@{barraCarregamento.cpp}}
+\doxysubsubsection{\texorpdfstring{exibirBarraCarregamento()}{exibirBarraCarregamento()}}
+{\footnotesize\ttfamily void exibir\+Barra\+Carregamento (\begin{DoxyParamCaption}\item[{int}]{progresso,  }\item[{int}]{total }\end{DoxyParamCaption})}
+
+
+
+Exibe uma barra de carregamento animada na interface {\ttfamily ncurses}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em progresso} & Valor atual do progresso (quantidade concluída). \\
+\hline
+{\em total} & Valor total representando 100\% do progresso. \\
+\hline
+\end{DoxyParams}
