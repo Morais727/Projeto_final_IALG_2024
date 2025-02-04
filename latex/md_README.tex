@@ -1,0 +1,226 @@
+\chapter{Sistema de Cadastro em Arquivos com Ordenação}
+\hypertarget{md_README}{}\label{md_README}\index{Sistema de Cadastro em Arquivos com Ordenação@{Sistema de Cadastro em Arquivos com Ordenação}}
+\label{md_README_autotoc_md0}%
+\Hypertarget{md_README_autotoc_md0}%
+ Este é o repositório para o {\bfseries{Projeto Prático de Cadastro em Arquivos com Ordenação}}, desenvolvido como parte da disciplina de Introdução à Algoritmos e Estruturas de Dados em C++. O projeto utiliza um conjunto de dados real do {\bfseries{Inside Airbnb}}, com informações detalhadas sobre listagens de hospedagens em Los Angeles, Califórnia.
+
+\DoxyHorRuler{0}
+\hypertarget{md_README_autotoc_md2}{}\doxysection{\texorpdfstring{Objetivo do Projeto}{Objetivo do Projeto}}\label{md_README_autotoc_md2}
+O objetivo é implementar um sistema robusto de cadastro e manipulação de dados, utilizando arquivos binários. As principais funcionalidades incluem\+:
+
+
+\begin{DoxyItemize}
+\item Importação e exportação de dados no formato CSV.
+\item Manipulação eficiente de dados utilizando arquivos binários.
+\item Busca, inserção, alteração e remoção de registros.
+\item Ordenação e busca binária para otimização de consultas.
+\item Redimensionamento dinâmico de estruturas para suporte a grandes volumes de dados.
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md_README_autotoc_md4}{}\doxysection{\texorpdfstring{Tema e Dataset}{Tema e Dataset}}\label{md_README_autotoc_md4}
+\hypertarget{md_README_autotoc_md5}{}\doxysubsection{\texorpdfstring{Tema\+: $<$strong$>$\+Listagens de Los Angeles Airbnb$<$/strong$>$}{Tema: <strong>Listagens de Los Angeles Airbnb</strong>}}\label{md_README_autotoc_md5}
+Este projeto utiliza um dataset real do {\bfseries{Inside Airbnb}}, atualizado em {\bfseries{4 de setembro de 2024}}, que contém informações detalhadas sobre hospedagens em Los Angeles.
+
+
+\begin{DoxyItemize}
+\item {\bfseries{Fonte\+:}} \href{https://insideairbnb.com/get-the-data/}{\texttt{ Inside Airbnb -\/ Los Angeles}}.
+\item {\bfseries{Quantidade de colunas\+:}} 25, conforme especificado abaixo.
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md6}{}\doxysubsection{\texorpdfstring{Campos do Dataset}{Campos do Dataset}}\label{md_README_autotoc_md6}
+
+\begin{DoxyEnumerate}
+\item {\bfseries{id\+:}} Identificador único atribuído a cada propriedade.
+\item {\bfseries{name\+:}} Nome da propriedade listado pelo anfitrião.
+\item {\bfseries{host\+\_\+id\+:}} Identificador único do anfitrião da propriedade.
+\item {\bfseries{host\+\_\+name\+:}} Nome do anfitrião associado à propriedade.
+\item {\bfseries{host\+\_\+since\+:}} Data em que o anfitrião se juntou ao Airbnb.
+\item {\bfseries{host\+\_\+response\+\_\+time\+:}} Tempo médio de resposta do anfitrião a consultas de hóspedes.
+\item {\bfseries{host\+\_\+response\+\_\+rate\+:}} Porcentagem de consultas respondidas pelo anfitrião.
+\item {\bfseries{host\+\_\+is\+\_\+superhost\+:}} Indica se o anfitrião é um Superhost (True/\+False).
+\item {\bfseries{neighbourhood\+\_\+cleansed\+:}} Nome do bairro onde a propriedade está localizada.
+\item {\bfseries{neighbourhood\+\_\+group\+\_\+cleansed\+:}} Grupo ou distrito padronizado onde a propriedade está localizada.
+\item {\bfseries{latitude\+:}} Coordenada geográfica de latitude.
+\item {\bfseries{longitude\+:}} Coordenada geográfica de longitude.
+\item {\bfseries{property\+\_\+type\+:}} Tipo de propriedade.
+\item {\bfseries{room\+\_\+type\+:}} Tipo de quarto oferecido (ex.\+: Entire home/apt, Private room, Shared room).
+\item {\bfseries{accommodates\+:}} Número máximo de hóspedes que a propriedade pode acomodar.
+\item {\bfseries{bathrooms\+:}} Número de banheiros na propriedade.
+\item {\bfseries{bedrooms\+:}} Número de quartos na propriedade.
+\item {\bfseries{beds\+:}} Número de camas na propriedade.
+\item {\bfseries{price\+:}} Preço total com base no número mínimo de noites para reserva.
+\item {\bfseries{minimum\+\_\+nights\+:}} Número mínimo de noites exigido para uma reserva.
+\item {\bfseries{availability\+\_\+365\+:}} Número de dias que a propriedade está disponível para reserva nos próximos 365 dias.
+\item {\bfseries{number\+\_\+of\+\_\+reviews\+:}} Número total de avaliações recebidas pela propriedade.
+\item {\bfseries{review\+\_\+scores\+\_\+rating\+:}} Classificação média baseada nas avaliações dos hóspedes (5 é o valor máximo).
+\item {\bfseries{license\+:}} Licença, se aplicável.
+\item {\bfseries{instant\+\_\+bookable\+:}} Indica se os hóspedes podem reservar a propriedade instantaneamente (True/\+False).
+\end{DoxyEnumerate}
+
+\DoxyHorRuler{0}
+\hypertarget{md_README_autotoc_md8}{}\doxysection{\texorpdfstring{Funcionalidades Implementadas}{Funcionalidades Implementadas}}\label{md_README_autotoc_md8}
+
+\begin{DoxyEnumerate}
+\item {\bfseries{Importação e Exportação de Arquivos}}\+:
+\begin{DoxyItemize}
+\item Importar os dados do dataset inicial no formato CSV.
+\item Exportar os dados para um arquivo CSV atualizado.
+\item Armazenar e manipular os dados em um arquivo binário.
+\end{DoxyItemize}
+\item {\bfseries{Cadastro de Novos Registros}}\+:
+\begin{DoxyItemize}
+\item Inserir novos registros no sistema.
+\item Inserção ordenada para suportar busca binária eficiente.
+\end{DoxyItemize}
+\item {\bfseries{Busca de Registros}}\+:
+\begin{DoxyItemize}
+\item Consultar registros com base em dois critérios\+: nome e bairro.
+\item Implementação de busca binária (recursiva e iterativa).
+\end{DoxyItemize}
+\item {\bfseries{Alteração e Remoção}}\+:
+\begin{DoxyItemize}
+\item Alterar informações de registros existentes.
+\item Remoção lógica e física de registros.
+\end{DoxyItemize}
+\item {\bfseries{Ordenação de Registros}}\+:
+\begin{DoxyItemize}
+\item Ordenar os registros por\+:
+\begin{DoxyItemize}
+\item Nome da propriedade.
+\item Capacidade de acomodação.
+\end{DoxyItemize}
+\item Ordenação utilizando algoritmos eficientes\+:
+\begin{DoxyItemize}
+\item Quick Sort
+\item Merge Sort
+\item Shell Sort
+\end{DoxyItemize}
+\end{DoxyItemize}
+\item {\bfseries{Exibição de Dados}}\+:
+\begin{DoxyItemize}
+\item Exibir todos os registros ou uma faixa específica selecionada pelo usuário.
+\item Mostrar os registros na ordem em que estão armazenados.
+\end{DoxyItemize}
+\item {\bfseries{Gravação de Alterações}}\+:
+\begin{DoxyItemize}
+\item Salvar alterações realizadas (inserções, exclusões e alterações) no arquivo binário.
+\end{DoxyItemize}
+\end{DoxyEnumerate}
+
+\DoxyHorRuler{0}
+\hypertarget{md_README_autotoc_md10}{}\doxysection{\texorpdfstring{Estrutura do Projeto}{Estrutura do Projeto}}\label{md_README_autotoc_md10}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Sistema\_Cadastro\_Airbnb/}
+\DoxyCodeLine{│}
+\DoxyCodeLine{├──\ src/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Código-\/fonte\ do\ projeto}
+\DoxyCodeLine{│\ \ \ ├──\ main.cpp\ \ \ \ \ \ \ \ \ \ \ \ \#\ Arquivo\ principal\ da\ aplicação}
+\DoxyCodeLine{│\ \ \ ├──\ bin/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Arquivos\ binários\ gerados}
+\DoxyCodeLine{│\ \ \ ├──\ utils/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Funções\ auxiliares}
+\DoxyCodeLine{│\ \ \ │\ \ \ ├──\ leitura.cpp\ \ \ \ \ \#\ Manipulação\ de\ leitura\ do\ arquivo\ binário}
+\DoxyCodeLine{│\ \ \ │\ \ \ ├──\ escrita.cpp\ \ \ \ \ \#\ Manipulação\ de\ escrita\ no\ arquivo\ binário}
+\DoxyCodeLine{│\ \ \ │\ \ \ ├──\ ordenacao.cpp\ \ \ \#\ Algoritmos\ de\ ordenação}
+\DoxyCodeLine{│\ \ \ │\ \ \ ├──\ busca.cpp\ \ \ \ \ \ \ \#\ Algoritmos\ de\ busca\ binária}
+\DoxyCodeLine{│\ \ \ │\ \ \ └──\ utils.h\ \ \ \ \ \ \ \ \ \#\ Cabeçalho\ com\ declarações}
+\DoxyCodeLine{│\ \ \ └──\ ...\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{│}
+\DoxyCodeLine{├──\ docs/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Documentação\ do\ projeto}
+\DoxyCodeLine{│\ \ \ ├──\ relatorio.pdf\ \ \ \ \ \ \ \#\ Relatório\ do\ projeto}
+\DoxyCodeLine{│\ \ \ ├──\ estrutura\_dados.md\ \ \#\ Explicação\ das\ estruturas}
+\DoxyCodeLine{│\ \ \ ├──\ requisitos.md\ \ \ \ \ \ \ \#\ Requisitos\ e\ especificações}
+\DoxyCodeLine{│\ \ \ └──\ ...\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{│}
+\DoxyCodeLine{├──\ data/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Dados\ de\ entrada\ e\ saída}
+\DoxyCodeLine{│\ \ \ ├──\ input.csv\ \ \ \ \ \ \ \ \ \ \ \#\ Arquivo\ CSV\ de\ entrada}
+\DoxyCodeLine{│\ \ \ ├──\ output.csv\ \ \ \ \ \ \ \ \ \ \#\ Arquivo\ CSV\ gerado}
+\DoxyCodeLine{│\ \ \ └──\ exemplo.bin\ \ \ \ \ \ \ \ \ \#\ Arquivo\ binário\ de\ exemplo}
+\DoxyCodeLine{│}
+\DoxyCodeLine{├──\ tests/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Casos\ de\ teste}
+\DoxyCodeLine{│\ \ \ └──\ test\_cases.txt\ \ \ \ \ \ \#\ Testes\ planejados\ e\ resultados\ esperados}
+\DoxyCodeLine{│}
+\DoxyCodeLine{├──\ README.md\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Documento\ explicativo}
+\DoxyCodeLine{└──\ LICENSE.md\ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Licença\ do\ projeto}
+
+\end{DoxyCode}
+
+
+\DoxyHorRuler{0}
+\hypertarget{md_README_autotoc_md12}{}\doxysection{\texorpdfstring{Como Executar}{Como Executar}}\label{md_README_autotoc_md12}
+\hypertarget{md_README_autotoc_md13}{}\doxysubsection{\texorpdfstring{Pré-\/requisitos}{Pré-requisitos}}\label{md_README_autotoc_md13}
+
+\begin{DoxyItemize}
+\item Compilador compatível com C++11 ou superior (ex.\+: GCC).
+\item Sistema operacional Linux.
+\item Git para versionamento do código.
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md14}{}\doxysubsection{\texorpdfstring{Passos}{Passos}}\label{md_README_autotoc_md14}
+
+\begin{DoxyEnumerate}
+\item Clone este repositório\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git\ clone\ https://github.com/seu-\/usuario/sistema\_cadastro\_airbnb.git}
+
+\end{DoxyCode}
+
+\item Navegue para o diretório\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cd\ sistema\_cadastro\_airbnb}
+
+\end{DoxyCode}
+
+\item Compile o código\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{g++\ src/main.cpp\ -\/o\ sistema\_cadastro}
+
+\end{DoxyCode}
+
+\item Execute a aplicação\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./sistema\_cadastro}
+
+\end{DoxyCode}
+
+\end{DoxyEnumerate}
+
+\DoxyHorRuler{0}
+\hypertarget{md_README_autotoc_md16}{}\doxysection{\texorpdfstring{Relatório}{Relatório}}\label{md_README_autotoc_md16}
+O relatório do projeto está disponível no arquivo {\ttfamily docs/relatorio.\+pdf}. Ele contém\+:
+
+
+\begin{DoxyItemize}
+\item Introdução ao projeto e ao tema escolhido.
+\item Descrição das estruturas de dados utilizadas.
+\item Explicação da lógica e do fluxo do programa.
+\item Relato dos acertos e dificuldades enfrentadas.
+\item Conclusão com os resultados alcançados.
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md_README_autotoc_md18}{}\doxysection{\texorpdfstring{Contribuição}{Contribuição}}\label{md_README_autotoc_md18}
+Contribuições são bem-\/vindas! Para colaborar\+:
+
+
+\begin{DoxyEnumerate}
+\item Faça um fork do repositório.
+\item Crie uma nova branch para suas alterações\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git\ checkout\ -\/b\ minha-\/alteracao}
+
+\end{DoxyCode}
+
+\item Faça suas alterações e comente\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git\ commit\ -\/m\ "{}Descrição\ da\ alteração"{}}
+
+\end{DoxyCode}
+
+\item Envie sua branch\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git\ push\ origin\ minha-\/alteracao}
+
+\end{DoxyCode}
+
+\item Abra um Pull Request.
+\end{DoxyEnumerate}
+
+\DoxyHorRuler{0}
+\hypertarget{md_README_autotoc_md20}{}\doxysection{\texorpdfstring{Licença}{Licença}}\label{md_README_autotoc_md20}
+Este projeto está licenciado sob a licença MIT. Consulte o arquivo \doxysectlink{md_LICENSE}{LICENSE.md}{0} para mais detalhes. 

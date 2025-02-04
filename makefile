@@ -1,17 +1,58 @@
+# Definições do compilador
 CXX = g++
 CXXFLAGS = -Wall -std=c++17
 LDFLAGS = -lncurses
-SRC = src/main.cpp src/utils/banner.cpp src/utils/leituraCSV.cpp src/utils/menu_1.cpp src/utils/menu_2.cpp src/utils/menus_interativos.cpp src/utils/mostra_detalhes.cpp src/utils/adiciona_registro.cpp src/utils/altera_registro.cpp src/utils/exclui_registro.cpp src/utils/imprime_informacoes.cpp src/utils/imprime_menu.cpp src/utils/carrega_binario.cpp src/utils/salvar_binario.cpp src/utils/sub_menu_1.cpp
+
+# Diretórios dos arquivos-fonte
+SRC_DIR = src
+UTILS_DIR = $(SRC_DIR)/utils
+
+# Lista de arquivos-fonte
+SRC = $(SRC_DIR)/main.cpp \
+      $(UTILS_DIR)/leCsv.cpp \
+      $(UTILS_DIR)/banner.cpp \
+      $(UTILS_DIR)/menu1.cpp \
+      $(UTILS_DIR)/menu2.cpp \
+      $(UTILS_DIR)/interactiveMenu.cpp \
+      $(UTILS_DIR)/mostrarDetalhesAcomodacao.cpp \
+      $(UTILS_DIR)/adicionarRegistro.cpp \
+      $(UTILS_DIR)/alteraRegistro.cpp \
+      $(UTILS_DIR)/excluirRegistro.cpp \
+      $(UTILS_DIR)/imprimeValores.cpp \
+      $(UTILS_DIR)/imprimeMenu.cpp \
+      $(UTILS_DIR)/carregarBinario.cpp \
+      $(UTILS_DIR)/salvarBinario.cpp \
+      $(UTILS_DIR)/subMenu1.cpp \
+      $(UTILS_DIR)/exportarParaCSV.cpp \
+      $(UTILS_DIR)/printSubMenu2.cpp \
+      $(UTILS_DIR)/barraCarregamento.cpp \
+      $(UTILS_DIR)/reorganizarIds.cpp
+
+# Lista de objetos gerados
 OBJ = $(SRC:.cpp=.o)
+
+# Nome do executável
 TARGET = sistema_cadastro
 
+# Regra principal
 all: $(TARGET)
 
+# Regra para gerar o executável
 $(TARGET): $(OBJ)
 	$(CXX) $(CXXFLAGS) -o $@ $^ $(LDFLAGS)
 
-%.o: %.cpp
+# Regra genérica para compilar os arquivos dentro de src/
+$(SRC_DIR)/%.o: $(SRC_DIR)/%.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
+# Regra genérica para compilar os arquivos dentro de src/utils/
+$(UTILS_DIR)/%.o: $(UTILS_DIR)/%.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+# Regra para limpar os arquivos compilados
 clean:
-	rm -f $(OBJ) $(TARGET)
+	@echo "Limpando arquivos compilados..."
+	@rm -f $(OBJ) $(TARGET)
+
+# Define alvos que não são arquivos físicos
+.PHONY: all clean

@@ -1,3 +1,14 @@
+/**
+ * @file utils.h
+ * @brief Definições de estruturas e declarações de funções auxiliares para manipulação de acomodações.
+ * 
+ * Contém a estrutura `acomodacoes` e as assinaturas de funções utilizadas para operações 
+ * como leitura, escrita, ordenação e exibição de dados.
+ * 
+ * @author Marcos Morais
+ * @date 03/02/2025
+ */
+
 #include <string>
 using namespace std;  
 
@@ -29,7 +40,6 @@ struct acomodacoes
     char license[50] = "unknown";  // Licença com tamanho fixo
     char instant_bookable = 'f';
 };
-
 
 using Comparador = bool(*)(const acomodacoes&, const acomodacoes&);
 
@@ -78,3 +88,11 @@ void carregarBinario(acomodacoes*& registros, int& tamanhoAtual, int& capacidade
 void salvarBinario(acomodacoes* registros, int tamanhoAtual, const string& nomeArquivo);
 
 int imprimeValores(acomodacoes* registros, int tamanhoAtual, int tamanhoInicial, int tamanhoFinal);
+
+void exportarParaCSV(acomodacoes* registros, int tamanhoAtual, const string& nomeArquivo);
+
+int printSubMenu2();
+
+void exibirBarraCarregamento(int progresso, int total);
+
+void reorganizarIDs(acomodacoes* registros, int tamanhoAtual);
