@@ -15,7 +15,7 @@ using namespace std;
  * @brief Exibe o Submenu 1 e permite ao usuário interagir com as opções.
  * @return O número da opção selecionada pelo usuário (1 a 3).
  */
-int printSubMenu1() 
+int printSubMenu3() 
 {
     curs_set(0); // Esconde o cursor
 

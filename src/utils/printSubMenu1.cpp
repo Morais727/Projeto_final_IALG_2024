@@ -15,7 +15,7 @@ using namespace std;
  * @brief Exibe o Menu 2 e permite ao usuário interagir com as opções de ordenação e filtragem.
  * @return O número da opção selecionada pelo usuário (1 a 5).
  */
-int printMenu2()
+int printSubMenu1()
 {
     curs_set(0); // Esconde o cursor
 

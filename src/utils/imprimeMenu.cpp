@@ -65,7 +65,7 @@ void menuImprime(acomodacoes* registros, int tamanhoAtual)
             curs_set(0); // Oculta o cursor
 
             // Exibe o menu de filtros e ordenação
-            int seleciona = printMenu2();
+            int seleciona = printSubMenu1();
 
             if (seleciona == 1) 
             {

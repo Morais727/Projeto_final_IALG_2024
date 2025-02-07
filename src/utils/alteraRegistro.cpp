@@ -10,6 +10,7 @@
 #include <string>    // Para manipulação de strings (std::string)
 #include "utils.h"   // Para a definição da estrutura acomodacoes
 #include <cstring>   // Para usar getline() corretamente
+#include <unistd.h> 
 
 using namespace std;
 
@@ -36,6 +37,7 @@ int alteraRegistro(acomodacoes* registros, int tamanhoAtual, const string& nomeA
         if (id == 0) 
         {
             cout << "Operação cancelada. Voltando ao menu anterior." << endl;
+            sleep(2);
             return 0;
         }
 

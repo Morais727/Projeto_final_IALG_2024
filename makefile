@@ -12,7 +12,6 @@ SRC = $(SRC_DIR)/main.cpp \
       $(UTILS_DIR)/leCsv.cpp \
       $(UTILS_DIR)/banner.cpp \
       $(UTILS_DIR)/menu1.cpp \
-      $(UTILS_DIR)/menu2.cpp \
       $(UTILS_DIR)/interactiveMenu.cpp \
       $(UTILS_DIR)/mostrarDetalhesAcomodacao.cpp \
       $(UTILS_DIR)/adicionarRegistro.cpp \
@@ -22,9 +21,10 @@ SRC = $(SRC_DIR)/main.cpp \
       $(UTILS_DIR)/imprimeMenu.cpp \
       $(UTILS_DIR)/carregarBinario.cpp \
       $(UTILS_DIR)/salvarBinario.cpp \
-      $(UTILS_DIR)/subMenu1.cpp \
       $(UTILS_DIR)/exportarParaCSV.cpp \
+      $(UTILS_DIR)/printSubMenu1.cpp \
       $(UTILS_DIR)/printSubMenu2.cpp \
+      $(UTILS_DIR)/printSubMenu3.cpp \
       $(UTILS_DIR)/barraCarregamento.cpp \
       $(UTILS_DIR)/reorganizarIds.cpp\
       $(UTILS_DIR)/verificaEntrada.cpp

@@ -29,6 +29,7 @@ int main()
     const string arquivoBinario = "src/data/data.dat";
 
     bool executa = true;
+    bool menu = true;
 
     while (executa) {  // Loop que permite voltar ao menu principal
         clearConsole();
@@ -46,7 +47,7 @@ int main()
         // Limpeza do console e exibição do menu
         clearConsole();
         
-        while (true) 
+        while (menu) 
         {
             curs_set(0); // Esconde o cursor
             int numMenu = printMenu1();
@@ -73,7 +74,7 @@ int main()
                 clearConsole();
                 int capacidadeMax = 100000;  // Capacidade máxima de registros
                 alteracoesNaoSalvas = true;
-                int escolha = printSubMenu1();
+                int escolha = printSubMenu3();
                 if (escolha == 1)
                 {    
                     string nome_arquivo;  // Nome do arquivo a ser lido
@@ -140,13 +141,11 @@ int main()
                     }
                 }   
                 executa = false;  // Termina a execução do programa               
-                break;
+                menu = false;
             }
         }
-
         // Liberar a memória alocada
         delete[] registros;
     }
-
     return 0;
 }

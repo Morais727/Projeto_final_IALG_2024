@@ -47,9 +47,11 @@ void printBanner();
 
 int printMenu1();
 
-int printMenu2();
-
 int printSubMenu1();
+
+int printSubMenu2();
+
+int printSubMenu3();
 
 int leituraCSV(string nomeArquivo, acomodacoes*& registros, int& tamanhoAtual);
 
@@ -90,8 +92,6 @@ void salvarBinario(acomodacoes* registros, int tamanhoAtual, const string& nomeA
 int imprimeValores(acomodacoes* registros, int tamanhoAtual, int tamanhoInicial, int tamanhoFinal);
 
 void exportarParaCSV(acomodacoes* registros, int tamanhoAtual, const string& nomeArquivo);
-
-int printSubMenu2();
 
 void exibirBarraCarregamento(int progresso, int total);
 

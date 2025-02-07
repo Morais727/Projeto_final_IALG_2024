@@ -14,6 +14,7 @@
 #include <fstream>   // Para manipulação de arquivos
 #include "utils.h"
 #include <string>    // Para manipulação de strings (std::string)
+#include <unistd.h> 
 
 using namespace std;
 
@@ -33,7 +34,7 @@ int excluirRegistro(acomodacoes* registros, int& tamanhoAtual, const string& nom
     int id;
     
     // Solicita o ID do usuário
-    cout << "Informe o ID do registro a ser excluído: ";
+    cout << "Informe o ID do registro a ser excluído (ou digite '0' para cancelar): ";
     if (!(cin >> id))  // Verifica se a entrada é válida
     {
         cout << "Entrada inválida! Certifique-se de inserir um número válido.\n";
@@ -56,6 +57,7 @@ int excluirRegistro(acomodacoes* registros, int& tamanhoAtual, const string& nom
             if (tolower(confirmacao) != 's')
             {
                 cout << "Operação cancelada.\n";
+                sleep(2);
                 return -1;
             }
 

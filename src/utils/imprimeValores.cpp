@@ -71,7 +71,7 @@ int imprimeValores(acomodacoes* registros, int tamanhoAtual, int tamanhoInicial,
     const int bathrooms_width = 15;
     const int minimum_nights_width = 25;
     const int review_width = 15;
-    const int price_width = 10;
+    const int price_width = 4;
 
     bool running = true; // Controla o loop principal
     int highlight = 0;   // Índice do item destacado
@@ -83,10 +83,10 @@ int imprimeValores(acomodacoes* registros, int tamanhoAtual, int tamanhoInicial,
 
         // Imprimir cabeçalhos da tabela
         mvprintw(0, 0, "%-*s%-*s%-*s%-*s%-*s%-*s%-*s", id_width, "ID", name_width, "Nome", bedrooms_width, "Quartos",
-                 bathrooms_width, "Banheiros", minimum_nights_width, "Mínimo de noites", review_width, "Estrelas", price_width, "Diária");
+                 bathrooms_width, "Banheiros", minimum_nights_width, "Mínimo de noites", review_width, "Estrelas", price_width, "    Diária");
 
         // Linha separadora
-        mvhline(1, 0, '-', id_width + name_width + bedrooms_width + bathrooms_width + minimum_nights_width + review_width + price_width);
+        mvhline(1, 0, '-', id_width + name_width + bedrooms_width + bathrooms_width + minimum_nights_width + review_width + price_width + 9);
 
         // Imprimir os valores formatados
         for (int i = 0; i < (tamanhoFinal - tamanhoInicial) && (tamanhoInicial + i) < tamanhoAtual; i++) 
@@ -101,7 +101,7 @@ int imprimeValores(acomodacoes* registros, int tamanhoAtual, int tamanhoInicial,
                << setw(bathrooms_width) << registros[idx].bathrooms
                << setw(minimum_nights_width) << registros[idx].minimum_nights
                << fixed << setprecision(2) << setw(review_width) << registros[idx].review_scores_rating
-               << right << fixed << setprecision(2) << setw(price_width) << registros[idx].price;
+               << right << fixed << setprecision(2) << setw(price_width) << "$ " << registros[idx].price;
 
             // Destacar linha selecionada
             if (i == highlight) 
@@ -119,7 +119,7 @@ int imprimeValores(acomodacoes* registros, int tamanhoAtual, int tamanhoInicial,
         // Exibir rodapé com informações e comandos
         mvprintw(rows - 8, 0, tamanhoFinal < tamanhoAtual ? "Mostrando %d-%d de %d registros" : "Mostrando %d-%d de %d registros", 
                  tamanhoInicial+1, tamanhoFinal, tamanhoAtual);
-        mvprintw(rows - 3, 0, "Página anterior (B)    --  Próxima página (N)    --  Voltar (V)    --  Filtrar (F)");
+        mvprintw(rows - 3, 0, "Página anterior (B)    --  Próxima página (N)    --  Voltar ao menu anterior (V)    --  Filtrar (F)");
         mvprintw(rows - 2, 0, "Use as setas para navegar e Enter para selecionar.");
 
         // Atualizar tela
