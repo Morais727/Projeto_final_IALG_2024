@@ -25,33 +25,23 @@ using namespace std;
 void exibirBarraCarregamento(int progresso, int total) 
 {
     int linhas, colunas;
-    
-    // Obtém as dimensões da janela (número de linhas e colunas)
     getmaxyx(stdscr, linhas, colunas);
 
-    // Define a largura da barra de carregamento com base na largura da tela
-    int larguraBarra = colunas - 30;  // Deixa um pequeno espaço nas laterais
-
-    // Calcula o percentual de progresso
+    int larguraBarra = colunas - 30;
     float percentual = (float)progresso / total;
     int posicaoPreenchida = percentual * larguraBarra;
 
-    // Constrói a barra de progresso com '=' para a parte preenchida e ' ' para a parte vazia
     string barraPreenchida(posicaoPreenchida, '=');
     string barraVazia(larguraBarra - posicaoPreenchida, ' ');
 
-    // Centraliza a barra horizontalmente
     int espacoEsquerda = (colunas - larguraBarra) / 2;
 
-    // Limpa a tela antes de atualizar a barra
+    // Limpa a tela e exibe a barra de progresso
     clear();
-    
-    // Exibe a barra de carregamento centralizada na tela
     mvprintw(linhas / 2, espacoEsquerda, "[%s%s] %d%%", barraPreenchida.c_str(), barraVazia.c_str(), (int)(percentual * 100));
     
-    // Pequeno atraso para visualização da animação
-    usleep(5);  
-
-    // Atualiza a interface `ncurses`
+    // Atualiza a interface `ncurses` e força a exibição imediata
     refresh();
+    usleep(5);  // Pequeno atraso para visualização da animação 
 }
+

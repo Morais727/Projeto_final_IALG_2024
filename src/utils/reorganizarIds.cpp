@@ -17,7 +17,7 @@
 #include "utils.h"
 
 void reorganizarIDs(acomodacoes* registros, int tamanhoAtual) {
-    for (int i = 0; i < tamanhoAtual; i++) {
+    for (int i = 1; i < tamanhoAtual; i++) {
         registros[i].id = i;  // Atribui o índice como novo ID
     }
 }

@@ -96,3 +96,5 @@ int printSubMenu2();
 void exibirBarraCarregamento(int progresso, int total);
 
 void reorganizarIDs(acomodacoes* registros, int tamanhoAtual);
+
+bool isNumber(const char* input);

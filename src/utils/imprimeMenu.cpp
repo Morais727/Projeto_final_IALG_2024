@@ -91,37 +91,62 @@ void menuImprime(acomodacoes* registros, int tamanhoAtual)
                 cout << "Digite o preço máximo: ";
                 cin >> precoMax;
 
-                acomodacoes* filtrados = new acomodacoes[tamanhoFiltrado];
-                int tamanhoFiltradoAtual = 0;
+                clearConsole(); // Limpa a tela
 
-                // Aplica o filtro de preço
-                for (int i = 0; i < tamanhoFiltrado; i++) 
+                // Valida a faixa de preço
+                if (precoMin >= 0 && precoMax > 0 && precoMin < precoMax) 
                 {
-                    if (registrosFiltrados[i].price >= precoMin && registrosFiltrados[i].price <= precoMax) 
+                    // Criar um array temporário do mesmo tamanho de registrosFiltrados
+                    acomodacoes* filtrados = new acomodacoes[tamanhoFiltrado];
+                    int tamanhoFiltradoAtual = 0;
+
+                    // Aplica o filtro de preço
+                    for (int i = 0; i < tamanhoFiltrado; i++) 
                     {
-                        filtrados[tamanhoFiltradoAtual++] = registrosFiltrados[i];
+                        if (registrosFiltrados[i].price >= precoMin && registrosFiltrados[i].price <= precoMax) 
+                        {
+                            filtrados[tamanhoFiltradoAtual++] = registrosFiltrados[i];
+                        }
                     }
-                }
 
-                if (tamanhoFiltradoAtual > 0) 
-                {
-                    // Atualiza o array filtrado
-                    delete[] registrosFiltrados; 
-                    registrosFiltrados = filtrados;
-                    tamanhoFiltrado = tamanhoFiltradoAtual;
-                    tamanhoInicial = 0;
-                    tamanhoFinal = 35;
+                    if (tamanhoFiltradoAtual > 0) 
+                    {
+                        // Criar um novo array com o tamanho exato
+                        acomodacoes* novoArray = new acomodacoes[tamanhoFiltradoAtual];
+                        for (int i = 0; i < tamanhoFiltradoAtual; i++) 
+                        {
+                            novoArray[i] = filtrados[i];
+                        }
+
+                        // Libera o array antigo antes de atribuir o novo
+                        delete[] registrosFiltrados;
+                        registrosFiltrados = novoArray;
+                        tamanhoFiltrado = tamanhoFiltradoAtual;
+                        tamanhoInicial = 0;
+                        tamanhoFinal = 35;
+
+                        // Ordena os registros filtrados por preço crescente
+                        quickSort(registrosFiltrados, 0, tamanhoFiltrado - 1, compararPorPriceCrescente);
+                    } 
+                    else 
+                    {
+                        // Nenhum registro encontrado no filtro
+                        cout << "Nenhuma acomodação encontrada nessa faixa de preço." << endl;
+                        sleep(2);
+                        clearConsole(); // Limpa a tela
+                    }
+
+                    // Libera o array temporário usado para filtrar
+                    delete[] filtrados;
                 } 
                 else 
                 {
-                    // Nenhum registro encontrado no filtro
-                    delete[] filtrados;
-                    cout << "Nenhuma acomodação encontrada nessa faixa de preço." << endl;
+                    // Faixa de preço inválida
+                    cout << "Faixa de preço inválida. O preço mínimo deve ser >= 0 e menor que o preço máximo." << endl;
                     sleep(2);
+                    clearConsole(); // Limpa a tela
                 }
-                // Ordena os registros filtrados por preço crescente
-                quickSort(registrosFiltrados, 0, tamanhoFiltrado - 1, compararPorPriceCrescente);
-            } 
+            }
             else if (seleciona == 5) 
             {
                 // Reinicia os filtros aplicados

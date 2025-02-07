@@ -59,6 +59,28 @@ bool isFloat(const string &str)
     return (iss >> temp) && iss.eof();
 }
 
+// Contar o número total de linhas no arquivo
+int contarLinhasArquivo(string nomeArquivo) 
+{
+    ifstream arquivo(nomeArquivo);
+    if (!arquivo.is_open()) 
+    {
+        cerr << "Erro ao abrir o arquivo para contagem de linhas." << endl;
+        return 0;
+    }
+
+    int totalLinhas = 0;
+    string linha;
+    while (getline(arquivo, linha)) 
+    {
+        totalLinhas++;
+    }
+
+    arquivo.close();
+    return totalLinhas;
+}
+
+
 /**
  * @brief Lê um arquivo CSV e armazena os registros em um array dinâmico.
  * @param nomeArquivo O nome do arquivo CSV a ser lido.
@@ -68,11 +90,6 @@ bool isFloat(const string &str)
  */
 int leituraCSV(string nomeArquivo, acomodacoes*& registros, int& tamanhoAtual) 
 {
-    initscr();  // Inicializa o ncurses
-    cbreak();   // Desabilita o buffer de linha, permitindo leitura de caracteres imediatamente
-    noecho();   // Não exibe a entrada do usuário
-    curs_set(0); // Desativa o cursor para uma visualização mais limpa
-
     ifstream arquivoInicial(nomeArquivo);
 
     if (!arquivoInicial.is_open()) 
@@ -93,9 +110,7 @@ int leituraCSV(string nomeArquivo, acomodacoes*& registros, int& tamanhoAtual)
     getline(arquivoInicial, linha);
 
     // Contar o total de linhas no arquivo para calcular o progresso
-    arquivoInicial.seekg(0, ios::end);
-    int totalLinhas = arquivoInicial.tellg();
-    arquivoInicial.seekg(0, ios::beg);
+    int totalLinhas = contarLinhasArquivo(nomeArquivo); // Obtém o total de linhas
 
     while (getline(arquivoInicial, linha)) 
     {
@@ -252,9 +267,6 @@ int leituraCSV(string nomeArquivo, acomodacoes*& registros, int& tamanhoAtual)
     }
     arquivoInicial.close();
 
-    // Finaliza o ncurses
-    endwin();
-    
     return 0; 
 }
 
