@@ -67,27 +67,27 @@ Este projeto utiliza um dataset real do **Inside Airbnb**, atualizado em **4 de 
    - Inserção ordenada para suportar busca binária eficiente.
 
 3. **Busca de Registros**:
-   - Consultar registros com base em dois critérios: nome e bairro.
-   - Implementação de busca binária (recursiva e iterativa).
+   - Consultar registros com base em dois critérios: nome e id.
+   - Implementação de busca binária (iterativa).
 
 4. **Alteração e Remoção**:
    - Alterar informações de registros existentes.
-   - Remoção lógica e física de registros.
 
 5. **Ordenação de Registros**:
-   - Ordenar os registros por:
-     - Nome da propriedade.
-     - Capacidade de acomodação.
-   - Ordenação utilizando algoritmos eficientes:
+     - Numero de avalaiações.
+     - Preço (Crescente e decrescente).
+   - Ordenação utilizando algoritmo eficiente:
      - Quick Sort
-     - Merge Sort
-     - Shell Sort
-
-6. **Exibição de Dados**:
+       
+6. **Filtrar Dados**:
+   -Utilizando faixa de preços;
+   -Selecionando o campo desejado.
+     
+7. **Exibição de Dados**:
    - Exibir todos os registros ou uma faixa específica selecionada pelo usuário.
    - Mostrar os registros na ordem em que estão armazenados.
 
-7. **Gravação de Alterações**:
+8. **Gravação de Alterações**:
    - Salvar alterações realizadas (inserções, exclusões e alterações) no arquivo binário.
 
 ---
@@ -155,7 +155,7 @@ Sistema_Cadastro_Airbnb/
 
 ## Relatório
 
-O relatório do projeto está disponível no arquivo `docs/relatorio.pdf`. Ele contém:
+O relatório do projeto está disponível no arquivo `docs/UFLA___Relatorio_Proj_IALG.pdf`. Ele contém:
 
 - Introdução ao projeto e ao tema escolhido.
 - Descrição das estruturas de dados utilizadas.
