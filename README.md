@@ -116,11 +116,7 @@ Sistema_Cadastro_Airbnb/
 │
 ├── data/                   # Dados de entrada e saída
 │   ├── input.csv           # Arquivo CSV de entrada
-│   ├── output.csv          # Arquivo CSV gerado
 │   └── exemplo.bin         # Arquivo binário de exemplo
-│
-├── tests/                  # Casos de teste
-│   └── test_cases.txt      # Testes planejados e resultados esperados
 │
 ├── README.md               # Documento explicativo
 └── LICENSE.md              # Licença do projeto
