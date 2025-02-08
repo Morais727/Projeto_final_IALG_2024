@@ -80,8 +80,8 @@ Este projeto utiliza um dataset real do **Inside Airbnb**, atualizado em **4 de 
      - Quick Sort
        
 6. **Filtrar Dados**:
-   -Utilizando faixa de preços;
-   -Selecionando o campo desejado.
+      -Utilizando faixa de preços;
+      -Selecionando o campo desejado.
      
 7. **Exibição de Dados**:
    - Exibir todos os registros ou uma faixa específica selecionada pelo usuário.
