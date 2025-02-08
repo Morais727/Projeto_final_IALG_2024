@@ -25,9 +25,11 @@ SRC = $(SRC_DIR)/main.cpp \
       $(UTILS_DIR)/printSubMenu1.cpp \
       $(UTILS_DIR)/printSubMenu2.cpp \
       $(UTILS_DIR)/printSubMenu3.cpp \
+      $(UTILS_DIR)/printSubMenu4.cpp \
       $(UTILS_DIR)/barraCarregamento.cpp \
-      $(UTILS_DIR)/reorganizarIds.cpp\
-      $(UTILS_DIR)/verificaEntrada.cpp
+      $(UTILS_DIR)/reorganizarIds.cpp \
+      $(UTILS_DIR)/filtrosOrdenacoes.cpp \
+      $(UTILS_DIR)/verificaEntrada.cpp \
 
 # Lista de objetos gerados
 OBJ = $(SRC:.cpp=.o)

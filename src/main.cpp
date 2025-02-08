@@ -82,18 +82,21 @@ int main()
                     cin >> nome_arquivo;
                     if (nome_arquivo == " ")
                     {
+                        clearConsole();
                         cout << "Nome do arquivo inválido!" << endl;
                         sleep(2);
                         clearConsole();
                     }
                     else if (leituraCSV(nome_arquivo, registros, tamanhoAtual) == 0)
                     {
+                        clearConsole();
                         cout << "Arquivo carregado com sucesso!" << endl;
                         sleep(2);
                         clearConsole();
                     }
                     else
                     {
+                        clearConsole();
                         cout << "Erro ao carregar o arquivo!" << endl;
                         sleep(2);
                         clearConsole();
@@ -101,6 +104,7 @@ int main()
                 }
                 else if (escolha == 2) 
                 {
+                    clearConsole();
                     adicionarRegistro(registros, tamanhoAtual,  capacidadeMax,  arquivoBinario);
                 }   
                     
@@ -126,6 +130,7 @@ int main()
             {
                 if (alteracoesNaoSalvas) 
                 {
+                    clearConsole();
                     cout << "Deseja salvar as alterações antes de sair? (S/N): "<< endl;
                     cout << "Não será possível desfazer as alterações." << endl;
                     char escolha;

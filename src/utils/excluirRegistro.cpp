@@ -14,9 +14,22 @@
 #include <fstream>   // Para manipulação de arquivos
 #include "utils.h"
 #include <string>    // Para manipulação de strings (std::string)
-#include <unistd.h> 
+#include <unistd.h>  // Para sleep()
 
 using namespace std;
+
+/**
+ * @brief Verifica se uma string contém apenas números positivos.
+ */
+bool isPositiveNumber(const string& input) {
+    if (input.empty()) return false;
+
+    for (char c : input) {
+        if (c < '0' || c > '9') return false;  // Só aceita dígitos de 0 a 9
+    }
+
+    return true;
+}
 
 /**
  * @brief Exclui um registro do array de acomodações e atualiza o arquivo binário.
@@ -31,19 +44,34 @@ using namespace std;
  */
 int excluirRegistro(acomodacoes* registros, int& tamanhoAtual, const string& nomeArquivo) 
 {
+    string entrada;
     int id;
-    
+
     // Solicita o ID do usuário
     cout << "Informe o ID do registro a ser excluído (ou digite '0' para cancelar): ";
-    if (!(cin >> id))  // Verifica se a entrada é válida
+    cin >> entrada;
+
+    // Valida a entrada antes de converter para inteiro
+    if (!isPositiveNumber(entrada)) 
     {
-        cout << "Entrada inválida! Certifique-se de inserir um número válido.\n";
-        cin.clear();
-        cin.ignore(10000, '\n');
+        cout << "Entrada inválida! Certifique-se de inserir um número válido." << endl;
+        sleep(2);
+        clearConsole();
         return -1;
     }
 
-    bool encontrado = false;
+    id = stoi(entrada);  // Converte para inteiro
+
+    if (id == 0) 
+    {
+        cout << "Operação cancelada." << endl;
+        sleep(2);
+        clearConsole();
+        return -1;
+    }
+
+    bool encontrado = false;  // Variável usada para verificar se o ID foi encontrado
+
     for (int i = 0; i < tamanhoAtual; i++) 
     {
         if (registros[i].id == id) 
@@ -54,10 +82,11 @@ int excluirRegistro(acomodacoes* registros, int& tamanhoAtual, const string& nom
             char confirmacao;
             cout << "Tem certeza que deseja excluir este registro? (S/N): ";
             cin >> confirmacao;
-            if (tolower(confirmacao) != 's')
+            if (tolower(confirmacao) != 's') 
             {
                 cout << "Operação cancelada.\n";
                 sleep(2);
+                clearConsole();
                 return -1;
             }
 
@@ -69,36 +98,51 @@ int excluirRegistro(acomodacoes* registros, int& tamanhoAtual, const string& nom
 
             tamanhoAtual--;  // Decrementa o número de registros
             cout << "Registro excluído com sucesso." << endl;
+            sleep(1);
 
             // Reorganizar os IDs após a exclusão
-            cout << "Reorganizando os indices." << endl;
+            cout << "Reorganizando os índices." << endl;
             reorganizarIDs(registros, tamanhoAtual);
 
+            sleep(2);
+            clearConsole();
+
             // Atualiza o arquivo binário com os registros restantes
-            if (tamanhoAtual > 0)
+            if (tamanhoAtual > 0) 
             {
                 ofstream arquivoBin(nomeArquivo, ios::binary | ios::trunc);
                 if (!arquivoBin) 
                 {
                     cout << "Erro ao abrir o arquivo binário para escrita!" << endl;
+                    sleep(2);
+                    clearConsole();
                     return -1;
                 }
 
                 arquivoBin.write(reinterpret_cast<char*>(registros), tamanhoAtual * sizeof(acomodacoes));
                 arquivoBin.close();
-            }
+            } 
             else 
             {
                 // Remove o arquivo se não houver mais registros
                 remove(nomeArquivo.c_str());
                 cout << "Todos os registros foram removidos. Arquivo deletado.\n";
+                sleep(2);
+                clearConsole();
             }
 
             return 0;  // Sucesso
         }
     }
 
-    // Caso o ID não seja encontrado
-    cout << "ID não encontrado!" << endl;
-    return -1;  
+    // Se chegou aqui e o ID não foi encontrado
+    if (!encontrado)
+    {
+        cout << "ID não encontrado!" << endl;
+        sleep(2);
+        clearConsole();
+        return -1;
+    }
+
+    return -1;
 }

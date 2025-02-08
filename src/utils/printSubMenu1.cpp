@@ -32,12 +32,13 @@ int printSubMenu1()
   )";
 
     // Opções do menu
-    const int optionCount = 5;
+    const int optionCount = 6;
     const string options[optionCount] = {
         "  Ordenar por preço crescente                                  ",
         "  Ordenar por preço decrescente                                ",
         "  Ordenar por número de avaliações (melhor primeiro)           ",
         "  Filtrar por faixa de preço                                   ",
+        "  Filtrar por campos específicos                               ", 
         "  Remover filtros                                              ",
     };
 

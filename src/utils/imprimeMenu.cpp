@@ -121,6 +121,7 @@ void menuImprime(acomodacoes* registros, int tamanhoAtual)
                         // Libera o array antigo antes de atribuir o novo
                         delete[] registrosFiltrados;
                         registrosFiltrados = novoArray;
+
                         tamanhoFiltrado = tamanhoFiltradoAtual;
                         tamanhoInicial = 0;
                         tamanhoFinal = 35;
@@ -148,6 +149,18 @@ void menuImprime(acomodacoes* registros, int tamanhoAtual)
                 }
             }
             else if (seleciona == 5) 
+            {
+                
+                string campo, valor;
+                campo = printSubMenu4();
+                cout << "Digite o valor a ser buscado" << endl;
+                cin >> valor;
+
+                clearConsole(); // Limpa a tela
+
+                listarPorCampo(registrosFiltrados,tamanhoAtual,campo,valor);
+            } 
+            else if (seleciona == 6) 
             {
                 // Reinicia os filtros aplicados
                 delete[] registrosFiltrados;

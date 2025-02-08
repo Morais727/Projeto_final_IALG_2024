@@ -27,11 +27,26 @@ using namespace std;
  */
 int alteraRegistro(acomodacoes* registros, int tamanhoAtual, const string& nomeArquivo) 
 {
+    char entrada[20];  // Buffer para entrada do usuário
+    int numero;  // Variável auxiliar para conversão de string para int
+    int id;  // ID do registro a ser alterado
+
     while (true) 
     {
-        int id;
+        
         cout << "Informe o ID do registro a ser alterado (ou digite '0' para cancelar): " << endl;
-        cin >> id;
+
+        cin >> entrada;
+        if (isNumber(entrada)) {
+            numero = atoi(entrada);  // Converte para int
+            id = numero;
+        } 
+        else 
+        {
+            cout << "Entrada inválida! Voltando ao menu inicial." << endl;
+            sleep(2);
+            return -1;
+        }
 
         // Permitir que o usuário cancele a operação
         if (id == 0) 
@@ -42,6 +57,8 @@ int alteraRegistro(acomodacoes* registros, int tamanhoAtual, const string& nomeA
         }
 
         bool encontrado = false;
+        char altera;
+        
 
         // Buscar o registro pelo ID
         for (int i = 0; i < tamanhoAtual; i++) 
@@ -55,41 +72,116 @@ int alteraRegistro(acomodacoes* registros, int tamanhoAtual, const string& nomeA
                 cout << "Banheiros: " << registros[i].bathrooms << endl;
                 cout << "Mínimo de noites: " << registros[i].minimum_nights << endl;
                 cout << "Estrelas: " << registros[i].review_scores_rating << endl;
-                cout << "Diária: " << registros[i].price << endl;
+                cout << "Diária: " << registros[i].price << endl << endl << endl << endl;
 
                 // Solicitar novas informações do usuário
-                cout << "Alterar Nome (atualmente: " << registros[i].name << "): ";
-                cin.ignore();  // Limpar o buffer do cin
-                cin.getline(registros[i].name, sizeof(registros[i].name)); // Permite entrada com espaços
-                
-                cout << "Alterar Quartos (atualmente: " << registros[i].bedrooms << "): ";
-                cin >> registros[i].bedrooms;
-                
-                cout << "Alterar Banheiros (atualmente: " << registros[i].bathrooms << "): ";
-                cin >> registros[i].bathrooms;
-                
-                cout << "Alterar Mínimo de noites (atualmente: " << registros[i].minimum_nights << "): ";
-                cin >> registros[i].minimum_nights;
-                
-                cout << "Alterar Estrelas (atualmente: " << registros[i].review_scores_rating << "): ";
-                cin >> registros[i].review_scores_rating;
-                
-                cout << "Alterar Diária (atualmente: " << registros[i].price << "): ";
-                cin >> registros[i].price;
-                
-                // Abrir o arquivo binário para reescrita
-                ofstream arquivoBin(nomeArquivo, ios::binary | ios::trunc);
-                if (!arquivoBin) 
+                cout << "Alterar Nome? (atualmente: " << registros[i].name << ") [S/N]: ";
+                cin >> altera;
+                if (tolower(altera) == 's') 
                 {
-                    cout << "Erro ao abrir o arquivo binário para escrita!" << endl;
-                    return -1;
+                    cout << "Digite o novo nome: ";
+                    cin.ignore();  // Limpar o buffer do cin
+                    cin.getline(registros[i].name, sizeof(registros[i].name)); // Permite entrada com espaços
                 }
 
-                // Escrever todos os registros no arquivo binário
-                arquivoBin.write(reinterpret_cast<char*>(registros), tamanhoAtual * sizeof(acomodacoes));
-                arquivoBin.close();
+                cout << "Alterar Quartos? (atualmente: " << registros[i].bedrooms << ") [S/N]: ";
+                cin >> altera;
+                if (tolower(altera) == 's') 
+                {
+                    cout << "Digite a nova quantidade: ";
+                    cin >>  entrada;
+                    
+                    if (isNumber(entrada)) {
+                        numero = atoi(entrada);  // Converte para int
+                        registros[i].bedrooms = numero;
+                    } 
+                    else 
+                    {
+                        cout << "Entrada inválida! Voltando ao menu inicial." << endl;
+                        sleep(2);
+                        return -1;
+                    }
+                    
+                   
+                }
+                
+                cout << "Alterar Banheiros? (atualmente: " << registros[i].bathrooms << ") [S/N]: ";
+                cin >> altera;
+                if (tolower(altera) == 's') 
+                {
+                    cout << "Digite a nova quantidade: ";
+                    cin >>  entrada;
+                    
+                    if (isNumber(entrada)) {
+                        numero = atoi(entrada);  // Converte para int
+                        registros[i].bathrooms = numero;
+                    } 
+                    else 
+                    {
+                        cout << "Entrada inválida! Voltando ao menu inicial." << endl;
+                        sleep(2);
+                        return -1;
+                    }
+                }
+                
+                cout << "Alterar Mínimo de noites? (atualmente: " << registros[i].minimum_nights << ") [S/N]: ";
+                cin >> altera;
+                if (tolower(altera) == 's') 
+                {   
+                    cout << "Digite a nova quantidade: ";
+                    cin >>  entrada;
+                    
+                    if (isNumber(entrada)) {
+                        numero = atoi(entrada);  // Converte para int
+                        registros[i].minimum_nights = numero;
+                    } 
+                    else 
+                    {
+                        cout << "Entrada inválida! Voltando ao menu inicial." << endl;
+                        sleep(2);
+                        return -1;
+                    }
+                }
+                
+                cout << "Alterar Estrelas? (atualmente: " << registros[i].review_scores_rating << ") [S/N]: ";
+                cin >> altera;
+                if (tolower(altera) == 's') 
+                {   
+                    cout << "Digite a nova quantidade: ";
+                    cin >>  entrada;
+                    
+                    if (isNumber(entrada)) {
+                        numero = atoi(entrada);  // Converte para int
+                        registros[i].review_scores_rating = numero;
+                    } 
+                    else 
+                    {
+                        cout << "Entrada inválida! Voltando ao menu inicial." << endl;
+                        sleep(2);
+                        return -1;
+                    }
+                }
+                
+                cout << "Alterar Diária? (atualmente: " << registros[i].price << ") [S/N]: ";
+                cin >> altera;
+                if (tolower(altera) == 's') 
+                {
+                    cout << "Digite a nova quantidade: ";
+                    cin >>  entrada;
+                    
+                    if (isNumber(entrada)) {
+                        numero = atoi(entrada);  // Converte para int
+                        registros[i].price = numero;
+                    } 
+                    else 
+                    {
+                        cout << "Entrada inválida! Voltando ao menu inicial." << endl;
+                        sleep(2);
+                        return -1;
+                    }
+                }
 
-                cout << "Registro alterado com sucesso! Alterações gravadas no arquivo binário." << endl;
+                cout << "Registro alterado com sucesso!" << endl;
                 return 0;
             }
         }
@@ -97,7 +189,7 @@ int alteraRegistro(acomodacoes* registros, int tamanhoAtual, const string& nomeA
         // Caso o ID não seja encontrado
         if (!encontrado) 
         {
-            cout << "ID não encontrado! Tente novamente ou digite '0' para cancelar." << endl;
+            cout << "ID não encontrado!" << endl;
         }
     }
 }
