@@ -93,11 +93,41 @@ Este projeto utiliza um dataset real do **Inside Airbnb**, atualizado em **4 de 
 ---
 
 ## Estrutura do Projeto
-
-\`\`\`
-Projeto_final_IALG_2024/ ├── docs/ │ ├── html/ │ ├── latex/ │ └── UFLA___Relatorio_Proj_IALG.pdf ├── src/ │ ├── data/ │ │ └── input.csv │ ├── utils/ │ │ ├── alteraRegistro.cpp │ │ ├── banner.cpp │ │ ├── barraCarregamento.cpp │ │ ├── carregarBinario.cpp │ │ ├── excluirRegistro.cpp │ │ ├── exportarParaCSV.cpp │ │ ├── filtrosOrdenacoes.cpp │ │ ├── imprimeMenu.cpp │ │ ├── imprimeValores.cpp │ │ ├── interactiveMenu.cpp │ │ ├── leCsv.cpp │ │ ├── menu1.cpp │ │ ├── mostrarDetalhesAcomodacao.cpp │ │ ├── printSubMenu1.cpp │ │ ├── printSubMenu2.cpp │ │ ├── printSubMenu3.cpp │ │ ├── printSubMenu4.cpp │ │ ├── reorganizarIds.cpp │ │ ├── salvarBinario.cpp │ │ ├── utils.h │ │ └── verificaEntrada.cpp │ └── main.cpp ├── Doxyfile ├── LICENSE.md ├── makefile └── README.md
-\`\`\`
----
+Projeto_final_IALG_2024
+├── docs
+│   ├── html
+│   ├── latex
+│   ├── UFLA___Relatorio_Proj_IALG.pdf
+├── src
+│   ├── data
+│   │   └── input.csv
+│   ├── utils
+│   │   ├── alteraRegistro.cpp
+│   │   ├── banner.cpp
+│   │   ├── barraCarregamento.cpp
+│   │   ├── carregarBinario.cpp
+│   │   ├── excluirRegistro.cpp
+│   │   ├── exportarParaCSV.cpp
+│   │   ├── filtrosOrdenacoes.cpp
+│   │   ├── imprimeMenu.cpp
+│   │   ├── imprimeValores.cpp
+│   │   ├── interactiveMenu.cpp
+│   │   ├── leCsv.cpp
+│   │   ├── menu1.cpp
+│   │   ├── mostrarDetalhesAcomodacao.cpp
+│   │   ├── printSubMenu1.cpp
+│   │   ├── printSubMenu2.cpp
+│   │   ├── printSubMenu3.cpp
+│   │   ├── printSubMenu4.cpp
+│   │   ├── reorganizarIds.cpp
+│   │   ├── salvarBinario.cpp
+│   │   ├── utils.h
+│   │   └── verificaEntrada.cpp
+│   └── main.cpp
+├── Doxyfile
+├── LICENSE.md
+├── makefile
+├── README.md
 
 ## Como Executar
 
