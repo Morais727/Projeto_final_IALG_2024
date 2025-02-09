@@ -92,7 +92,13 @@ Este projeto utiliza um dataset real do **Inside Airbnb**, atualizado em **4 de 
 
 ---
 
-## Estrutura do Projeto
+## Estrutura de Diretórios
+
+Abaixo está a estrutura de diretórios do projeto, que pode ser útil para entender melhor como os arquivos estão organizados.
+
+### Estrutura do Projeto:
+
+```plaintext
 Projeto_final_IALG_2024
 ├── docs
 │   ├── html
