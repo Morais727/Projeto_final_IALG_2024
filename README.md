@@ -94,33 +94,7 @@ Este projeto utiliza um dataset real do **Inside Airbnb**, atualizado em **4 de 
 
 ## Estrutura do Projeto
 
-```
-Sistema_Cadastro_Airbnb/
-│
-├── src/                    # Código-fonte do projeto
-│   ├── main.cpp            # Arquivo principal da aplicação
-│   ├── bin/                # Arquivos binários gerados
-│   ├── utils/              # Funções auxiliares
-│   │   ├── leitura.cpp     # Manipulação de leitura do arquivo binário
-│   │   ├── escrita.cpp     # Manipulação de escrita no arquivo binário
-│   │   ├── ordenacao.cpp   # Algoritmos de ordenação
-│   │   ├── busca.cpp       # Algoritmos de busca binária
-│   │   └── utils.h         # Cabeçalho com declarações
-│   └── ...                 
-│
-├── docs/                   # Documentação do projeto
-│   ├── relatorio.pdf       # Relatório do projeto
-│   ├── estrutura_dados.md  # Explicação das estruturas
-│   ├── requisitos.md       # Requisitos e especificações
-│   └── ...                 
-│
-├── data/                   # Dados de entrada e saída
-│   ├── input.csv           # Arquivo CSV de entrada
-│   └── exemplo.bin         # Arquivo binário de exemplo
-│
-├── README.md               # Documento explicativo
-└── LICENSE.md              # Licença do projeto
-```
+Projeto_final_IALG_2024/ ├── docs/ │ ├── html/ │ ├── latex/ │ └── UFLA___Relatorio_Proj_IALG.pdf ├── src/ │ ├── data/ │ │ └── input.csv │ ├── utils/ │ │ ├── alteraRegistro.cpp │ │ ├── banner.cpp │ │ ├── barraCarregamento.cpp │ │ ├── carregarBinario.cpp │ │ ├── excluirRegistro.cpp │ │ ├── exportarParaCSV.cpp │ │ ├── filtrosOrdenacoes.cpp │ │ ├── imprimeMenu.cpp │ │ ├── imprimeValores.cpp │ │ ├── interactiveMenu.cpp │ │ ├── leCsv.cpp │ │ ├── menu1.cpp │ │ ├── mostrarDetalhesAcomodacao.cpp │ │ ├── printSubMenu1.cpp │ │ ├── printSubMenu2.cpp │ │ ├── printSubMenu3.cpp │ │ ├── printSubMenu4.cpp │ │ ├── reorganizarIds.cpp │ │ ├── salvarBinario.cpp │ │ ├── utils.h │ │ └── verificaEntrada.cpp │ └── main.cpp ├── Doxyfile ├── LICENSE.md ├── makefile └── README.md
 
 ---
 
