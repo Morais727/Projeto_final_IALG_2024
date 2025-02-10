@@ -134,7 +134,7 @@ Projeto_final_IALG_2024
 ├── LICENSE.md
 ├── makefile
 ├── README.md
-
+```
 ## Como Executar
 
 ### Pré-requisitos
